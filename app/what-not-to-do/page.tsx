@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getClimateZone } from '../../src/utils/climate'
 
@@ -104,7 +104,7 @@ const INVASIVE_PLANTS: { [key: string]: InvasivePlant[] } = {
   // Add more states...
 }
 
-export default function WhatNotToDo() {
+function WhatNotToDoContent() {
   const [openSection, setOpenSection] = useState<string | null>('climate')
   const searchParams = useSearchParams()
   if (!searchParams) {
@@ -181,6 +181,14 @@ export default function WhatNotToDo() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function WhatNotToDo() {
+  return (
+    <Suspense fallback={<div className="py-12 px-4"><div className="max-w-4xl mx-auto">Loading...</div></div>}>
+      <WhatNotToDoContent />
+    </Suspense>
   )
 }
 

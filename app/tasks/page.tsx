@@ -74,6 +74,9 @@ export default function TasksPage(): JSX.Element {
   
   // Load taskSources from localStorage, default to { showCustom: true, showSystem: false }
   const [taskSources, setTaskSources] = useState<{ showCustom: boolean; showSystem: boolean }>(() => {
+    if (typeof window === 'undefined') {
+      return { showCustom: true, showSystem: false }
+    }
     try {
       const saved = localStorage.getItem('taskSources')
       if (saved) {
@@ -87,6 +90,9 @@ export default function TasksPage(): JSX.Element {
   
   const [filter, setFilter] = useState<'all' | 'pending' | 'completed'>('all')
   const [hideCompletedSuggestions, setHideCompletedSuggestions] = useState(() => {
+    if (typeof window === 'undefined') {
+      return true
+    }
     try {
       const saved = localStorage.getItem('hideCompletedSystem')
       return saved ? JSON.parse(saved) : true

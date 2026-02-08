@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 
 interface PlantInfo {
   name: string
@@ -1722,7 +1722,7 @@ function PlantSearch() {
   )
 }
 
-export default function PlantingCalendar() {
+function PlantingCalendarContent() {
   const searchParams = useSearchParams()
   
   if (!searchParams) {
@@ -1890,5 +1890,13 @@ export default function PlantingCalendar() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function PlantingCalendar() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <PlantingCalendarContent />
+    </Suspense>
   )
 } 
