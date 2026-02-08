@@ -107,6 +107,9 @@ const INVASIVE_PLANTS: { [key: string]: InvasivePlant[] } = {
 export default function WhatNotToDo() {
   const [openSection, setOpenSection] = useState<string | null>('climate')
   const searchParams = useSearchParams()
+  if (!searchParams) {
+    return <div>Loading...</div>
+  }
   const state = searchParams.get('state')
   const climateZone = getClimateZone(state || '', searchParams.get('city') || '')
 

@@ -1,6 +1,7 @@
 export interface PlantInfo {
   name: string
-  type: 'sow' | 'plant'
+  type: 'sow' | 'plant' | 'harvest'
+  notes?: string
 }
 
 export interface PlantIssue {

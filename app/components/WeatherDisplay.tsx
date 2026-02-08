@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 const WeatherDisplay = () => {
-  const { location } = useAuth();
+  const { userLocation } = useAuth();
   
   // Use location for weather fetching
   // ...

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 const Profile = () => {
-  const { user, location, setLocation } = useAuth();
+  const { user, userLocation, updateLocation } = useAuth();
   
-  const handleLocationChange = (newLocation: string) => {
-    setLocation(newLocation);
+  const handleLocationChange = async (state: string, city: string) => {
+    await updateLocation(state, city);
     // Any other location update logic
   };
 

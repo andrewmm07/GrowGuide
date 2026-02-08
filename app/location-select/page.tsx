@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/app/context/AuthContext'
 import { CLIMATE_ZONES, getClimateZone, isValidStateCity } from '../utils/climate'
+import { StateCode } from '../types/location'
 
 export default function LocationSelect() {
   const router = useRouter()
@@ -47,8 +48,8 @@ export default function LocationSelect() {
   }
 
   // Get cities for selected state
-  const availableCities = selectedState 
-    ? Object.keys(CLIMATE_ZONES[selectedState].cities)
+  const availableCities = selectedState && selectedState in CLIMATE_ZONES
+    ? Object.keys(CLIMATE_ZONES[selectedState as StateCode].cities)
     : []
 
   return (

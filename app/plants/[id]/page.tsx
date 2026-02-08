@@ -73,6 +73,9 @@ const PLANT_DATABASE: Record<string, PlantDetail> = {
 
 export default function PlantDetail() {
   const params = useParams()
+  if (!params || !params.id) {
+    return <div>Plant not found</div>
+  }
   const plantId = params.id as string
   const plant = PLANT_DATABASE[plantId]
 

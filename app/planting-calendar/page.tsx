@@ -3253,9 +3253,6 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
   'TAS': tasmaniaSummaries,
   
   // Victoria
-  'Victoria': {
-    // ... existing Victoria summaries ...
-  },
   'VIC': {
     // Copy all Victoria summaries here
     'January': 'Hot and dry conditions require vigilant watering. Focus on harvesting tomatoes, beans, and summer crops. Protect plants from scorching with shade cloth. Best time to sow carrots, beetroot, and plant brassica seedlings for autumn.',
@@ -3324,24 +3321,8 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
   },
   
   // Western Australia
-  'Western Australia': {
-    // ... existing WA summaries ...
-  },
-  'WA': {
-    'January': 'Mediterranean climate at its peak. Early morning watering essential. Focus on heat-tolerant varieties and sun protection. Maintain heavy mulch. Monitor coastal winds.',
-    'February': 'Still hot and dry. Continue summer crop care. Start planning autumn garden. Deep watering crucial. Watch for pests seeking moisture.',
-    // ... copy all other months exactly as in 'Western Australia'
-  },
   
   // Northern Territory
-  'Northern Territory': {
-    // ... existing NT summaries ...
-  },
-  'NT': {
-    'January': 'Peak wet season. Focus on tropical vegetables. Monitor drainage. Watch for fungal diseases. Plant above-ground crops.',
-    'February': 'Heavy rains continue. Plant tropical varieties. Ensure good air circulation. Check supports in strong winds.',
-    // ... copy all other months exactly as in 'Northern Territory'
-  },
   'Western Australia': {
     'January': 'Mediterranean climate at its peak. Early morning watering essential. Focus on heat-tolerant varieties and sun protection. Maintain heavy mulch. Monitor coastal winds.',
     'February': 'Still hot and dry. Continue summer crop care. Start planning autumn garden. Deep watering crucial. Watch for pests seeking moisture.',
@@ -3357,7 +3338,6 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
     'December': 'Hot, dry conditions dominate. Morning watering crucial. Harvest regularly. Protect plants from harsh sun. Monitor moisture levels.'
   },
   'WA': {
-    // Copy exact same entries as Western Australia
     'January': 'Mediterranean climate at its peak. Early morning watering essential. Focus on heat-tolerant varieties and sun protection. Maintain heavy mulch. Monitor coastal winds.',
     'February': 'Still hot and dry. Continue summer crop care. Start planning autumn garden. Deep watering crucial. Watch for pests seeking moisture.',
     'March': 'Temperatures begin moderating. Good time for autumn plantings. Add compost to beds. Plant root vegetables and leafy greens.',
@@ -3371,7 +3351,7 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
     'November': 'Early summer begins. Focus on water management. Plant drought-tolerant varieties. Mulch heavily. Watch for heat stress.',
     'December': 'Hot, dry conditions dominate. Morning watering crucial. Harvest regularly. Protect plants from harsh sun. Monitor moisture levels.'
   },
-
+  
   'Northern Territory': {
     'January': 'Peak wet season. Focus on tropical vegetables. Monitor drainage. Watch for fungal diseases. Plant above-ground crops.',
     'February': 'Heavy rains continue. Plant tropical varieties. Ensure good air circulation. Check supports in strong winds.',
@@ -3386,22 +3366,6 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
     'November': 'Early wet season. Plant wet-tolerant varieties. Monitor drainage. Watch for fungal issues.',
     'December': 'Wet season intensifies. Focus on above-ground crops. Watch for storm damage. Maintain good air flow.'
   },
-  'NT': {
-    // Copy exact same entries as Northern Territory
-    'January': 'Peak wet season. Focus on tropical vegetables. Monitor drainage. Watch for fungal diseases. Plant above-ground crops.',
-    'February': 'Heavy rains continue. Plant tropical varieties. Ensure good air circulation. Check supports in strong winds.',
-    'March': 'Late wet season. Begin dry season preparation. Plant root crops. Monitor soil moisture. Check irrigation systems.',
-    'April': 'Transition to dry season. Perfect growing conditions. Plant herbs and vegetables. Regular watering important.',
-    'May': 'Early dry season. Excellent growing weather. Plant most vegetables. Watch for pest insects. Maintain mulch.',
-    'June': 'Dry season peak. Focus on regular watering. Plant European vegetables. Monitor for water stress. Check soil moisture.',
-    'July': 'Cool, dry conditions ideal for growing. Plant root crops and greens. Maintain steady watering. Watch for insect pests.',
-    'August': 'Last month of cool weather. Prepare for build-up. Plant heat-tolerant varieties. Increase mulching.',
-    'September': 'Build-up begins. Focus on quick-growing crops. Monitor water needs. Prepare for wet season.',
-    'October': 'Hot and humid build-up. Plant tropical varieties. Watch for early storms. Ensure good drainage.',
-    'November': 'Early wet season. Plant wet-tolerant varieties. Monitor drainage. Watch for fungal issues.',
-    'December': 'Wet season intensifies. Focus on above-ground crops. Watch for storm damage. Maintain good air flow.'
-  },
-
   'Queensland': {
     'January': 'Tropical wet season in full swing. Focus on heat-tolerant crops like snake beans, okra, and sweet potatoes. Watch for fungal issues in high humidity. Mulch heavily to retain moisture and suppress weeds.',
     'February': 'Continue wet season plantings. Good time for tropical fruits and Asian greens. Monitor drainage in heavy rains. Plant sweet corn, pumpkins, and melons.',
@@ -3461,23 +3425,8 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
     'November': 'Early summer approaches. Plant heat-loving crops. Increase watering schedule. Start mulching heavily.',
     'December': 'Summer gardening begins. Regular harvesting essential. Water deeply in morning. Watch for pests and diseases.'
   },
-
+  
   'Victoria': {
-    'January': 'Hot summer conditions require careful water management. Focus on heat-tolerant vegetables. Morning watering essential. Watch for sun damage and pests. Maintain thick mulch.',
-    'February': 'Late summer heat continues. Monitor water needs closely. Harvest summer crops regularly. Begin planning autumn garden. Plant leafy greens in partial shade.',
-    'March': 'Autumn brings milder temperatures. Perfect time for planting brassicas and root vegetables. Last chance for warm season crops. Prepare winter beds with compost.',
-    'April': 'Cool autumn weather ideal for leafy greens. Plant peas, broad beans, and brassicas. Watch for early frosts in elevated areas. Add organic matter to soil.',
-    'May': 'Late autumn preparation for winter. Plant garlic and onions. Protect tender plants from frost. Good time for soil improvement and composting.',
-    'June': 'Winter arrives with frequent frosts. Focus on frost-hardy vegetables. Plant bare-root trees. Maintain winter crops with protection where needed.',
-    'July': 'Coldest month requires careful plant protection. Plan spring garden. Continue winter harvests. Prune deciduous trees. Check frost protection.',
-    'August': 'Late winter brings early signs of spring. Start seeds indoors. Plant potatoes and asparagus. Last chance for bare-root plantings.',
-    'September': 'Spring begins but watch for late frosts. Plant early vegetables. Prepare beds for summer crops. Begin regular feeding program.',
-    'October': 'Spring planting season in full swing. Direct sow warm season crops. Regular feeding important. Monitor for increasing pest activity.',
-    'November': 'Early summer approaches. Plant heat-loving crops. Increase watering schedule. Start mulching heavily. Watch for pest outbreaks.',
-    'December': 'Summer gardening begins. Regular harvesting essential. Water deeply in early morning. Watch for pests and diseases. Plan autumn crops.'
-  },
-  'VIC': {
-    // Copy exact same entries as Victoria
     'January': 'Hot summer conditions require careful water management. Focus on heat-tolerant vegetables. Morning watering essential. Watch for sun damage and pests. Maintain thick mulch.',
     'February': 'Late summer heat continues. Monitor water needs closely. Harvest summer crops regularly. Begin planning autumn garden. Plant leafy greens in partial shade.',
     'March': 'Autumn brings milder temperatures. Perfect time for planting brassicas and root vegetables. Last chance for warm season crops. Prepare winter beds with compost.',
@@ -3493,14 +3442,13 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
   }
 }
 
-// Update the getStateSummaries function
-export function getStateSummaries(state: string) {
-  const canonicalName = (state in stateAliases ? stateAliases[state as StateAlias] : state) as StateName;
-  return STATE_MONTH_SUMMARIES[canonicalName] || STATE_MONTH_SUMMARIES['Tasmania'];
-}
-
 // In the MonthCard component, modify how we access the summaries
 function MonthCard({ month, activities, location }: { month: string; activities: PlantInfo[]; location: GardenLocation }) {
+  // Helper function inside component
+  const getStateSummaries = (state: string) => {
+    const canonicalName = (state in stateAliases ? stateAliases[state as StateAlias] : state) as StateName;
+    return STATE_MONTH_SUMMARIES[canonicalName] || STATE_MONTH_SUMMARIES['Tasmania'];
+  };
   const [isPlantModalOpen, setIsPlantModalOpen] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState<string | null>(null);
   const [showFullList, setShowFullList] = useState<'sow' | 'plant' | null>(null);
@@ -3514,18 +3462,18 @@ function MonthCard({ month, activities, location }: { month: string; activities:
     setIsPlantModalOpen(true);
   };
 
-  const handleQuickAdd = (plantName: string, activityType: 'sow' | 'plant', e: React.MouseEvent) => {
+  const handleQuickAdd = (plantName: string, activityType: 'sow' | 'plant' | 'harvest', e: React.MouseEvent) => {
     e.stopPropagation();
     const isInGarden = gardenPlants.some(
       p => p.name === plantName && p.activityType === activityType
     );
     
-    if (isInGarden) {
-      removeFromMyGarden(plantName, activityType);
+    if (isInGarden && (activityType === 'sow' || activityType === 'plant')) {
+      removeFromMyGarden(plantName, activityType as 'sow' | 'plant');
       setGardenPlants(gardenPlants.filter(
         p => !(p.name === plantName && p.activityType === activityType)
       ));
-    } else {
+    } else if (activityType === 'sow' || activityType === 'plant') {
       addToMyGarden(plantName, activityType);
       setGardenPlants([...gardenPlants, { name: plantName, activityType }]);
     }
@@ -3549,7 +3497,10 @@ function MonthCard({ month, activities, location }: { month: string; activities:
           <span className="text-gray-700 text-sm truncate">{activity.name}</span>
         </div>
         <button
-          onClick={(e) => handleQuickAdd(activity.name, activity.type, e)}
+          onClick={(e) => {
+            if (activity.type === 'harvest') return; // Skip harvest activities
+            handleQuickAdd(activity.name, activity.type as 'sow' | 'plant', e);
+          }}
           className={`flex items-center justify-center transition-all ml-2 ${
             isInGarden 
               ? 'text-green-500 hover:text-green-600' 
@@ -4011,7 +3962,7 @@ function PlantModal({
 function PlantSearch() {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<string[]>([])
-  const [selectedPlant, setSelectedPlant] = useState<PlantDetails | null>(null)
+  const [selectedPlant, setSelectedPlant] = useState<string | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleSearch = (term: string) => {
@@ -4027,13 +3978,10 @@ function PlantSearch() {
   }
 
   const handlePlantSelect = (plantName: string) => {
-    const plant = PLANT_DETAILS[plantName]
-    if (plant) {
-      setSelectedPlant(plant)
-      setIsModalOpen(true)
-      setSearchTerm('')
-      setSearchResults([])
-    }
+    setSelectedPlant(plantName)
+    setIsModalOpen(true)
+    setSearchTerm('')
+    setSearchResults([])
   }
 
   return (
@@ -4102,9 +4050,10 @@ const stateAliases: Record<StateAlias, StateName> = {
 } as const;
 
 // Update the getStateCalendar function
-const getStateCalendar = (state: string): typeof stateCalendars[StateName] => {
+const getStateCalendar = (state: string) => {
   const canonicalName = (state in stateAliases ? stateAliases[state as StateAlias] : state) as StateName;
-  return stateCalendars[canonicalName] || stateCalendars['Tasmania']; // Default to Tasmania if not found
+  // This function may not be needed if PLANTING_GUIDES is used instead
+  return PLANTING_GUIDES;
 };
 
 // Update the PLANTING_GUIDES type

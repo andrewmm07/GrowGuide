@@ -1,4 +1,11 @@
-import { PlantSchedule } from '../types'
+interface PlantSchedule {
+  week: number;
+  activity: string;
+  details: string;
+  completed: boolean;
+  dueDate: string;
+  category: 'planting' | 'fertilizing' | 'pruning' | 'pest' | 'harvest' | 'climate';
+}
 
 interface GrowingScheduleProps {
   schedule: PlantSchedule[];

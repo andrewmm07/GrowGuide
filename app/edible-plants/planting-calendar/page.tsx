@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 interface PlantInfo {
   name: string
-  type: 'sow' | 'plant'
+  type: 'sow' | 'plant' | 'harvest'
 }
 
 interface PlantIssue {
@@ -776,7 +776,8 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     watering: 'Regular watering',
     sunlight: 'Full sun to partial shade',
     description: 'Rhubarb is a perennial that produces edible stalks. Only harvest after the first year of growth.',
-    maintenance: 'low',  // Generally trouble-free
+    maintenance: 'low',
+    commonIssues: []
   },
   'Winter Cabbage': {
     name: 'Winter Cabbage',
@@ -926,7 +927,7 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
         solution: 'Ensure adequate boron in soil, maintain consistent moisture'
       }
     ],
-    maintenance: 'low',  // Generally trouble-free
+    maintenance: 'low'
   },
   'Turnip': {
     name: 'Turnip',
@@ -938,7 +939,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Well-draining soil with pH 6.0-7.0',
     watering: 'Regular consistent watering',
     sunlight: 'Full sun',
-    description: 'Both turnip roots and greens are edible. Young turnips are tender and mild-flavored.'
+    description: 'Both turnip roots and greens are edible. Young turnips are tender and mild-flavored.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'English Spinach': {
     name: 'English Spinach',
@@ -950,7 +953,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Rich, well-draining soil with pH 6.0-7.0',
     watering: 'Regular watering',
     sunlight: 'Full sun to partial shade',
-    description: 'English spinach prefers cool weather and will bolt in heat. Harvest outer leaves for continuous production.'
+    description: 'English spinach prefers cool weather and will bolt in heat. Harvest outer leaves for continuous production.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'Shallots': {
     name: 'Shallots',
@@ -962,7 +967,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Well-draining soil with pH 6.0-7.0',
     watering: 'Moderate watering',
     sunlight: 'Full sun',
-    description: 'Shallots have a milder, more refined flavor than onions. Each bulb planted will multiply into a cluster.'
+    description: 'Shallots have a milder, more refined flavor than onions. Each bulb planted will multiply into a cluster.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'Jerusalem Artichokes': {
     name: 'Jerusalem Artichokes',
@@ -974,7 +981,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Well-draining soil with pH 6.0-7.0',
     watering: 'Regular watering',
     sunlight: 'Full sun',
-    description: 'Also known as sunchokes, these perennial plants produce edible tubers. Can spread vigorously once established.'
+    description: 'Also known as sunchokes, these perennial plants produce edible tubers. Can spread vigorously once established.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'Asparagus': {
     name: 'Asparagus',
@@ -986,7 +995,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Deep, rich, well-draining soil with pH 6.0-7.0',
     watering: 'Regular watering during growing season',
     sunlight: 'Full sun',
-    description: 'Asparagus is a long-lived perennial. Do not harvest for the first 2-3 years to allow strong root development.'
+    description: 'Asparagus is a long-lived perennial. Do not harvest for the first 2-3 years to allow strong root development.',
+    maintenance: 'medium',
+    commonIssues: []
   },
   'Early Potatoes': {
     name: 'Early Potatoes',
@@ -998,7 +1009,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Light, well-draining soil with pH 5.0-6.0',
     watering: 'Regular watering',
     sunlight: 'Full sun',
-    description: 'Early potatoes mature more quickly than main crop varieties. Plant certified disease-free seed potatoes.'
+    description: 'Early potatoes mature more quickly than main crop varieties. Plant certified disease-free seed potatoes.',
+    maintenance: 'medium',
+    commonIssues: []
   },
   'Early Carrots': {
     name: 'Early Carrots',
@@ -1010,7 +1023,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Deep, loose soil with pH 6.0-6.8',
     watering: 'Regular consistent watering',
     sunlight: 'Full sun',
-    description: 'Early carrots are typically smaller but sweeter than main crop varieties. Ideal for succession planting.'
+    description: 'Early carrots are typically smaller but sweeter than main crop varieties. Ideal for succession planting.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'Parsnips': {
     name: 'Parsnips',
@@ -1022,7 +1037,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Deep, well-draining soil with pH 6.0-7.0',
     watering: 'Regular watering',
     sunlight: 'Full sun',
-    description: 'Parsnips develop sweeter flavor after frost. Seeds can be slow to germinate, keep soil consistently moist.'
+    description: 'Parsnips develop sweeter flavor after frost. Seeds can be slow to germinate, keep soil consistently moist.',
+    maintenance: 'low',
+    commonIssues: []
   },
   'Chillies': {
     name: 'Chillies',
@@ -1034,7 +1051,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Rich, well-draining soil with pH 6.0-7.0',
     watering: 'Moderate watering',
     sunlight: 'Full sun',
-    description: 'Chillies prefer warm conditions and will produce more fruit in hot weather. Can be grown in containers.'
+    description: 'Chillies prefer warm conditions and will produce more fruit in hot weather. Can be grown in containers.',
+    maintenance: 'medium',
+    commonIssues: []
   },
   'Sweet Potatoes': {
     name: 'Sweet Potatoes',
@@ -1046,7 +1065,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Light, well-draining soil with pH 5.5-6.5',
     watering: 'Regular watering',
     sunlight: 'Full sun',
-    description: 'Sweet potatoes need warm soil to develop well. Harvest when vines yellow or before first frost.'
+    description: 'Sweet potatoes need warm soil to develop well. Harvest when vines yellow or before first frost.',
+    maintenance: 'medium',
+    commonIssues: []
   },
   'Pumpkin': {
     name: 'Pumpkin',
@@ -1058,7 +1079,9 @@ const PLANT_DETAILS: { [key: string]: PlantDetails } = {
     soil: 'Rich, well-draining soil with pH 6.0-6.8',
     watering: 'Regular deep watering',
     sunlight: 'Full sun',
-    description: 'Pumpkins need plenty of space to spread. Harvest when the skin is hard and the stem begins to dry.'
+    description: 'Pumpkins need plenty of space to spread. Harvest when the skin is hard and the stem begins to dry.',
+    maintenance: 'medium',
+    commonIssues: []
   }
 }
 
@@ -1701,6 +1724,11 @@ function PlantSearch() {
 
 export default function PlantingCalendar() {
   const searchParams = useSearchParams()
+  
+  if (!searchParams) {
+    return <div>Loading...</div>
+  }
+  
   const state = searchParams.get('state')
   const city = searchParams.get('city')
 

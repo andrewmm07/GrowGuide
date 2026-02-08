@@ -6,7 +6,7 @@ export default function AnyPage() {
   const { data: profile, setData } = useProfile()
   
   const handleLocationChange = async (newLocation: string) => {
-    setData(prev => prev ? { ...prev, location: newLocation } : { location: newLocation })
+    setData(profile ? { ...profile, location: newLocation } : { location: newLocation })
   }
 
   return (

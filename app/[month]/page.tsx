@@ -56,6 +56,15 @@ const MONTH_DATA: { [key: string]: MonthData } = {
 export default function MonthGuide() {
   const params = useParams()
   const searchParams = useSearchParams()
+  
+  if (!params || !params.month) {
+    return <div>Month parameter not found</div>
+  }
+  
+  if (!searchParams) {
+    return <div>Loading...</div>
+  }
+  
   const month = (params.month as string).toLowerCase()
   const city = searchParams.get('city') || 'Sydney'
   

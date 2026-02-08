@@ -67,7 +67,7 @@ export const REGION_DATA: { [key: string]: RegionInfo } = {
     frostRisk: 'none',
     rainfall: 'high',
     summerTemp: 'hot',
-    winterTemp: 'warm'
+    winterTemp: 'mild'
   },
 
   // Western Australia
@@ -100,7 +100,7 @@ export const REGION_DATA: { [key: string]: RegionInfo } = {
     frostRisk: 'none',
     rainfall: 'high',
     summerTemp: 'very-hot',
-    winterTemp: 'warm'
+    winterTemp: 'mild'
   },
 
   // Tasmania

@@ -3,8 +3,17 @@
 import { useState, useEffect } from 'react'
 import { PlantInfo, PlantDetails, PLANT_DETAILS } from '../types/plants'
 import { PlantModal } from './PlantModal'
-import { STATE_MONTH_SUMMARIES, normalizeState } from '../utils/climate'
-import { getStateSummaries, type GardenLocation, DEFAULT_LOCATION } from '../utils/location'
+import { STATE_MONTH_SUMMARIES, normalizeState, getStateSummaries } from '../utils/climate'
+import { type GardenLocation } from '../utils/location'
+
+function getMonthSeason(month: string): string {
+  const monthLower = month.toLowerCase()
+  if (['december', 'january', 'february'].includes(monthLower)) return 'Summer'
+  if (['march', 'april', 'may'].includes(monthLower)) return 'Autumn'
+  if (['june', 'july', 'august'].includes(monthLower)) return 'Winter'
+  if (['september', 'october', 'november'].includes(monthLower)) return 'Spring'
+  return 'Unknown'
+}
 
 interface MonthCardProps {
   month: string

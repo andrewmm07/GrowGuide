@@ -245,7 +245,7 @@ function getWeeklyTasks(plants: GardenPlant[], currentWeek: number): WeeklyTask[
       plantedDate: plant.datePlanted,
       growthStage: plant.type,
       details: task.details,
-      category: task.category
+      category: task.category as 'planting' | 'fertilizing' | 'pruning' | 'pest' | 'harvest' | 'climate'
     })))
   })
 
