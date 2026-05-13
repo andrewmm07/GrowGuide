@@ -21,7 +21,7 @@ export default function CollapsiblePanel({
     <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
       <button
         onClick={onToggle}
-        className={`w-full px-8 py-6 flex items-start justify-between text-left group transition-colors
+        className={`w-full px-4 sm:px-8 py-4 sm:py-6 flex items-start justify-between text-left group transition-colors
           ${isOpen ? 'bg-gray-500' : 'bg-white hover:bg-gray-50'}`}
       >
         <div className="flex items-center gap-4">
@@ -33,7 +33,7 @@ export default function CollapsiblePanel({
             </div>
           )}
           <div>
-            <h2 className={`text-2xl font-bold transition-colors ${
+            <h2 className={`text-lg sm:text-2xl font-bold transition-colors ${
               isOpen ? 'text-white' : 'text-gray-800'
             }`}>
               {title}
@@ -61,10 +61,10 @@ export default function CollapsiblePanel({
       
       <div 
         className={`transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[9999px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="p-8 border-t border-gray-100">
+        <div className="p-4 sm:p-8 border-t border-gray-100">
           {children}
         </div>
       </div>

@@ -176,7 +176,7 @@ export default function WeatherPage() {
                 className="w-16 h-16"
               />
             </div>
-            <div className="mt-6 grid grid-cols-3 gap-6 border-t pt-6">
+            <div className="mt-4 grid grid-cols-3 gap-3 sm:gap-6 border-t pt-4">
               <div>
                 <div className="text-sm text-gray-500">Humidity</div>
                 <div className="mt-1 text-xl font-medium text-gray-800">
@@ -204,7 +204,7 @@ export default function WeatherPage() {
               <button
                 key={day.date}
                 onClick={() => setSelectedDay(index)}
-                className={`p-4 rounded-xl transition-all ${
+                className={`p-2 sm:p-4 rounded-xl transition-all ${
                   selectedDay === index
                     ? 'bg-blue-50 border-2 border-blue-200'
                     : 'bg-white border border-gray-100 hover:border-blue-100'
@@ -213,7 +213,7 @@ export default function WeatherPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="font-medium text-gray-800">
-                      {new Date(day.date).toLocaleDateString('en-US', { weekday: 'long' })}
+                      {new Date(day.date).toLocaleDateString('en-US', { weekday: 'short' })}
                     </div>
                     <div className="text-sm text-gray-500">
                       {new Date(day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -222,11 +222,11 @@ export default function WeatherPage() {
                   <img 
                     src={day.day.condition.icon} 
                     alt={day.day.condition.text}
-                    className="w-12 h-12"
+                    className="w-8 h-8 sm:w-12 sm:h-12"
                   />
                 </div>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="text-2xl font-light">{day.day.maxtemp_c}°</span>
+                  <span className="text-lg sm:text-2xl font-light">{day.day.maxtemp_c}°</span>
                   <span className="text-gray-500">{day.day.mintemp_c}°</span>
                 </div>
                 <div className="mt-1 text-sm text-gray-600">

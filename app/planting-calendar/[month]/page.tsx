@@ -984,10 +984,10 @@ const MonthDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-gray-100">
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-3 sm:p-8">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-6">
             <Link 
               href="/planting-calendar"
               className="inline-flex items-center text-green-600 hover:text-green-700 mb-6 group"
@@ -1083,7 +1083,7 @@ const MonthDetailPage = () => {
             }
             description="Monthly weather patterns and growing conditions"
           >
-          <div className="grid md:grid-cols-4 gap-6 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-6">
             <div className="text-center">
               <div className="text-amber-600 mb-2">
                 <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1241,7 +1241,7 @@ const MonthDetailPage = () => {
                   {/* Lighter bar at top */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gray-200" />
                   
-                  <div className="flex items-center border-b border-gray-200 p-6 bg-gray-100">
+                  <div className="flex items-center border-b border-gray-200 p-3 sm:p-6 bg-gray-100">
                     {/* Cleaner week badge */}
                     <div className="flex-shrink-0 w-14 h-14 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm border border-gray-200">
                       <span className="text-2xl font-bold text-gray-800">W{week.week}</span>
@@ -1268,7 +1268,7 @@ const MonthDetailPage = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 grid gap-8 md:grid-cols-3">
+                  <div className="p-4 sm:p-6 grid gap-4 sm:gap-8 grid-cols-1 md:grid-cols-3">
                     {/* Seeds Section */}
                     <div>
                       <div className="flex items-center mb-4 pb-2 border-b border-gray-200">
@@ -1340,7 +1340,7 @@ const MonthDetailPage = () => {
             }
             description="Common mistakes to avoid this month"
           >
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
               {/* Critical Mistakes */}
               <div className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-100">
                 <div className="flex items-center gap-3 mb-6">

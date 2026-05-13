@@ -1413,87 +1413,58 @@ export default function MyGarden() {
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">Add New Planting</h2>
           <form onSubmit={handleAddPlant} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Plant Name Input/Select */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 mb-2">
-                  <label className="text-sm text-gray-600">Plant Name</label>
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setInputMode('select')}
-                      className={`px-2 py-1 text-xs rounded ${
-                        inputMode === 'select' 
-                          ? 'bg-green-100 text-green-700' 
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      }`}
-                    >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Plant Name */}
+              <div className="space-y-1">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-medium text-gray-700">Plant Name</label>
+                  <div className="flex gap-1">
+                    <button type="button" onClick={() => setInputMode('select')}
+                      className={`px-2 py-0.5 text-xs rounded ${inputMode === 'select' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                       Select
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => setInputMode('manual')}
-                      className={`px-2 py-1 text-xs rounded ${
-                        inputMode === 'manual' 
-                          ? 'bg-green-100 text-green-700' 
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      }`}
-                    >
+                    <button type="button" onClick={() => setInputMode('manual')}
+                      className={`px-2 py-0.5 text-xs rounded ${inputMode === 'manual' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                       Manual
                     </button>
                   </div>
                 </div>
                 {inputMode === 'select' ? (
-                  <select
-                    value={newPlant.name}
-                    onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full rounded-lg border-gray-200"
-                    required
-                  >
+                  <select value={newPlant.name} onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required>
                     <option value="">Select a plant...</option>
-                    {PLANT_OPTIONS.map(plant => (
-                      <option key={plant} value={plant}>{plant}</option>
-                    ))}
+                    {PLANT_OPTIONS.map(plant => (<option key={plant} value={plant}>{plant}</option>))}
                   </select>
                 ) : (
-              <input
-                type="text"
-                    placeholder="Enter plant name"
-                value={newPlant.name}
-                onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full rounded-lg border-gray-200"
-                required
-              />
+                  <input type="text" placeholder="Enter plant name" value={newPlant.name}
+                    onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required />
                 )}
               </div>
 
-              {/* Date Input */}
-              <input
-                type="date"
-                defaultValue={new Date().toISOString().split('T')[0]}
-                className="rounded-lg border-gray-200"
-                required
-              />
+              {/* Plant Type */}
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-gray-700">Type</label>
+                <select value={newPlant.type} onChange={(e) => setNewPlant(prev => ({ ...prev, type: e.target.value as 'seed' | 'seedling' }))}
+                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required>
+                  <option value="seedling">Seedling</option>
+                  <option value="seed">Seed</option>
+                </select>
+              </div>
 
-              {/* Plant Type Select */}
-              <select
-                value={newPlant.type}
-                onChange={(e) => setNewPlant(prev => ({ ...prev, type: e.target.value as 'seed' | 'seedling' }))}
-                className="rounded-lg border-gray-200"
-                required
-              >
-                <option value="seedling">Seedling</option>
-                <option value="seed">Seed</option>
-              </select>
-
-              {/* Add Button */}
-              <button
-                type="submit"
-                className="bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-700 transition-colors"
-              >
-                Add Planting
-              </button>
+              {/* Date Planted */}
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-gray-700">Date Planted</label>
+                <input type="date" defaultValue={new Date().toISOString().split('T')[0]}
+                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required />
+              </div>
             </div>
+
+            {/* Submit */}
+            <button type="submit"
+              className="w-full sm:w-auto bg-green-600 text-white rounded-lg px-6 py-2.5 text-sm font-medium hover:bg-green-700 transition-colors">
+              Add Planting
+            </button>
 
             {/* Optional Fields */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
