@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 
 interface PlantSchedule {
   week: number;
@@ -52,13 +53,14 @@ interface PlantTimeline {
 }
 
 interface GardenPlant {
+  id?: string;
   name: string;
   datePlanted: string;
   type: 'seed' | 'seedling';
   location?: string;
   notes?: string;
-  estimatedHarvest: string;
-  schedule: PlantSchedule[];
+  estimatedHarvest?: string;
+  schedule?: PlantSchedule[];
   isHarvested?: boolean;
   harvestedDate?: string;
 }
@@ -1199,7 +1201,7 @@ function VerticalTimeline({ plants }: { plants: GardenPlant[] }) {
 }
 
 export default function MyGarden() {
-  const [gardenPlants, setGardenPlants] = useState<GardenPlant[]>([])
+  const { plants: gardenPlants, loading: gardenLoading, addPlant: contextAddPlant, updatePlant: contextUpdatePlant, removePlant: contextRemovePlant } = useGarden()
   const [editingPlant, setEditingPlant] = useState<number | null>(null)
   const [inputMode, setInputMode] = useState<'manual' | 'select'>('select')
   const [newPlant, setNewPlant] = useState<Omit<GardenPlant, 'datePlanted' | 'estimatedHarvest' | 'schedule'>>({
@@ -1220,59 +1222,37 @@ export default function MyGarden() {
     }
   }, [gardenPlants.length]);
 
-  // Check for harvested plants
+  // Check for harvested plants once data has loaded
   useEffect(() => {
+    if (gardenLoading) return
     const today = new Date()
-    const updatedPlants = gardenPlants.map(plant => {
-      const harvestDate = new Date(plant.estimatedHarvest)
-      if (!plant.isHarvested && harvestDate <= today) {
-        return {
-          ...plant,
-          isHarvested: true,
-          harvestedDate: today.toISOString()
-        }
+    gardenPlants.forEach(plant => {
+      if (!plant.isHarvested && plant.estimatedHarvest && new Date(plant.estimatedHarvest) <= today) {
+        contextUpdatePlant(plant, { isHarvested: true, harvestedDate: today.toISOString() })
       }
-      return plant
     })
-
-    if (JSON.stringify(updatedPlants) !== JSON.stringify(gardenPlants)) {
-      setGardenPlants(updatedPlants)
-      localStorage.setItem('myGarden', JSON.stringify(updatedPlants))
-    }
-  }, [gardenPlants])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gardenLoading])
 
   // Separate active and harvested plants
   const activePlants = gardenPlants.filter(plant => !plant.isHarvested)
   const harvestedPlants = gardenPlants.filter(plant => plant.isHarvested)
 
+  // Migrate any plants loaded from Supabase that lack schedule/estimatedHarvest
   useEffect(() => {
-    const savedGarden = localStorage.getItem('myGarden')
-    if (savedGarden) {
-      let plants = JSON.parse(savedGarden)
-      
-      // Migrate existing plants to include schedules
-      plants = plants.map((plant: GardenPlant) => {
-        if (!plant.schedule || !plant.estimatedHarvest) {
-          const { schedule, estimatedHarvest } = generatePlantSchedule(
-            plant.name,
-            plant.datePlanted,
-            plant.type
-          )
-          return {
-            ...plant,
-            schedule,
-            estimatedHarvest
-          }
-        }
-        return plant
-      })
-      
-      setGardenPlants(plants)
-      localStorage.setItem('myGarden', JSON.stringify(plants))
-    }
-  }, [])
+    if (gardenLoading) return
+    gardenPlants.forEach(plant => {
+      if (!plant.schedule || !plant.estimatedHarvest) {
+        const { schedule, estimatedHarvest } = generatePlantSchedule(
+          plant.name, plant.datePlanted, plant.type
+        )
+        contextUpdatePlant(plant, { schedule, estimatedHarvest })
+      }
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gardenLoading])
 
-  const handleAddPlant = (e: React.FormEvent) => {
+  const handleAddPlant = async (e: React.FormEvent) => {
     e.preventDefault()
     const plantingDate = new Date().toISOString()
     // You can get the climate from user's location or a selection
@@ -1292,10 +1272,7 @@ export default function MyGarden() {
       schedule
     }
     
-    const updatedGarden = [...gardenPlants, plant]
-    setGardenPlants(updatedGarden)
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
-    
+    await contextAddPlant(plant)
     setNewPlant({
       name: '',
       type: 'seedling',
@@ -1304,104 +1281,62 @@ export default function MyGarden() {
     })
   }
 
-  const handleUpdatePlant = (plantToUpdate: GardenPlant, updates: Partial<GardenPlant>) => {
-    const updatedGarden = gardenPlants.map((plant) => {
-      if (plant.name === plantToUpdate.name && plant.datePlanted === plantToUpdate.datePlanted) {
-        const updatedPlant = { ...plant, ...updates }
-        
-        // If planting date was updated, regenerate schedule
-        if (updates.datePlanted) {
-          const { schedule, estimatedHarvest } = generatePlantSchedule(
-            plant.name,
-            updates.datePlanted,
-            plant.type
-          )
-          updatedPlant.schedule = schedule
-          updatedPlant.estimatedHarvest = estimatedHarvest
-        }
-        
-        return updatedPlant
-      }
-      return plant
-    })
-    
-    setGardenPlants(updatedGarden)
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
+  const handleUpdatePlant = async (plantToUpdate: GardenPlant, updates: Partial<GardenPlant>) => {
+    let finalUpdates = { ...updates }
+    if (updates.datePlanted) {
+      const { schedule, estimatedHarvest } = generatePlantSchedule(
+        plantToUpdate.name,
+        updates.datePlanted,
+        plantToUpdate.type
+      )
+      finalUpdates = { ...finalUpdates, schedule, estimatedHarvest }
+    }
+    await contextUpdatePlant(plantToUpdate, finalUpdates)
     setEditingPlant(null)
   }
 
-  const handleRemovePlant = (plantToRemove: GardenPlant) => {
-    const updatedGarden = gardenPlants.filter(
-      plant => !(plant.name === plantToRemove.name && plant.datePlanted === plantToRemove.datePlanted)
-    )
-    setGardenPlants(updatedGarden)
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
+  const handleRemovePlant = async (plantToRemove: GardenPlant) => {
+    await contextRemovePlant(plantToRemove)
   }
 
 
-  const handleReplant = (harvestedIndex: number) => {
+  const handleReplant = async (harvestedIndex: number) => {
     const plantToReplant = harvestedPlants[harvestedIndex]
-    const newPlant: GardenPlant = {
-      ...plantToReplant,
+    await contextRemovePlant(plantToReplant)
+    const { schedule, estimatedHarvest } = generatePlantSchedule(
+      plantToReplant.name,
+      new Date().toISOString(),
+      plantToReplant.type
+    )
+    await contextAddPlant({
+      name: plantToReplant.name,
       datePlanted: new Date().toISOString(),
+      type: plantToReplant.type,
+      location: plantToReplant.location,
+      notes: plantToReplant.notes,
       isHarvested: false,
-      harvestedDate: undefined,
-      // Regenerate schedule and estimated harvest
-      ...generatePlantSchedule(
-        plantToReplant.name,
-        new Date().toISOString(),
-        plantToReplant.type
-      )
-    }
-
-    const updatedGarden = [
-      ...gardenPlants.filter((_, i) => {
-        const plant = gardenPlants[i]
-        return !(plant.name === plantToReplant.name && 
-                 plant.datePlanted === plantToReplant.datePlanted &&
-                 plant.isHarvested)
-      }),
-      newPlant
-    ]
-    
-    setGardenPlants(updatedGarden)
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
+      schedule,
+      estimatedHarvest,
+    })
   }
 
-  const handleTaskComplete = (plantIndex: number, taskIndex: number) => {
-    // Find the actual plant using name and planting date as unique identifier
+  const handleTaskComplete = async (plantIndex: number, taskIndex: number) => {
     const plant = gardenPlants.find(p => 
       p.name === sortedPlantsByHarvest[plantIndex].name && 
       p.datePlanted === sortedPlantsByHarvest[plantIndex].datePlanted
-    );
-    
-    // Find the actual index in the original array
-    const actualIndex = gardenPlants.findIndex(p => 
-      p.name === sortedPlantsByHarvest[plantIndex].name && 
-      p.datePlanted === sortedPlantsByHarvest[plantIndex].datePlanted
-    );
-
-    if (actualIndex !== -1 && plant?.schedule) {
-      const updatedGarden = [...gardenPlants];
-      const updatedSchedule = [...plant.schedule];
-      updatedSchedule[taskIndex] = {
-        ...updatedSchedule[taskIndex],
-        completed: !updatedSchedule[taskIndex].completed
-      };
-
-      updatedGarden[actualIndex] = {
-        ...plant,
-        schedule: updatedSchedule
-      };
-
-      setGardenPlants(updatedGarden);
-      localStorage.setItem('myGarden', JSON.stringify(updatedGarden));
+    )
+    if (!plant?.schedule) return
+    const updatedSchedule = [...plant.schedule]
+    updatedSchedule[taskIndex] = {
+      ...updatedSchedule[taskIndex],
+      completed: !updatedSchedule[taskIndex].completed
     }
-  };
+    await contextUpdatePlant(plant, { schedule: updatedSchedule })
+  }
 
   // Inside the MyGarden component
   const sortedPlantsByHarvest = [...gardenPlants].sort((a, b) => 
-    new Date(a.estimatedHarvest).getTime() - new Date(b.estimatedHarvest).getTime()
+    new Date(a.estimatedHarvest ?? 0).getTime() - new Date(b.estimatedHarvest ?? 0).getTime()
   )
 
   return (

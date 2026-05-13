@@ -61,37 +61,7 @@ interface GardenPlant {
   notes?: string;
 }
 
-// Add the garden management functions
-function addToMyGarden(plantName: string, activityType: 'sow' | 'plant') {
-  const existingGarden = localStorage.getItem('myGarden')
-  const myGarden: GardenPlant[] = existingGarden ? JSON.parse(existingGarden) : []
-  
-  if (!myGarden.some(plant => plant.name === plantName && plant.activityType === activityType)) {
-    const newPlant: GardenPlant = {
-      name: plantName,
-      datePlanted: new Date().toISOString(),
-      type: activityType === 'sow' ? 'seed' : 'seedling',
-      activityType: activityType
-    }
-    myGarden.push(newPlant)
-    localStorage.setItem('myGarden', JSON.stringify(myGarden))
-    return true
-  }
-  return false
-}
-
-function removeFromMyGarden(plantName: string, activityType: 'sow' | 'plant') {
-  const existingGarden = localStorage.getItem('myGarden')
-  if (existingGarden) {
-    const myGarden: GardenPlant[] = JSON.parse(existingGarden)
-    const updatedGarden = myGarden.filter(
-      plant => !(plant.name === plantName && plant.activityType === activityType)
-    )
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
-    return true
-  }
-  return false
-}
+// Garden management handled by GardenContext
 
 // Function to generate location-specific monthly summaries
 function getMonthlySummary(month: string, city: string, state: string, climateZone: string): string {
@@ -541,7 +511,7 @@ const MonthDetailPage = () => {
     weekly: false,
     noNos: false
   })
-  const [gardenPlants, setGardenPlants] = useState<Array<{name: string, activityType: 'sow' | 'plant'}>>([])
+  const { addToGarden, removeFromGarden, isInGarden } = useGarden()
   const [userLocation, setUserLocation] = useState<GardenLocation | null>(null)
   const [monthActivities, setMonthActivities] = useState<string[]>([])
   const [locationLoading, setLocationLoading] = useState(true)
@@ -796,20 +766,14 @@ const MonthDetailPage = () => {
   // Add GardenPlantLink component
   const GardenPlantLink = ({ name, type }: { name: string, type: 'seed' | 'seedling' }) => {
     const activityType = type === 'seed' ? 'sow' : 'plant'
-    const isInGarden = gardenPlants.some(
-      p => p.name === name && p.activityType === activityType
-    )
+    const inGarden = isInGarden(name, activityType)
 
-    const handleQuickAdd = (e: React.MouseEvent) => {
+    const handleQuickAdd = async (e: React.MouseEvent) => {
       e.preventDefault()
-      if (isInGarden) {
-        removeFromMyGarden(name, activityType)
-        setGardenPlants(gardenPlants.filter(
-          p => !(p.name === name && p.activityType === activityType)
-        ))
+      if (inGarden) {
+        await removeFromGarden(name, activityType)
       } else {
-        addToMyGarden(name, activityType)
-        setGardenPlants([...gardenPlants, { name, activityType }])
+        await addToGarden(name, activityType)
       }
     }
 
@@ -819,13 +783,13 @@ const MonthDetailPage = () => {
         <button
           onClick={handleQuickAdd}
           className={`flex items-center justify-center transition-all ml-2 ${
-            isInGarden 
+            inGarden 
               ? 'text-green-500 hover:text-green-600' 
               : 'opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-600'
           }`}
-          title={isInGarden ? 'Remove from Garden' : 'Add to My Garden'}
+          title={inGarden ? 'Remove from Garden' : 'Add to My Garden'}
         >
-          {isInGarden ? (
+          {inGarden ? (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
@@ -839,13 +803,7 @@ const MonthDetailPage = () => {
     )
   }
 
-  useEffect(() => {
-    const existingGarden = localStorage.getItem('myGarden')
-    if (existingGarden) {
-      const garden: GardenPlant[] = JSON.parse(existingGarden)
-      setGardenPlants(garden.map(p => ({ name: p.name, activityType: p.activityType })))
-    }
-  }, [])
+  // Garden state managed by GardenContext
 
   useEffect(() => {
     // Ensure we're on the client side before accessing localStorage

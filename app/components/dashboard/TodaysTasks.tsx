@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import Link from 'next/link'
 import { useAuth } from '@/app/context/AuthContext'
 
@@ -48,6 +49,7 @@ interface TaskDisplay {
 
 export default function TodaysTasks() {
   const { user } = useAuth()
+  const { plants: gardenPlantsCtx } = useGarden()
   const [customTasks, setCustomTasks] = useState<TaskDisplay[]>([])
   const [suggestionTasks, setSuggestionTasks] = useState<TaskDisplay[]>([])
   const [loading, setLoading] = useState(true)
@@ -94,10 +96,8 @@ export default function TodaysTasks() {
         }
 
         // Load system tasks (GrowGuide suggestions) from plant schedule
-        const savedGarden = localStorage.getItem('myGarden')
-        if (savedGarden) {
-          const gardenPlants: GardenPlant[] = JSON.parse(savedGarden)
-          const activePlants = gardenPlants.filter((plant: GardenPlant) => !plant.isHarvested)
+        const activePlants = gardenPlantsCtx.filter((plant) => !plant.isHarvested)
+        {
 
           activePlants.forEach((plant) => {
             if (plant.schedule && Array.isArray(plant.schedule)) {
@@ -168,11 +168,7 @@ export default function TodaysTasks() {
       today.setHours(0, 0, 0, 0)
       const todayStr = today.toISOString().split('T')[0]
       
-      const savedGarden = localStorage.getItem('myGarden')
-      if (!savedGarden) return 0
-
-      const gardenPlants: GardenPlant[] = JSON.parse(savedGarden)
-      const activePlants = gardenPlants.filter((plant: GardenPlant) => !plant.isHarvested)
+      const activePlants = gardenPlantsCtx.filter((plant) => !plant.isHarvested)
       
       let count = 0
       activePlants.forEach((plant) => {

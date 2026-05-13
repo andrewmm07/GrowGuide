@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import { useAuth } from '../context/AuthContext'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -70,6 +71,7 @@ export default function TasksPage(): JSX.Element {
   const router = useRouter()
   const [tasks, setTasks] = useState<TaskWithPlant[]>([])
   const [projects, setProjects] = useState<Project[]>([])
+  const { plants: gardenPlantsCtx, updatePlant: updateGardenPlant } = useGarden()
   const [loading, setLoading] = useState(true)
   
   // Load taskSources from localStorage, default to { showCustom: true, showSystem: false }
@@ -156,9 +158,8 @@ export default function TasksPage(): JSX.Element {
       const allTasks: TaskWithPlant[] = []
 
       // Load system tasks from plant schedule
-      const savedGarden = localStorage.getItem('myGarden')
-      if (savedGarden) {
-        const gardenPlants: GardenPlant[] = JSON.parse(savedGarden)
+      const gardenPlants = gardenPlantsCtx
+      {
         const activePlants = gardenPlants.filter((plant: GardenPlant) => !plant.isHarvested)
 
         activePlants.forEach((plant) => {
@@ -250,7 +251,7 @@ export default function TasksPage(): JSX.Element {
     loadTasks()
   }, [user, router])
 
-  const handleTaskComplete = (task: TaskWithPlant) => {
+  const handleTaskComplete = async (task: TaskWithPlant) => {
     try {
       if (task.source === 'custom' && task.customTaskId) {
         const savedCustomTasks = localStorage.getItem('customTasks')
@@ -265,33 +266,17 @@ export default function TasksPage(): JSX.Element {
           loadTasks()
         }
       } else if (task.source === 'system') {
-        const savedGarden = localStorage.getItem('myGarden')
-        if (!savedGarden) return
-
-        const gardenPlants: GardenPlant[] = JSON.parse(savedGarden)
-        const actualPlantIndex = gardenPlants.findIndex(p => 
+        const plant = gardenPlantsCtx.find(p => 
           p.name === task.plantName && 
           p.datePlanted === task.plantDatePlanted
         )
-
-        if (actualPlantIndex === -1) return
-
-        const plant = gardenPlants[actualPlantIndex]
-        if (!plant.schedule || task.taskIndex >= plant.schedule.length) return
-
-        const updatedGarden = [...gardenPlants]
+        if (!plant?.schedule || task.taskIndex >= plant.schedule.length) return
         const updatedSchedule = [...plant.schedule]
         updatedSchedule[task.taskIndex] = {
           ...updatedSchedule[task.taskIndex],
           completed: !updatedSchedule[task.taskIndex].completed
         }
-
-        updatedGarden[actualPlantIndex] = {
-          ...plant,
-          schedule: updatedSchedule
-        }
-
-        localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
+        await updateGardenPlant(plant, { schedule: updatedSchedule })
         loadTasks()
       }
     } catch (error) {

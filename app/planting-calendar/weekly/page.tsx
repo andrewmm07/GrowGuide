@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import Sidebar from '../../components/Sidebar'
 import { MONTH_DETAILS } from '../../data/months'
 
@@ -24,6 +25,7 @@ interface GardenPlant {
 
 const WeeklyCalendar = () => {
   const [selectedWeek, setSelectedWeek] = useState<number>(getCurrentWeek())
+  const { plants: gardenPlantsCtx } = useGarden()
   const [gardenPlants, setGardenPlants] = useState<GardenPlant[]>([])
   const [expandedPlants, setExpandedPlants] = useState<Set<string>>(new Set())
   
@@ -44,10 +46,7 @@ const WeeklyCalendar = () => {
 
   // Load garden plants on mount
   useEffect(() => {
-    const existingGarden = localStorage.getItem('myGarden')
-    if (existingGarden) {
-      setGardenPlants(JSON.parse(existingGarden))
-    }
+    setGardenPlants(gardenPlantsCtx as any)
   }, [])
 
   // Group tasks by plant AND type

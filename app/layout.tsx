@@ -5,6 +5,7 @@ import MainLayout from './components/layouts/MainLayout'
 import { ThemeProvider } from './components/ThemeProvider'
 import { AuthProvider } from './context/AuthContext'
 import { ProfileProvider } from './context/ProfileContext'
+import { GardenProvider } from './context/GardenContext'
 import { Providers } from './providers/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,6 +13,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'GrowGuide',
   description: 'Plan and manage your garden with ease',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -26,9 +33,11 @@ export default function RootLayout({
           <AuthProvider>
             <ThemeProvider>
               <ProfileProvider>
-                <MainLayout>
-                  {children}
-                </MainLayout>
+                <GardenProvider>
+                  <MainLayout>
+                    {children}
+                  </MainLayout>
+                </GardenProvider>
               </ProfileProvider>
             </ThemeProvider>
           </AuthProvider>
@@ -36,4 +45,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}

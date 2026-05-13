@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import { useAuth } from '@/app/context/AuthContext'
 import { supabase } from '@/app/lib/supabase'
 import Link from 'next/link'
@@ -25,6 +26,7 @@ interface Harvest {
 
 export default function UpcomingHarvests() {
   const { user } = useAuth()
+  const { plants: gardenPlants } = useGarden()
   const [harvests, setHarvests] = useState<Harvest[]>([])
   const [loading, setLoading] = useState(true)
   const [hasPlants, setHasPlants] = useState(false)
@@ -74,42 +76,26 @@ export default function UpcomingHarvests() {
           console.error('Error checking database plants:', dbError)
         }
 
-        // Also check localStorage (primary source for this app)
-        try {
-          const savedGarden = localStorage.getItem('myGarden')
-          if (savedGarden) {
-            const localPlants: GardenPlant[] = JSON.parse(savedGarden)
-            const activePlants = localPlants.filter((plant: GardenPlant) => !plant.isHarvested)
-            
-            if (activePlants.length > 0) {
-              setHasPlants(true)
-            }
-
-            activePlants.forEach((plant) => {
-              if (plant.estimatedHarvest) {
-                const harvestDate = new Date(plant.estimatedHarvest)
-                harvestDate.setHours(0, 0, 0, 0)
-                
-                if (harvestDate >= today) {
-                  const daysUntil = Math.ceil((harvestDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-                  
-                  // Check if we already have this plant from database
-                  const existingIndex = allHarvests.findIndex(h => h.plantName === plant.name)
-                  if (existingIndex === -1) {
-                    allHarvests.push({
-                      id: `local-${plant.name}-${plant.datePlanted}`,
-                      plantName: plant.name,
-                      harvestDate,
-                      daysUntil
-                    })
-                  }
-                }
+        // Use garden context plants
+        const activePlants = gardenPlants.filter(p => !p.isHarvested)
+        if (activePlants.length > 0) setHasPlants(true)
+        activePlants.forEach((plant) => {
+          if (plant.estimatedHarvest) {
+            const harvestDate = new Date(plant.estimatedHarvest)
+            harvestDate.setHours(0, 0, 0, 0)
+            if (harvestDate >= today) {
+              const daysUntil = Math.ceil((harvestDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+              if (!allHarvests.find(h => h.plantName === plant.name)) {
+                allHarvests.push({
+                  id: `garden-${plant.id ?? plant.name}-${plant.datePlanted}`,
+                  plantName: plant.name,
+                  harvestDate,
+                  daysUntil
+                })
               }
-            })
+            }
           }
-        } catch (localError) {
-          console.error('Error checking localStorage plants:', localError)
-        }
+        })
 
         // Sort by harvest date (soonest first) and limit to 5
         allHarvests.sort((a, b) => a.daysUntil - b.daysUntil)

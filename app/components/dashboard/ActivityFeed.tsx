@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import { useAuth } from '@/app/context/AuthContext'
 import { supabase } from '@/app/lib/supabase'
 
@@ -12,6 +13,7 @@ interface Activity {
 
 export default function ActivityFeed() {
   const { user } = useAuth()
+  const { plants: gardenPlants } = useGarden()
   const [activities, setActivities] = useState<Activity[]>([])
   const [loading, setLoading] = useState(true)
   const [hasActivity, setHasActivity] = useState(false)
@@ -49,28 +51,17 @@ export default function ActivityFeed() {
           console.error('Error fetching database activities:', dbError)
         }
 
-        // Also check localStorage for planted plants
-        try {
-          const savedGarden = localStorage.getItem('myGarden')
-          if (savedGarden) {
-            const localPlants = JSON.parse(savedGarden)
-            // Filter out harvested plants and create activities
-            const activePlants = localPlants.filter((plant: any) => !plant.isHarvested)
-            
-            activePlants.forEach((plant: any) => {
-              if (plant.datePlanted) {
-                allActivities.push({
-                  id: `local-${plant.name}-${plant.datePlanted}`,
-                  type: 'planted',
-                  plantName: plant.name || '',
-                  timestamp: new Date(plant.datePlanted)
-                })
-              }
+        // Add garden plants as activities
+        gardenPlants.filter(p => !p.isHarvested).forEach((plant) => {
+          if (plant.datePlanted) {
+            allActivities.push({
+              id: `garden-${plant.id ?? plant.name}-${plant.datePlanted}`,
+              type: 'planted',
+              plantName: plant.name || '',
+              timestamp: new Date(plant.datePlanted)
             })
           }
-        } catch (localError) {
-          console.error('Error fetching localStorage activities:', localError)
-        }
+        })
 
         // Sort all activities by timestamp (most recent first) and limit to 5
         allActivities.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())

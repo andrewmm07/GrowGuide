@@ -3,6 +3,7 @@
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { useGarden } from '@/app/context/GardenContext'
 import { createPortal } from 'react-dom'
 // Remove the MonthCard import since it's defined in this file
 // import { MonthCard } from '../components/MonthCard'
@@ -3175,39 +3176,7 @@ interface GardenPlant {
   notes?: string;
 }
 
-// Update the addToMyGarden function
-function addToMyGarden(plantName: string, activityType: 'sow' | 'plant') {
-  const existingGarden = localStorage.getItem('myGarden')
-  const myGarden: GardenPlant[] = existingGarden ? JSON.parse(existingGarden) : []
-  
-  // Check if plant is already in garden with the same activity type
-  if (!myGarden.some(plant => plant.name === plantName && plant.activityType === activityType)) {
-    const newPlant: GardenPlant = {
-      name: plantName,
-      datePlanted: new Date().toISOString(),
-      type: activityType === 'sow' ? 'seed' : 'seedling',  // Set type based on activity
-      activityType: activityType
-    }
-    myGarden.push(newPlant)
-    localStorage.setItem('myGarden', JSON.stringify(myGarden))
-    return true
-  }
-  return false
-}
-
-// Update the removeFromMyGarden function
-function removeFromMyGarden(plantName: string, activityType: 'sow' | 'plant') {
-  const existingGarden = localStorage.getItem('myGarden')
-  if (existingGarden) {
-    const myGarden: GardenPlant[] = JSON.parse(existingGarden)
-    const updatedGarden = myGarden.filter(
-      plant => !(plant.name === plantName && plant.activityType === activityType)
-    )
-    localStorage.setItem('myGarden', JSON.stringify(updatedGarden))
-    return true
-  }
-  return false
-}
+// Garden management handled by GardenContext
 
 // First, create a type for the month summaries
 type MonthSummaries = {
@@ -3452,7 +3421,7 @@ function MonthCard({ month, activities, location }: { month: string; activities:
   const [isPlantModalOpen, setIsPlantModalOpen] = useState(false);
   const [selectedPlant, setSelectedPlant] = useState<string | null>(null);
   const [showFullList, setShowFullList] = useState<'sow' | 'plant' | null>(null);
-  const [gardenPlants, setGardenPlants] = useState<Array<{name: string, activityType: 'sow' | 'plant'}>>([]);  // Update the gardenPlants state to store both name and type
+  // Garden operations from GardenContext (already destructured above if same component)
 
   const sowActivities = activities.filter(a => a.type === 'sow');
   const plantActivities = activities.filter(a => a.type === 'plant');
@@ -3462,27 +3431,19 @@ function MonthCard({ month, activities, location }: { month: string; activities:
     setIsPlantModalOpen(true);
   };
 
-  const handleQuickAdd = (plantName: string, activityType: 'sow' | 'plant' | 'harvest', e: React.MouseEvent) => {
+  const handleQuickAdd = async (plantName: string, activityType: 'sow' | 'plant' | 'harvest', e: React.MouseEvent) => {
     e.stopPropagation();
-    const isInGarden = gardenPlants.some(
-      p => p.name === plantName && p.activityType === activityType
-    );
-    
-    if (isInGarden && (activityType === 'sow' || activityType === 'plant')) {
-      removeFromMyGarden(plantName, activityType as 'sow' | 'plant');
-      setGardenPlants(gardenPlants.filter(
-        p => !(p.name === plantName && p.activityType === activityType)
-      ));
-    } else if (activityType === 'sow' || activityType === 'plant') {
-      addToMyGarden(plantName, activityType);
-      setGardenPlants([...gardenPlants, { name: plantName, activityType }]);
+    if (activityType === 'sow' || activityType === 'plant') {
+      if (isPlantInGarden(plantName, activityType)) {
+        await removeFromGarden(plantName, activityType);
+      } else {
+        await addToGarden(plantName, activityType);
+      }
     }
   };
 
   const renderPlantItem = (activity: PlantInfo) => {
-    const isInGarden = gardenPlants.some(
-      p => p.name === activity.name && p.activityType === activity.type
-    );
+    const inGarden = isPlantInGarden(activity.name, activity.type as 'sow' | 'plant');
     
     return (
       <li 
@@ -3502,13 +3463,13 @@ function MonthCard({ month, activities, location }: { month: string; activities:
             handleQuickAdd(activity.name, activity.type as 'sow' | 'plant', e);
           }}
           className={`flex items-center justify-center transition-all ml-2 ${
-            isInGarden 
+            inGarden 
               ? 'text-green-500 hover:text-green-600' 
               : 'opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-600'
           }`}
-          title={isInGarden ? 'Remove from Garden' : 'Add to My Garden'}
+          title={inGarden ? 'Remove from Garden' : 'Add to My Garden'}
         >
-          {isInGarden ? (
+          {inGarden ? (
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
@@ -3636,10 +3597,8 @@ function PlantModal({
   if (!plantDetails) return null
 
   const [activeTab, setActiveTab] = useState<'issues' | 'maintenance' | null>(null)
-  const [isInGarden, setIsInGarden] = useState(() => {
-    const garden = localStorage.getItem('myGarden')
-    return garden ? JSON.parse(garden).some((p: GardenPlant) => p.name === plant) : false
-  })
+  const { addToGarden: gardenAdd, removeFromGarden: gardenRemove, isInGarden: checkInGarden } = useGarden()
+  const [isInGarden, setIsInGarden] = useState(() => checkInGarden(plant, 'sow'))
 
   // Handle click outside modal
   useEffect(() => {
@@ -3654,17 +3613,13 @@ function PlantModal({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [onClose])
 
-  const handleAddToGarden = () => {
+  const handleAddToGarden = async () => {
     if (isInGarden) {
-      const removed = removeFromMyGarden(plant, 'sow')
-      if (removed) {
-        setIsInGarden(false)
-      }
+      await gardenRemove(plant, 'sow')
+      setIsInGarden(false)
     } else {
-      const added = addToMyGarden(plant, 'sow')
-      if (added) {
-        setIsInGarden(true)
-      }
+      await gardenAdd(plant, 'sow')
+      setIsInGarden(true)
     }
   }
 
@@ -3703,7 +3658,7 @@ function PlantModal({
                         : 'bg-green-100 text-green-700 hover:bg-green-200'
                     }`}
                   >
-                    {isInGarden ? (
+                    {inGarden ? (
                       <>
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

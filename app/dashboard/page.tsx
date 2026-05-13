@@ -77,12 +77,10 @@ export default function DashboardPage() {
           return
         }
 
-        // Fallback to localStorage
-        const savedGarden = localStorage.getItem('myGarden')
-        if (savedGarden) {
+        // Use garden context
+        {
           try {
-            const localPlants = JSON.parse(savedGarden)
-            // Filter out harvested plants
+            const localPlants = gardenPlantsCtx
             const activePlants = localPlants.filter((plant: any) => !plant.isHarvested)
             if (activePlants && activePlants.length > 0) {
               setPlants(activePlants)
@@ -101,11 +99,10 @@ export default function DashboardPage() {
         }
       } catch (error) {
         console.error('Error fetching plants:', error)
-        // Fallback to localStorage on error
-        const savedGarden = localStorage.getItem('myGarden')
-        if (savedGarden) {
+        // Garden context fallback
+        {
           try {
-            const localPlants = JSON.parse(savedGarden)
+            const localPlants = gardenPlantsCtx
             const activePlants = localPlants.filter((plant: any) => !plant.isHarvested)
             if (activePlants && activePlants.length > 0) {
               setPlants(activePlants)
