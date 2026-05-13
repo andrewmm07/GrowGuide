@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import MainLayout from './components/layouts/MainLayout'
@@ -12,6 +12,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'GrowGuide',
   description: 'Plan and manage your garden with ease',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -29,11 +35,4 @@ export default function RootLayout({
                 <MainLayout>
                   {children}
                 </MainLayout>
-              </ProfileProvider>
-            </ThemeProvider>
-          </AuthProvider>
-        </Providers>
-      </body>
-    </html>
-  )
-} 
+              </ProfileProvid
