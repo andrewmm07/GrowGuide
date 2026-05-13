@@ -1407,7 +1407,7 @@ export default function MyGarden() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-green-800 mb-8">My Garden</h1>
+        <h1 className="text-2xl sm:text-4xl font-bold text-green-800 mb-4 sm:mb-8">My Garden</h1>
         
         {/* Add New Planting Form */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
@@ -1746,7 +1746,7 @@ export default function MyGarden() {
 
         {/* Hall of Fame Harvest */}
         {harvestedPlants.length > 0 && (
-          <div className="bg-amber-50 rounded-xl p-8 mb-8">
+          <div className="bg-amber-50 rounded-xl p-4 sm:p-8 mb-8">
             <h2 className="text-2xl font-bold text-amber-800 mb-6">
               Hall of Fame Harvest
             </h2>

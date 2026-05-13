@@ -111,7 +111,7 @@ export default function WeatherPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 flex">
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-4 sm:p-8">
           <div className="animate-pulse">
             <div className="h-8 bg-gray-200 rounded w-1/4 mb-6"></div>
             <div className="space-y-4">
@@ -130,7 +130,7 @@ export default function WeatherPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 sm:p-8">
         <div className="max-w-7xl mx-auto space-y-6">
           <h1 className="text-2xl font-semibold text-gray-800">Weather Forecast</h1>
 
@@ -199,7 +199,7 @@ export default function WeatherPage() {
           </div>
 
           {/* Day Selection */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
             {days.map((day, index) => (
               <button
                 key={day.date}

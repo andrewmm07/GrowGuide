@@ -69,10 +69,10 @@ export default function IdentifyIssuePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen bg-gray-50 py-6 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Plant Issue Identification</h1>
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4">Plant Issue Identification</h1>
           <p className="text-gray-600 text-lg">
             Upload an image of your plant to identify potential issues, diseases, or nutrient deficiencies
           </p>

@@ -241,7 +241,7 @@ export default function Propagation() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex">
       <Sidebar />
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 sm:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">Plant Propagation Guide</h1>

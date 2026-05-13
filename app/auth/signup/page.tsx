@@ -47,7 +47,7 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md p-8">
+      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md p-4 sm:p-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-green-800">Create Account</h2>
           <p className="mt-2 text-gray-600">Start your gardening journey today</p>

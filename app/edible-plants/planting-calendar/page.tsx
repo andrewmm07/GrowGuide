@@ -1763,7 +1763,7 @@ function PlantingCalendarContent() {
       <Sidebar />
       
       {/* Main Content */}
-      <div className="ml-80 py-12">
+      <div className="py-6 sm:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             {/* Header Section */}

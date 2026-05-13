@@ -134,7 +134,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-4">
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-6 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="animate-pulse">
             {/* Loading skeleton */}
@@ -150,7 +150,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-6 px-4">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Dashboard Header */}
         <div className="mb-2">

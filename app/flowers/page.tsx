@@ -97,11 +97,11 @@ export default function Flowers() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-gray-100">
       <Sidebar />
       
-      <div className="ml-80 py-12 px-4">
+      <div className="py-6 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold text-green-800 mb-3">
+          <div className="mb-6">
+            <h1 className="text-2xl sm:text-4xl font-bold text-green-800 mb-3">
               Flower Guide
             </h1>
             <p className="text-gray-600 text-lg">
@@ -167,8 +167,8 @@ export default function Flowers() {
             {/* Flower Details */}
             {selectedFlower ? (
               <div className="md:col-span-2">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-2">{selectedFlower.name}</h2>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-4 sm:p-8">
+                  <h2 className="text-xl sm:text-3xl font-bold text-gray-800 mb-2">{selectedFlower.name}</h2>
                   <p className="text-gray-600 mb-6">{selectedFlower.description}</p>
 
                   <div className="grid md:grid-cols-2 gap-8">

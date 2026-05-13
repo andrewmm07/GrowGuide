@@ -4147,13 +4147,13 @@ export default function PlantingCalendarPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
-      <div className="py-12">
+      <div className="py-6 sm:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             {/* Header Section */}
-            <div className="mb-12">
+            <div className="mb-6 sm:mb-12">
               <div className="flex items-center justify-between mb-6">
-                <h1 className="text-4xl font-bold text-green-800">
+                <h1 className="text-2xl sm:text-4xl font-bold text-green-800">
                   Planting Calendar
                 </h1>
                 <Link 
@@ -4184,7 +4184,7 @@ export default function PlantingCalendarPage() {
             {/* Calendar Grid */}
             <div className="space-y-6">
               {monthRows.map((months, rowIndex) => (
-                <div key={rowIndex} className="grid grid-cols-3 gap-6">
+                <div key={rowIndex} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                   {months.map((month) => (
                     <MonthCard
                       key={month}
