@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import MainLayout from './components/layouts/MainLayout'
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Plan and manage your garden with ease',
 }
 
-export const viewport: Viewport = {
+export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,

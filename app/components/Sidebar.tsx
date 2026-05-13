@@ -120,7 +120,8 @@ export default function Sidebar({ mobileOpen = false, onMobileClose }: SidebarPr
   }
 
   // Shared nav content used in both desktop and mobile renders
-  const navContent = (collapsed: boolean) => (
+  const navContent = (collapsed: boolean): JSX.Element => {
+    return (
     <>
       <nav className="py-4 flex-1 overflow-y-auto">
         {navigation.map((item) => (
@@ -168,11 +169,12 @@ export default function Sidebar({ mobileOpen = false, onMobileClose }: SidebarPr
         </div>
       )}
     </>
-  )
+    )
+  }
 
   return (
     <>
-      {/* ── MOBILE DRAWER ── */}
+      {/* MOBILE DRAWER */}
       {/* Backdrop */}
       <div
         className={`fixed inset-0 bg-black/40 z-40 md:hidden transition-opacity duration-300 ${
