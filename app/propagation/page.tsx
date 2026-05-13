@@ -256,12 +256,12 @@ export default function Propagation() {
             <input
               type="text"
               placeholder="Search plants..."
-              className="flex-1 p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="flex-1 p-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <select
-              className="p-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="p-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value as PlantPropagation['category'] | 'All')}
             >

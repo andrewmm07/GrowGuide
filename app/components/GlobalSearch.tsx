@@ -53,7 +53,7 @@ export default function GlobalSearch() {
         <input
           type="text"
           placeholder="Search plants..."
-          className="w-64 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-64 px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500"
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setIsOpen(true)}

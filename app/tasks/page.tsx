@@ -1183,7 +1183,7 @@ export default function TasksPage(): JSX.Element {
             <select
               value={suggestionsSortBy}
               onChange={(e) => setSuggestionsSortBy(e.target.value as 'plant' | 'dueDate')}
-              className="px-3 py-1.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              className="px-3 py-1.5 border border-gray-300 rounded-lg text-sm bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
             >
               <option value="plant">Plant</option>
               <option value="dueDate">Due Date</option>
@@ -1537,7 +1537,7 @@ export default function TasksPage(): JSX.Element {
                   required
                   value={newProject.name}
                   onChange={(e) => setNewProject({ ...newProject, name: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="e.g., Spring Garden Setup, Tomato Project"
                 />
               </div>
@@ -1548,7 +1548,7 @@ export default function TasksPage(): JSX.Element {
                 <textarea
                   value={newProject.description}
                   onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Project description..."
                   rows={2}
                 />
@@ -1561,7 +1561,7 @@ export default function TasksPage(): JSX.Element {
                   type="color"
                   value={newProject.color}
                   onChange={(e) => setNewProject({ ...newProject, color: e.target.value })}
-                  className="w-16 h-10 border border-gray-300 rounded-lg cursor-pointer"
+                  className="w-16 h-10 border border-gray-300 rounded-lg bg-white cursor-pointer"
                 />
               </div>
               <div className="flex gap-3">
@@ -1606,7 +1606,7 @@ export default function TasksPage(): JSX.Element {
                   required
                   value={newTask.activity}
                   onChange={(e) => setNewTask({ ...newTask, activity: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   placeholder="e.g., Water tomatoes, Check for pests"
                 />
               </div>
@@ -1617,7 +1617,7 @@ export default function TasksPage(): JSX.Element {
                 <textarea
                   value={newTask.details}
                   onChange={(e) => setNewTask({ ...newTask, details: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   placeholder="Additional details or notes..."
                   rows={3}
                 />
@@ -1632,7 +1632,7 @@ export default function TasksPage(): JSX.Element {
                     required
                     value={newTask.dueDate}
                     onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   />
                 </div>
                 <div>
@@ -1642,7 +1642,7 @@ export default function TasksPage(): JSX.Element {
                   <select
                     value={newTask.priority}
                     onChange={(e) => setNewTask({ ...newTask, priority: e.target.value as Priority })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   >
                     <option value="urgent-important">Urgent & Important</option>
                     <option value="urgent">Urgent</option>
@@ -1659,7 +1659,7 @@ export default function TasksPage(): JSX.Element {
                   <select
                     value={newTask.category}
                     onChange={(e) => setNewTask({ ...newTask, category: e.target.value as TaskCategory })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   >
                     <option value="other">Other</option>
                     <option value="planting">Planting</option>
@@ -1677,7 +1677,7 @@ export default function TasksPage(): JSX.Element {
                   <select
                     value={newTask.projectId}
                     onChange={(e) => setNewTask({ ...newTask, projectId: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-green-500"
                   >
                     <option value="">No Project</option>
                     {projects.map(project => (

@@ -1564,21 +1564,21 @@ export default function MyGarden() {
                           type="date"
                           defaultValue={new Date(plant.datePlanted).toISOString().split('T')[0]}
                           onChange={(e) => handleUpdatePlant(plant, { datePlanted: new Date(e.target.value).toISOString() })}
-                          className="w-full rounded-md border-gray-200 text-sm"
+                          className="w-full rounded-md border border-gray-200 bg-white text-gray-900 text-sm"
                         />
                         <input
                           type="text"
                           placeholder="Location"
                           defaultValue={plant.location}
                           onChange={(e) => handleUpdatePlant(plant, { location: e.target.value })}
-                          className="w-full rounded-md border-gray-200 text-sm"
+                          className="w-full rounded-md border border-gray-200 bg-white text-gray-900 text-sm"
                         />
                         <input
                           type="text"
                           placeholder="Notes"
                           defaultValue={plant.notes}
                           onChange={(e) => handleUpdatePlant(plant, { notes: e.target.value })}
-                          className="w-full rounded-md border-gray-200 text-sm"
+                          className="w-full rounded-md border border-gray-200 bg-white text-gray-900 text-sm"
                         />
                       </div>
                       <div className="flex justify-end gap-2">

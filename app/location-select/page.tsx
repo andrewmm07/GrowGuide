@@ -73,7 +73,7 @@ export default function LocationSelect() {
                 setSelectedCity('')  // Reset city when state changes
                 setError('')
               }}
-              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
+              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
               required
             >
               <option value="">Select a state</option>
@@ -97,7 +97,7 @@ export default function LocationSelect() {
                 setSelectedCity(e.target.value)
                 setError('')
               }}
-              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
+              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
               required
               disabled={!selectedState}
             >
