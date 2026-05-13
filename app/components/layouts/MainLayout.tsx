@@ -19,4 +19,17 @@ export default function MainLayout({
         showMenuButton={showSidebar}
         onMenuClick={() => setMobileOpen(true)}
       />
-      <div className="flex flex-1 overflow-hi
+      <div className="flex flex-1 overflow-hidden">
+        {showSidebar && (
+          <Sidebar
+            mobileOpen={mobileOpen}
+            onMobileClose={() => setMobileOpen(false)}
+          />
+        )}
+        <main className="flex-1 p-3 sm:p-6 bg-gray-50 overflow-y-auto">
+          {children}
+        </main>
+      </div>
+    </div>
+  )
+}
