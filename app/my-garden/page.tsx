@@ -1431,14 +1431,14 @@ export default function MyGarden() {
                 </div>
                 {inputMode === 'select' ? (
                   <select value={newPlant.name} onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required>
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900" required>
                     <option value="">Select a plant...</option>
                     {PLANT_OPTIONS.map(plant => (<option key={plant} value={plant}>{plant}</option>))}
                   </select>
                 ) : (
                   <input type="text" placeholder="Enter plant name" value={newPlant.name}
                     onChange={(e) => setNewPlant(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required />
+                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900" required />
                 )}
               </div>
 
@@ -1446,7 +1446,7 @@ export default function MyGarden() {
               <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700">Type</label>
                 <select value={newPlant.type} onChange={(e) => setNewPlant(prev => ({ ...prev, type: e.target.value as 'seed' | 'seedling' }))}
-                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required>
+                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900" required>
                   <option value="seedling">Seedling</option>
                   <option value="seed">Seed</option>
                 </select>
@@ -1456,7 +1456,7 @@ export default function MyGarden() {
               <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700">Date Planted</label>
                 <input type="date" defaultValue={new Date().toISOString().split('T')[0]}
-                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm" required />
+                  className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900" required />
               </div>
             </div>
 
