@@ -1473,14 +1473,14 @@ export default function MyGarden() {
                 placeholder="Location (optional)"
                 value={newPlant.location}
                 onChange={(e) => setNewPlant(prev => ({ ...prev, location: e.target.value }))}
-                className="rounded-lg border-gray-200"
+                className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900"
               />
               <input
                 type="text"
                 placeholder="Notes (optional)"
                 value={newPlant.notes}
                 onChange={(e) => setNewPlant(prev => ({ ...prev, notes: e.target.value }))}
-                className="rounded-lg border-gray-200"
+                className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white text-gray-900"
               />
             </div>
           </form>
