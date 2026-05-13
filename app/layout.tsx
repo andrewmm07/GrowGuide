@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description: 'Plan and manage your garden with ease',
 }
 
-
 export default function RootLayout({
   children,
 }: {
@@ -30,4 +29,11 @@ export default function RootLayout({
                 <MainLayout>
                   {children}
                 </MainLayout>
-              </ProfileProvid
+              </ProfileProvider>
+            </ThemeProvider>
+          </AuthProvider>
+        </Providers>
+      </body>
+    </html>
+  )
+} 
