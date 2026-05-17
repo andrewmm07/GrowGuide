@@ -53,6 +53,10 @@ const MONTH_DATA: { [key: string]: MonthData } = {
   // Add more months...
 }
 
+export function generateStaticParams() {
+  return [{'month': 'january'}, {'month': 'february'}, {'month': 'march'}, {'month': 'april'}, {'month': 'may'}, {'month': 'june'}, {'month': 'july'}, {'month': 'august'}, {'month': 'september'}, {'month': 'october'}, {'month': 'november'}, {'month': 'december'}]
+}
+
 export default function MonthGuide() {
   const params = useParams()
   const searchParams = useSearchParams()
