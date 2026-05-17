@@ -135,9 +135,13 @@ export default function WeatherWidget({ location }: WeatherWidgetProps) {
         
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/weather?city=${encodeURIComponent(location.city)}&state=${encodeURIComponent(location.state)}`,
-          { 
+          {
             signal: controller.signal,
-            cache: 'no-store'
+            cache: 'no-store',
+            headers: {
+              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json',
+            }
           }
         )
         
