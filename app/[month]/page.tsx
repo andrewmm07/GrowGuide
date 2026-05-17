@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { useParams, useSearchParams } from 'next/navigation'
 
 interface WeatherInfo {
@@ -54,7 +55,7 @@ const MONTH_DATA: { [key: string]: MonthData } = {
 }
 
 
-export default function MonthGuide() {
+function MonthGuideContent() {
   const params = useParams()
   const searchParams = useSearchParams()
   
@@ -190,4 +191,12 @@ export default function MonthGuide() {
       </div>
     </div>
   )
-} 
+}
+
+export default function MonthGuide() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-green-600 text-2xl">Loading...</div></div>}>
+      <MonthGuideContent />
+    </Suspense>
+  )
+}
