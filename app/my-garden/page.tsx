@@ -1016,7 +1016,7 @@ function VerticalTimeline({ plants }: { plants: GardenPlant[] }) {
 
   // Sort plants by harvest date
   const sortedPlants = [...plants].sort((a, b) => 
-    new Date(a.estimatedHarvest).getTime() - new Date(b.estimatedHarvest).getTime()
+    new Date(a.estimatedHarvest ?? 0).getTime() - new Date(b.estimatedHarvest ?? 0).getTime()
   )
 
   // Filter plants based on days until harvest
@@ -1024,7 +1024,7 @@ function VerticalTimeline({ plants }: { plants: GardenPlant[] }) {
     if (filter === 'all') return true;
     
     const daysUntilHarvest = Math.ceil(
-      (new Date(plant.estimatedHarvest).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+      (new Date(plant.estimatedHarvest ?? 0).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
     );
 
     if (filter === 'soon') return daysUntilHarvest <= stages.soon.days;
@@ -1161,7 +1161,7 @@ function VerticalTimeline({ plants }: { plants: GardenPlant[] }) {
       <div className="space-y-4">
         {(isExpanded ? filteredPlants : filteredPlants.slice(0, 2)).map((plant, index) => {
           const daysUntilHarvest = Math.ceil(
-            (new Date(plant.estimatedHarvest).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+            (new Date(plant.estimatedHarvest ?? 0).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
           );
           
           return (
@@ -1590,7 +1590,7 @@ export default function MyGarden() {
                         <div className="text-sm text-gray-600 space-y-1 mt-2">
                           <p>Planted: {new Date(plant.datePlanted).toLocaleDateString()}</p>
                           <p className="text-green-700">
-                            Expected Harvest: {new Date(plant.estimatedHarvest).toLocaleDateString()}
+                            Expected Harvest: {plant.estimatedHarvest ? new Date(plant.estimatedHarvest).toLocaleDateString() : 'TBD'}
                           </p>
                         </div>
                       ) : (
@@ -1599,7 +1599,7 @@ export default function MyGarden() {
                           <div className="space-y-1">
                             <p>Planted: {new Date(plant.datePlanted).toLocaleDateString()}</p>
                             <p className="text-green-700">
-                              Expected Harvest: {new Date(plant.estimatedHarvest).toLocaleDateString()}
+                              Expected Harvest: {plant.estimatedHarvest ? new Date(plant.estimatedHarvest).toLocaleDateString() : 'TBD'}
                             </p>
                             {plant.location && <p>Location: {plant.location}</p>}
                             {plant.notes && <p>Notes: {plant.notes}</p>}
