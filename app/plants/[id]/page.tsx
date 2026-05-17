@@ -71,9 +71,6 @@ const PLANT_DATABASE: Record<string, PlantDetail> = {
   // Add more plants...
 }
 
-export function generateStaticParams() {
-  return [{ id: 'tomatoes' }]
-}
 
 export default function PlantDetail() {
   const params = useParams()
