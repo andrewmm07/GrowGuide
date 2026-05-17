@@ -26,11 +26,6 @@ export default function DashboardPage() {
       return
     }
 
-    if (!userLocation?.state) {
-      router.push('/location-select')
-      return
-    }
-
     // Fetch user name from profile
     const fetchUserName = async () => {
       try {
@@ -54,7 +49,7 @@ export default function DashboardPage() {
 
     fetchUserName()
     setLoading(false)
-  }, [user, userLocation, router])
+  }, [user, router])
 
   useEffect(() => {
     const fetchPlants = async () => {

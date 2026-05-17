@@ -310,8 +310,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         throw error
       }
 
-      if (data.session) {
-        router.push('/dashboard')
+      if (data.session && data.user) {
+        // Check if user has location set — new users go to location-select, returning users go to dashboard
+        try {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('state, city')
+            .eq('id', data.user.id)
+            .single()
+          if (profile?.state && profile?.city) {
+            router.push('/dashboard')
+          } else {
+            router.push('/location-select')
+          }
+        } catch {
+          router.push('/dashboard')
+        }
       }
     } catch (err: any) {
       console.error('Login catch error:', err)

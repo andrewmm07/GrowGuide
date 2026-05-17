@@ -5,7 +5,7 @@ import { useAuth } from '@/app/context/AuthContext'
 
 export default function HomePage() {
   const router = useRouter()
-  const { login, signup, user, loading: authLoading } = useAuth()
+  const { login, signup, user, loading: authLoading, locationLoading, userLocation } = useAuth()
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
   const [loginData, setLoginData] = useState({ email: '', password: '' })
@@ -18,14 +18,18 @@ export default function HomePage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Redirect if already logged in
+  // Redirect if already logged in — check location to route new vs returning users
   useEffect(() => {
-    if (!authLoading && user) {
-      router.push('/dashboard')
+    if (!authLoading && !locationLoading && user) {
+      if (userLocation?.state) {
+        router.push('/dashboard')
+      } else {
+        router.push('/location-select')
+      }
     }
-  }, [user, authLoading, router])
+  }, [user, authLoading, locationLoading, userLocation, router])
 
-  if (authLoading) {
+  if (authLoading || locationLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 flex items-center justify-center">
         <div className="text-green-600 text-2xl">Loading...</div>
