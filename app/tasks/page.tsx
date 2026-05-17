@@ -160,7 +160,7 @@ export default function TasksPage(): JSX.Element {
       // Load system tasks from plant schedule
       const gardenPlants = gardenPlantsCtx
       {
-        const activePlants = gardenPlants.filter((plant: GardenPlant) => !plant.isHarvested)
+        const activePlants = gardenPlants.filter((plant: any) => !plant.isHarvested)
 
         activePlants.forEach((plant) => {
           if (plant.schedule && Array.isArray(plant.schedule)) {

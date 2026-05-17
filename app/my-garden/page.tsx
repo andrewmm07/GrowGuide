@@ -1608,7 +1608,7 @@ export default function MyGarden() {
                           {/* Growing Schedule */}
                           <div className="mt-4 space-y-2">
                             <h4 className="text-sm font-medium text-gray-700">Growing Schedule:</h4>
-                            {plant.schedule.map((task, taskIndex) => (
+                            {(plant.schedule ?? []).map((task, taskIndex) => (
                               <div 
                                 key={`${plant.name}-${plant.datePlanted}-${taskIndex}`}
                                 className="flex items-start gap-2 text-sm"

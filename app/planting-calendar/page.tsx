@@ -3413,6 +3413,7 @@ const STATE_MONTH_SUMMARIES: { [key: string]: typeof monthSummaries } = {
 
 // In the MonthCard component, modify how we access the summaries
 function MonthCard({ month, activities, location }: { month: string; activities: PlantInfo[]; location: GardenLocation }) {
+  const { addToGarden, removeFromGarden, isInGarden: isPlantInGarden } = useGarden()
   // Helper function inside component
   const getStateSummaries = (state: string) => {
     const canonicalName = (state in stateAliases ? stateAliases[state as StateAlias] : state) as StateName;
@@ -3658,7 +3659,7 @@ function PlantModal({
                         : 'bg-green-100 text-green-700 hover:bg-green-200'
                     }`}
                   >
-                    {inGarden ? (
+                    {isInGarden ? (
                       <>
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

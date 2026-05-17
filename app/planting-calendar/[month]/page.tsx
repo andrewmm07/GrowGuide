@@ -12,6 +12,7 @@ import { STATE_MONTH_SUMMARIES } from '../../data/state-month-summaries'
 import { getNormalizedLocation } from '../../utils/location'
 import type { GardenLocation } from '../../types/location'
 import { getLocationNoNos } from '../../data/no-nos'
+import { useGarden } from '@/app/context/GardenContext'
 
 interface MonthlyWeather {
   avgTemp: string
@@ -501,6 +502,7 @@ const FALLBACK_PLANTING_GUIDE: Record<string, Record<string, { name: string; typ
 
 const MonthDetailPage = () => {
   const params = useParams()
+  const { addToGarden, removeFromGarden, isInGarden } = useGarden()
   if (!params || !params.month) {
     return null
   }
@@ -511,7 +513,6 @@ const MonthDetailPage = () => {
     weekly: false,
     noNos: false
   })
-  const { addToGarden, removeFromGarden, isInGarden } = useGarden()
   const [userLocation, setUserLocation] = useState<GardenLocation | null>(null)
   const [monthActivities, setMonthActivities] = useState<string[]>([])
   const [locationLoading, setLocationLoading] = useState(true)
