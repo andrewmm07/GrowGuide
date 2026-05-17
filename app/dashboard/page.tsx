@@ -78,44 +78,22 @@ export default function DashboardPage() {
         }
 
         // Use garden context
-        {
-          try {
-            const localPlants = gardenPlantsCtx
-            const activePlants = localPlants.filter((plant: any) => !plant.isHarvested)
-            if (activePlants && activePlants.length > 0) {
-              setPlants(activePlants)
-              setHasPlants(true)
-            } else {
-              setPlants([])
-              setHasPlants(false)
-            }
-          } catch (error) {
-            setPlants([])
-            setHasPlants(false)
-          }
-        } else {
+        try {
+          const activePlants = gardenPlantsCtx.filter((plant: any) => !plant.isHarvested)
+          setPlants(activePlants)
+          setHasPlants(activePlants.length > 0)
+        } catch (error) {
           setPlants([])
           setHasPlants(false)
         }
       } catch (error) {
         console.error('Error fetching plants:', error)
         // Garden context fallback
-        {
-          try {
-            const localPlants = gardenPlantsCtx
-            const activePlants = localPlants.filter((plant: any) => !plant.isHarvested)
-            if (activePlants && activePlants.length > 0) {
-              setPlants(activePlants)
-              setHasPlants(true)
-            } else {
-              setPlants([])
-              setHasPlants(false)
-            }
-          } catch (err) {
-            setPlants([])
-            setHasPlants(false)
-          }
-        } else {
+        try {
+          const activePlants = gardenPlantsCtx.filter((plant: any) => !plant.isHarvested)
+          setPlants(activePlants)
+          setHasPlants(activePlants.length > 0)
+        } catch (err) {
           setPlants([])
           setHasPlants(false)
         }
