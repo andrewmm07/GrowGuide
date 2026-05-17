@@ -13,10 +13,6 @@ interface YoutubeTopResult {
   title: string
 }
 
-interface WikiResult {
-  url: string
-  title: string
-}
 
 interface CommonIssue {
   name: string
@@ -44,11 +40,6 @@ function buildDefaultResources(issueName: string): ResourceLink[] {
       // Placeholder; replaced in UI once we fetch the top video URL.
       url: `__youtube_top__:${issueName}`,
       source: 'YouTube'
-    },
-    {
-      title: `Wikipedia: ${issueName}`,
-      url: `https://en.wikipedia.org/wiki/Special:Search?search=${q}`,
-      source: 'Wikipedia'
     },
     {
       title: `ABC Gardening Australia: ${issueName}`,
@@ -139,7 +130,6 @@ const COMMON_ISSUES: IssueCategory[] = [
           { title: 'Loading…', url: 'https://www.youtube.com/watch?v=mVdou1MJCAE', source: 'YouTube' },
           { title: 'Loading…', url: 'https://www.youtube.com/watch?v=HVTitHBwpN0', source: 'YouTube' },
           { title: 'Loading…', url: 'https://www.youtube.com/watch?v=iic-aHGhUb4', source: 'YouTube' },
-          { title: 'Wikipedia: Aphid', url: 'https://en.wikipedia.org/wiki/Aphid', source: 'Wikipedia' }
         ],
         affectedPlants: ['Most vegetables', 'Roses', 'Fruit trees', 'Ornamentals']
       },
@@ -2583,7 +2573,6 @@ export default function CommonIssuesPage() {
   const [expandedIssue, setExpandedIssue] = useState<string | null>(null)
   const [topYoutubeByIssue, setTopYoutubeByIssue] = useState<Record<string, YoutubeTopResult>>({})
   const [youtubeTitleByUrl, setYoutubeTitleByUrl] = useState<Record<string, string>>({})
-  const [wikiByIssue, setWikiByIssue] = useState<Record<string, WikiResult>>({})
 
   const expandedIssueObj = useMemo(() => {
     if (!selectedCategory || !expandedIssue) return null
@@ -2653,37 +2642,6 @@ export default function CommonIssuesPage() {
     }
   }, [expandedIssueObj, youtubeTitleByUrl])
 
-  useEffect(() => {
-    let cancelled = false
-
-    const loadWiki = async () => {
-      if (!expandedIssueObj) return
-      const issueName = expandedIssueObj.name
-      if (wikiByIssue[issueName]) return
-
-      // If a Wikipedia link is already explicitly present, we don't need to fetch.
-      const resources = getIssueResources(expandedIssueObj)
-      const hasWiki = resources.some((r) => r.source === 'Wikipedia')
-      if (hasWiki) return
-
-      try {
-        const res = await fetch(`/api/wiki-page?term=${encodeURIComponent(issueName)}`)
-        if (!res.ok) return
-        const data = await res.json()
-        if (!data?.url || typeof data.url !== 'string') return
-        if (!data?.title || typeof data.title !== 'string') return
-        if (cancelled) return
-        setWikiByIssue((prev) => ({ ...prev, [issueName]: { url: data.url, title: data.title } }))
-      } catch {
-        // ignore
-      }
-    }
-
-    loadWiki()
-    return () => {
-      cancelled = true
-    }
-  }, [expandedIssueObj, wikiByIssue])
 
   return (
     <div className="min-h-screen bg-gray-50 py-6 px-4">
@@ -2887,25 +2845,6 @@ export default function CommonIssuesPage() {
                             )
                           })}
 
-                          {/* Ensure every issue has a Wikipedia page link */}
-                          {!getIssueResources(issue).some((r) => r.source === 'Wikipedia') && (
-                            <li className="text-gray-700 flex items-start gap-2">
-                              <span className="text-purple-500 mt-1">↗</span>
-                              {wikiByIssue[issue.name]?.url ? (
-                                <a
-                                  href={wikiByIssue[issue.name].url}
-                                  target="_blank"
-                                  rel="noreferrer noopener"
-                                  className="text-purple-700 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500"
-                                >
-                                  {wikiByIssue[issue.name].title}
-                                </a>
-                              ) : (
-                                <span className="text-gray-500">Wikipedia <span className="text-xs">(loading…)</span></span>
-                              )}
-                              <span className="text-xs text-gray-500 mt-1">(Wikipedia)</span>
-                            </li>
-                          )}
                         </ul>
                       </div>
 

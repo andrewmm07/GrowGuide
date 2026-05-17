@@ -134,7 +134,7 @@ export default function WeatherWidget({ location }: WeatherWidgetProps) {
         }, 8000) // 8 second timeout
         
         const response = await fetch(
-          `/api/weather?city=${encodeURIComponent(location.city)}&state=${encodeURIComponent(location.state)}`,
+          `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/weather?city=${encodeURIComponent(location.city)}&state=${encodeURIComponent(location.state)}`,
           { 
             signal: controller.signal,
             cache: 'no-store'
