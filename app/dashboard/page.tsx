@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { useGarden } from '../context/GardenContext'
 import { useRouter } from 'next/navigation'
 import { supabase } from '../lib/supabase'
 import TodaysTasks from '../components/dashboard/TodaysTasks'
@@ -11,6 +12,7 @@ import Link from 'next/link'
 
 export default function DashboardPage() {
   const { user, userLocation } = useAuth()
+  const { plants: gardenPlantsCtx } = useGarden()
   const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [hasPlants, setHasPlants] = useState(false)
