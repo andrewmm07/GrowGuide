@@ -1,108 +1,145 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import Link from 'next/link'
+import { useAuth } from '@/app/context/AuthContext'
+import { formatGrowingContextLabel, resolveLocationContext } from '@/lib/microclimate/resolve'
+import PageContainer from '@/app/components/layouts/PageContainer'
+import NotificationSettings from '@/app/components/notifications/NotificationSettings'
 
 export default function Settings() {
+  const { userLocation, logout, user } = useAuth()
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [notifications, setNotifications] = useState(true)
-  const [emailUpdates, setEmailUpdates] = useState(false)
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric')
 
-  // Prevent hydration mismatch
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+    try {
+      const saved = localStorage.getItem('units')
+      if (saved === 'metric' || saved === 'imperial') setUnits(saved)
+    } catch { /* ignore */ }
+  }, [])
+
   if (!mounted) return null
 
+  const handleUnitsChange = (val: 'metric' | 'imperial') => {
+    setUnits(val)
+    try { localStorage.setItem('units', val) } catch { /* ignore */ }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
+  }
+
+  const locCtx = userLocation ? resolveLocationContext(userLocation) : null
+  const locationDisplay = userLocation
+    ? `${userLocation.city}, ${userLocation.state}`
+    : 'Not set'
+  const contextLabel = locCtx ? formatGrowingContextLabel(locCtx) : null
+
   return (
-    <div className="py-12 px-4">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Settings</h1>
+    <div className="pb-24 md:pb-8">
+      <PageContainer className="space-y-4">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">Settings</h1>
 
-        {/* Theme Settings */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Appearance</h2>
-          <div className="space-y-4">
+        {/* Location */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+          <h2 className="text-base font-semibold text-gray-900 mb-4">Location</h2>
+          <div className="flex items-center justify-between">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Theme
-              </label>
-              <select
-                value={theme}
-                onChange={(e) => setTheme(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200"
-              >
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="system">System</option>
-              </select>
+              <p className="text-sm font-medium text-gray-700">Growing region</p>
+              <p className="text-sm text-gray-500 mt-0.5">{locationDisplay}</p>
+              {contextLabel && (
+                <p className="text-xs text-gray-400 mt-1">{contextLabel}</p>
+              )}
+            </div>
+            <Link
+              href="/location-select"
+              className="px-4 py-2.5 rounded-xl bg-green-600 text-white text-sm font-medium min-h-[44px] flex items-center hover:bg-green-700 transition-colors"
+            >
+              Change
+            </Link>
+          </div>
+        </div>
+
+        <NotificationSettings />
+
+        {/* Preferences */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+          <h2 className="text-base font-semibold text-gray-900 mb-4">Preferences</h2>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Measurement units
+            </label>
+            <div className="flex gap-3">
+              {(['metric', 'imperial'] as const).map(u => (
+                <button
+                  key={u}
+                  onClick={() => handleUnitsChange(u)}
+                  className={`flex-1 py-2.5 rounded-xl text-sm font-medium border transition-colors min-h-[44px] ${
+                    units === u
+                      ? 'bg-green-600 text-white border-green-600'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-green-300'
+                  }`}
+                >
+                  {u === 'metric' ? 'Metric (cm, m)' : 'Imperial (in, ft)'}
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Notification Settings */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Notifications</h2>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
+        {/* Account */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+          <h2 className="text-base font-semibold text-gray-900 mb-4">Account</h2>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between py-1">
               <div>
-                <h3 className="text-gray-700 dark:text-gray-200 font-medium">Push Notifications</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Receive planting reminders and tips</p>
+                <p className="text-sm font-medium text-gray-700">Profile</p>
+                <p className="text-sm text-gray-500 mt-0.5">
+                  {'Your name and details'}
+                </p>
               </div>
-              <button
-                onClick={() => setNotifications(!notifications)}
-                className={`${
-                  notifications ? 'bg-green-600' : 'bg-gray-200 dark:bg-gray-700'
-                } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full transition-colors duration-200 ease-in-out`}
+              <Link
+                href="/profile"
+                className="px-4 py-2.5 rounded-xl border border-gray-200 text-gray-700 text-sm font-medium min-h-[44px] flex items-center hover:border-gray-300 transition-colors"
               >
-                <span
-                  className={`${
-                    notifications ? 'translate-x-6' : 'translate-x-1'
-                  } inline-block h-4 w-4 transform rounded-full bg-white transition duration-200 ease-in-out mt-1`}
-                />
-              </button>
+                Edit
+              </Link>
             </div>
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-gray-700 dark:text-gray-200 font-medium">Email Updates</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Receive monthly gardening newsletters</p>
+            {user && (
+              <div className="pt-3 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="w-full py-2.5 rounded-xl border border-red-200 text-red-600 text-sm font-medium min-h-[44px] hover:bg-red-50 transition-colors"
+                >
+                  Log out
+                </button>
               </div>
-              <button
-                onClick={() => setEmailUpdates(!emailUpdates)}
-                className={`${
-                  emailUpdates ? 'bg-green-600' : 'bg-gray-200 dark:bg-gray-700'
-                } relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full transition-colors duration-200 ease-in-out`}
-              >
-                <span
-                  className={`${
-                    emailUpdates ? 'translate-x-6' : 'translate-x-1'
-                  } inline-block h-4 w-4 transform rounded-full bg-white transition duration-200 ease-in-out mt-1`}
-                />
-              </button>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Measurement Units */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Preferences</h2>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Measurement Units
-              </label>
-              <select
-                value={units}
-                onChange={(e) => setUnits(e.target.value as 'metric' | 'imperial')}
-                className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200"
-              >
-                <option value="metric">Metric (cm, m)</option>
-                <option value="imperial">Imperial (inches, feet)</option>
-              </select>
-            </div>
+        {/* About */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3">
+          <h2 className="text-sm font-semibold text-gray-900 mb-1">About</h2>
+          <p className="text-xs text-gray-500">GrowGuide — your gardening companion.</p>
+          <p className="text-[11px] text-gray-400 mt-1">Version 1.0</p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+            <Link href="/privacy/" className="text-green-700 hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms/" className="text-green-700 hover:underline">
+              Terms of Service
+            </Link>
           </div>
         </div>
-      </div>
+      </PageContainer>
     </div>
   )
-} 
+}

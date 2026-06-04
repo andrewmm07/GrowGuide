@@ -40,6 +40,8 @@
     "garden-app",
     "garden-planner",
     "src",
-    "supabase"
+    "supabase",
+    "canvases",
+    "app/_archived"
   ]
 }

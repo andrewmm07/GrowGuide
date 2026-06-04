@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Planner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .sort-btn {
+      background: white;
+      border: 0.5px solid #d3d3d3;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+
+    .sort-btn:hover {
+      border-color: #999;
+    }
+
+    .sort-btn.active {
+      background: #f0f0f0;
+      border-color: #999;
+    }
+
+    .header-row {
+      padding: 12px 16px;
+      border-bottom: 0.5px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .header-spacer {
+      width: 8px;
+    }
+
+    .header-plant {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-harvest {
+      text-align: right;
+    }
+
+    .header-chevron {
+      width: 20px;
+    }
+
+    .plants-list {
+      border: 0.5px solid #d3d3d3;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .plant-row {
+      border-bottom: 0.5px solid #e0e0e0;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+
+    .plant-row:last-child {
+      border-bottom: none;
+    }
+
+    .plant-row:hover {
+      background: #f9f9f9;
+    }
+
+    .plant-row.expanded {
+      background: #f9f9f9;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot.on-track {
+      background: #639922;
+    }
+
+    .status-dot.attention {
+      background: #BA7517;
+    }
+
+    .plant-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .plant-name {
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .harvest-window {
+      text-align: right;
+      font-size: 13px;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+
+    .chevron {
+      width: 20px;
+      text-align: center;
+      color: #999;
+      font-size: 16px;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .chevron.expanded {
+      transform: rotate(180deg);
+    }
+
+    .plant-expanded {
+      background: #f9f9f9;
+      border-top: 0.5px solid #e0e0e0;
+      padding: 16px;
+    }
+
+    .tasks-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      padding: 12px 16px;
+      background: white;
+      border: 0.5px solid #e0e0e0;
+      border-radius: 6px;
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .task-day {
+      font-weight: 500;
+      color: #1a1a1a;
+      min-width: 45px;
+      flex-shrink: 0;
+    }
+
+    .task-text {
+      flex: 1;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Garden</h1>
+
+    <div class="controls">
+      <button class="sort-btn active" data-sort="harvest" onclick="app.sortBy('harvest')">Harvest window</button>
+      <button class="sort-btn" data-sort="alpha" onclick="app.sortBy('alpha')">Alphabetical</button>
+    </div>
+
+    <div class="header-row">
+      <div class="header-spacer"></div>
+      <div class="header-plant">Plant</div>
+      <div class="header-harvest">Harvest window</div>
+      <div class="header-chevron"></div>
+    </div>
+
+    <div class="plants-list" id="plantsList"></div>
+  </div>
+
+  <script>
+    const monthDays = { "Jan": 31, "Feb": 28, "Mar": 31, "Apr": 30, "May": 31, "Jun": 30, "Jul": 31, "Aug": 31, "Sept": 30, "Oct": 31, "Nov": 30, "Dec": 31 };
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+    function addDaysToDate(dateStr, daysToAdd) {
+      const [day, month] = dateStr.split(" ");
+      let d = parseInt(day) + daysToAdd;
+      let m = months.indexOf(month);
+
+      while (d > monthDays[months[m]]) {
+        d -= monthDays[months[m]];
+        m = (m + 1) % 12;
+      }
+      while (d <= 0) {
+        m = (m - 1 + 12) % 12;
+        d += monthDays[months[m]];
+      }
+
+      return `${d} ${months[m]}`;
+    }
+
+    function getHarvestWindow(harvestDate) {
+      const start = addDaysToDate(harvestDate, -7);
+      return `${start} – ${harvestDate}`;
+    }
+
+    const plantsData = [
+      { id: 1, name: "Sweet Corn", harvest: "26 Aug", status: "on-track", activity: [
+        { day: 7, task: "Ensure soil temperature reaches 60°F before germination" },
+        { day: 17, task: "Thin to strongest plants, 12\" apart" },
+        { day: 28, task: "Add nitrogen side-dress when 12\" tall" },
+        { day: 42, task: "Remove lower leaves as plant grows" },
+        { day: 60, task: "Monitor for corn earworm and apply controls as needed" },
+        { day: 75, task: "Check silks for browning; harvest when dark brown" }
+      ]},
+      { id: 2, name: "Heirloom Tomatoes", harvest: "10 Sept", status: "on-track", activity: [
+        { day: 3, task: "Harden off seedlings over 7–10 days before transplanting" },
+        { day: 8, task: "Plant deep; roots will form along buried stem" },
+        { day: 14, task: "Install sturdy stakes or cages immediately" },
+        { day: 24, task: "Prune lower leaves once plant is 12\" tall" },
+        { day: 45, task: "Remove suckers to direct energy to fruit production" },
+        { day: 70, task: "Reduce watering as fruit approaches ripeness" }
+      ]},
+      { id: 3, name: "Basil", harvest: "5 Aug", status: "attention", activity: [
+        { day: 1, task: "Wait for soil to warm; do not plant before last frost" },
+        { day: 3, task: "Pinch top leaves to encourage bushiness" },
+        { day: 10, task: "Remove flower buds to extend leaf production" },
+        { day: 20, task: "Pinch again if plant becomes leggy" },
+        { day: 35, task: "Begin regular harvesting from top down" }
+      ]},
+      { id: 4, name: "Lettuce Mix", harvest: "22 June", status: "on-track", activity: [
+        { day: 3, task: "Keep soil consistently moist; do not let dry out" },
+        { day: 5, task: "Thin seedlings to 3\" spacing, eat thinnings" },
+        { day: 12, task: "Apply afternoon shade cloth if temperatures exceed 70°F" },
+        { day: 20, task: "Begin harvesting outer leaves from base" },
+        { day: 28, task: "Harvest remaining plants before bolting" }
+      ]},
+      { id: 5, name: "Bell Peppers", harvest: "15 Sept", status: "on-track", activity: [
+        { day: 1, task: "Start seeds indoors 8–10 weeks before last frost" },
+        { day: 35, task: "Harden off and transplant only after soil reaches 70°F" },
+        { day: 21, task: "Remove lower leaves once plant is established" },
+        { day: 40, task: "Mulch around plants to retain soil moisture and warmth" },
+        { day: 55, task: "Stake heavily; fruit weight causes branch breakage" },
+        { day: 80, task: "Monitor for spider mites in hot, dry conditions" }
+      ]},
+      { id: 6, name: "Zucchini", harvest: "20 July", status: "on-track", activity: [
+        { day: 7, task: "Sow directly after last frost; soil must be warm" },
+        { day: 14, task: "Train vines along trellis for better air flow" },
+        { day: 28, task: "Apply compost or balanced fertilizer as heavy feeder" },
+        { day: 35, task: "Monitor undersides of leaves for powdery mildew" },
+        { day: 45, task: "Harvest fruit at 6–8\" for best flavor and productivity" },
+        { day: 55, task: "Continue harvesting every 2–3 days to prevent gigantism" }
+      ]},
+      { id: 7, name: "Kale", harvest: "8 July", status: "on-track", activity: [
+        { day: 5, task: "Keep soil consistently moist during establishment" },
+        { day: 7, task: "Thin seedlings to 6\" spacing" },
+        { day: 20, task: "Remove any yellowed or damaged lower leaves" },
+        { day: 35, task: "Begin harvesting outer leaves from bottom up" },
+        { day: 45, task: "Flavor improves after light frost; extend season if possible" }
+      ]},
+      { id: 8, name: "Carrots", harvest: "12 Aug", status: "on-track", activity: [
+        { day: 3, task: "Keep seed bed consistently moist until germination" },
+        { day: 10, task: "First thinning: remove weakest seedlings, 2\" spacing" },
+        { day: 25, task: "Second thinning: thin to 4\" spacing, eat small thinnings" },
+        { day: 40, task: "Mound soil over exposed shoulders to prevent greening" },
+        { day: 60, task: "Begin harvesting smaller roots; leave larger to grow" },
+        { day: 80, task: "Harvest all roots before hard freeze" }
+      ]},
+      { id: 9, name: "Blueberries", harvest: "1 July", status: "on-track", activity: [
+        { day: 1, task: "Test soil pH; amend heavily to achieve 4.5–5.5" },
+        { day: 7, task: "Apply 4–6\" mulch of pine needles or wood chips" },
+        { day: 15, task: "Water deeply and regularly; soil must not dry out" },
+        { day: 30, task: "Remove flower buds in first year to encourage root growth" },
+        { day: 45, task: "Allow fruiting in subsequent years; harvest when blue" }
+      ]},
+      { id: 10, name: "Spinach", harvest: "25 June", status: "on-track", activity: [
+        { day: 2, task: "Soak seeds overnight to speed germination" },
+        { day: 6, task: "Thin seedlings to 3\" spacing once true leaves appear" },
+        { day: 12, task: "Apply light afternoon shade as temperatures rise" },
+        { day: 18, task: "Begin harvesting outer leaves while young and tender" },
+        { day: 28, task: "Harvest all plants before bolting in heat" }
+      ]},
+    ];
+
+    plantsData.forEach(p => {
+      p.harvestWindow = getHarvestWindow(p.harvest);
+    });
+
+    const app = {
+      plants: [...plantsData],
+      expandedId: null,
+      currentSort: "harvest",
+
+      sortBy(type) {
+        this.currentSort = type;
+
+        if (type === "harvest") {
+          this.plants.sort((a, b) => {
+            const aMonth = months.indexOf(a.harvest.split(" ")[1]);
+            const aDay = parseInt(a.harvest.split(" ")[0]);
+            const bMonth = months.indexOf(b.harvest.split(" ")[1]);
+            const bDay = parseInt(b.harvest.split(" ")[0]);
+            return (aMonth * 100 + aDay) - (bMonth * 100 + bDay);
+          });
+        } else {
+          this.plants.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        document.querySelectorAll(".sort-btn").forEach(btn => {
+          btn.classList.toggle("active", btn.dataset.sort === type);
+        });
+
+        this.render();
+      },
+
+      toggleExpand(id) {
+        this.expandedId = this.expandedId === id ? null : id;
+        this.render();
+      },
+
+      render() {
+        const list = document.getElementById("plantsList");
+        list.innerHTML = this.plants.map((plant, index) => {
+          const isExpanded = this.expandedId === plant.id;
+
+          return `
+            <div onclick="app.toggleExpand(${plant.id})" style="border-bottom: ${index < this.plants.length - 1 ? '0.5px solid #e0e0e0' : 'none'};">
+              <div class="plant-row ${isExpanded ? 'expanded' : ''}">
+                <div class="status-dot ${plant.status}"></div>
+                <div class="plant-info">
+                  <div class="plant-name">${plant.name}</div>
+                </div>
+                <div class="harvest-window">${plant.harvestWindow}</div>
+                <div class="chevron ${isExpanded ? 'expanded' : ''}">▼</div>
+              </div>
+
+              ${isExpanded ? `
+                <div class="plant-expanded">
+                  <div class="tasks-container">
+                    ${plant.activity.map(item => `
+                      <div class="task-item">
+                        <div class="task-day">Day ${item.day}</div>
+                        <div class="task-text">${item.task}</div>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }).join("");
+      }
+    };
+
+    app.render();
+  </script>
+</body>
+</html>

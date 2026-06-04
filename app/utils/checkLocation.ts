@@ -80,7 +80,7 @@ export async function logLocationStatus(user: User | null) {
       console.log('  Error:', result.error)
     }
     
-    // Check localStorage as fallback
+    // Legacy localStorage (deprecated — canonical: profiles.location via AuthContext)
     const localLocation = localStorage.getItem('userLocation')
     if (localLocation) {
       console.log('⚠️ Found location in localStorage (not in database):')

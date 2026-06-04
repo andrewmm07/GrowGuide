@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { supabase } from '../lib/supabase'
 import { useTheme } from 'next-themes'
-import LocationSelector from '../components/LocationSelector'
-import { getClimateZone } from '../utils/climate'
+import PlacePicker from '@/app/components/PlacePicker'
+import { formatGrowingContextLabel, resolveLocationContext } from '@/lib/microclimate/resolve'
 
 interface Profile {
   id: string
@@ -94,13 +94,13 @@ export default function ProfilePage() {
     }
   }
 
-  const handleLocationSelect = async (state: string, city: string) => {
+  const handleLocationSave = async (location: import('@/lib/types/location').UserLocation) => {
     setLoading(true)
     setError('')
     setSuccessMessage('')
 
     try {
-      await updateLocation(state, city)
+      await updateLocation(location)
       setSuccessMessage('Location updated successfully')
       setIsEditingLocation(false)
     } catch (error) {
@@ -330,8 +330,8 @@ export default function ProfilePage() {
                     
                     {isEditingLocation ? (
                       <div className="space-y-4">
-                        <LocationSelector 
-                          onLocationSelect={handleLocationSelect}
+                        <PlacePicker
+                          onSelect={handleLocationSave}
                           submitLabel="Save Location"
                           isLoading={loading}
                           showCancelButton={true}
@@ -348,7 +348,9 @@ export default function ProfilePage() {
                                 {userLocation.city}, {userLocation.state}
                               </p>
                               <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Climate Zone: {getClimateZone(userLocation.state, userLocation.city)}
+                                {resolveLocationContext(userLocation)
+                                  ? formatGrowingContextLabel(resolveLocationContext(userLocation)!)
+                                  : `${userLocation.climate} climate · zone ${userLocation.auHardinessZone}`}
                               </p>
                             </div>
                           ) : (

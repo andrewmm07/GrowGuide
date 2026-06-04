@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useAuth } from '@/app/context/AuthContext'
+import NotificationBell from '@/app/components/notifications/NotificationBell'
 
 interface HeaderProps {
   showMenuButton?: boolean
@@ -31,6 +32,7 @@ export default function Header({ showMenuButton = false, onMenuClick }: HeaderPr
             <span className="text-xl font-semibold text-gray-900">GrowGuide</span>
           </Link>
         </div>
+        <NotificationBell />
       </div>
     </header>
   )

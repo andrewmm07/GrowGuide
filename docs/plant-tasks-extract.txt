@@ -1,0 +1,671 @@
+# GrowGuide — unique plant activity titles
+# Source: plant_timelines_corrected.csv
+# Pipeline: node scripts/refine-plant-activities.mjs --in-place
+#          node scripts/generate-empty-zone-tasks.mjs --in-place  (if needed)
+#          node scripts/extract-plant-tasks.mjs
+# Rules: scripts/plant-activity-rules.mjs
+# Generated: 2026-05-29T13:59:43.089Z
+# Total unique activities: 647
+# Categories in CSV: fertilizing, harvest, pest, planting, pruning, watering
+
+## Activity categories (database)
+- planting, fertilizing, pruning, pest, harvest, watering
+
+## App task categories (UI / taskListBuilders)
+- planting, fertilizing, pruning, pest, harvest, climate, other
+
+## Generic template activities (plants-definitions.json)
+- Transplant seedlings (if planted in pots)
+- Apply fertilizer
+- Check for pests and disease
+- Apply mulch around plants
+- Begin harvesting
+
+## Unique activity titles (canonical CSV)
+- Apply acidic fertiliser
+- Apply avocado fertiliser
+- Apply azalea/camellia fertiliser
+- Apply citrus fertiliser
+- Apply citrus fertiliser with trace elements
+- Apply complete fertiliser (1 of 4)
+- Apply complete fertiliser (2 of 4)
+- Apply complete fertiliser (3 of 4)
+- Apply complete fertiliser (4 of 4)
+- Apply complete fertiliser and potassium (1 of 4)
+- Apply complete fertiliser and potassium (2 of 4)
+- Apply complete fertiliser and potassium (3 of 4)
+- Apply complete fertiliser and potassium (4 of 4)
+- Apply complete fertiliser and potassium at fruit set
+- Apply complete fertiliser as side dressing
+- Apply copper spray during minimal dormancy
+- Apply copper spray in winter — prevents brown rot
+- Apply dormant copper spray
+- Apply dormant copper spray — essential
+- Apply dormant copper spray — prevents leaf curl
+- Apply dormant copper spray in winter
+- Apply dormant spray
+- Apply fertiliser
+- Apply fertiliser after harvest
+- Apply gypsum and potassium
+- Apply light fertiliser
+- Apply light liquid fertiliser (1 of 4)
+- Apply light liquid fertiliser (2 of 4)
+- Apply light liquid fertiliser (3 of 4)
+- Apply light liquid fertiliser (4 of 4)
+- Apply liquid fertiliser (1 of 3)
+- Apply liquid fertiliser (1 of 4)
+- Apply liquid fertiliser (2 of 3)
+- Apply liquid fertiliser (2 of 4)
+- Apply liquid fertiliser (3 of 3)
+- Apply liquid fertiliser (3 of 4)
+- Apply liquid fertiliser (4 of 4)
+- Apply liquid nitrogen (1 of 4)
+- Apply liquid nitrogen (2 of 4)
+- Apply liquid nitrogen (3 of 4)
+- Apply liquid nitrogen (4 of 4)
+- Apply liquid nitrogen at thinning
+- Apply low-phosphorus native plant fertiliser
+- Apply mango-specific fertiliser
+- Apply mulch
+- Apply mulch and install supports
+- Apply native plant fertiliser
+- Apply nitrogen at knee height and shoulder height
+- Apply nitrogen when thinning
+- Apply potassium — no nitrogen needed
+- Apply potassium after complete fertiliser
+- Apply potassium at bulbing
+- Apply potassium at first flower
+- Apply potassium at flowering
+- Apply potassium at fruiting
+- Apply potassium fertiliser
+- Apply preventive sulfur spray for powdery mildew
+- Apply protective fungicide at petal fall
+- Apply seaweed fertiliser with trace elements
+- Apply straw mulch at fruit set
+- Apply summer mulch
+- Apply zinc-enriched fertiliser
+- Bag and harvest bunch
+- Begin cut-and-come-again harvest
+- Begin harvest — outer stems first
+- Begin harvest when shaft reaches 2cm
+- Begin harvesting
+- Begin harvesting — cut-and-come-again
+- Begin harvesting — pull, do not cut
+- Begin harvesting as needed
+- Begin harvesting at 10cm height
+- Begin harvesting at pre-flowering stage
+- Begin harvesting from 15cm height
+- Begin harvesting fruit when ripe
+- Begin harvesting in cooler months
+- Begin harvesting in dry season
+- Begin harvesting leaves or stems
+- Begin harvesting leaves to delay bolting
+- Begin harvesting outer leaves — cut-and-come-again
+- Begin harvesting outer leaves regularly
+- Begin harvesting outer stems regularly
+- Begin harvesting regularly
+- Begin harvesting regularly — check for fruit fly
+- Begin harvesting ripe fruit
+- Begin harvesting shoot tips regularly
+- Begin harvesting small leaves regularly
+- Begin harvesting spears
+- Begin harvesting when 15cm tall
+- Begin harvesting when fruit is ripe
+- Begin harvesting young leaves regularly
+- Begin harvesting young pods every 1–2 days
+- Begin harvesting young tips
+- Begin light harvest in winter
+- Begin outer-leaf harvest at 20cm height
+- Begin outer-leaf harvest from 6-8 weeks
+- Begin partial harvest from one end of row
+- Begin rinsing and draining 3 times daily for 7 days
+- Begin rinsing and draining twice daily for 7 days
+- Blanch before eating — mandatory
+- Blanch before harvest
+- Blanch before spring warmth arrives
+- Blanch curds in zone 10
+- Blanch early
+- Blanch for 10 days
+- Blanch for at least 14 days
+- Blanch for mild flavour
+- Blanch in coolest months
+- Blanch outer leaves for mild flavour (optional)
+- Blanch stalks for eating — 3-4 weeks before harvest
+- Blanch stalks for mild flavour
+- Blanch the curd as it develops
+- Bring container plants indoors in severe winters
+- Calcium-rich soil amendment and potassium at first flower
+- Change water regularly — daily in warm periods
+- Check blanching progress
+- Check bulb size daily in warm conditions
+- Check chill hour accumulation
+- Check for aphids
+- Check for aphids — repeat weekly for 4 weeks
+- Check for aphids and fungal disease
+- Check for aphids and leaf spot
+- Check for aphids and leaf-mining flies
+- Check for artichoke aphid
+- Check for Asian citrus psyllid and leafminer
+- Check for bean fly
+- Check for bean rust
+- Check for bolting — remove or allow to set seed
+- Check for botrytis and spider mites
+- Check for botrytis in humid spring
+- Check for brown rot
+- Check for cabbage white butterflies
+- Check for cabbage white caterpillars
+- Check for caterpillars and aphids
+- Check for caterpillars under leaf cover
+- Check for corn earworm
+- Check for early splitting in warm spells
+- Check for fruit fly
+- Check for fruit fly — harvest early
+- Check for fruit fly and disease
+- Check for fungal disease in humidity
+- Check for powdery mildew — harvest early if present
+- Check for powdery mildew — treat if needed
+- Check for powdery mildew and bird pressure
+- Check for premature bolting
+- Check for Queensland fruit fly
+- Check for rapid bolting
+- Check for root rot and mildew
+- Check for rust disease
+- Check for scale insects and citrus leafminer
+- Check for scale insects and leafminer
+- Check for scale insects and sooty mould
+- Check for slugs and aphids
+- Check for slugs and snails
+- Check from 15 days — harvest small
+- Check from 18 days in zone 10
+- Check fruit maturity with oil test
+- Check fruit maturity with skin test
+- Check head development
+- Check head development in cool weather
+- Check head firmness
+- Check head formation progress
+- Check head tightness
+- Check laterals for disease
+- Check plant for bolting (consider leaving for seed harvest)
+- Check plant for pests and disease
+- Check pollination — hand-pollinate if needed
+- Check progress by brushing away soil
+- Check ripeness regularly
+- Check root size and quality
+- Check root size daily from 20 days
+- Check root size from 35 days
+- Check shaft thickness
+- Check silk browning — harvest test
+- Check silk for harvest readiness
+- Check swollen stem size regularly
+- Clear plants at end of season and compost
+- Collect seed
+- Collect seed for replanting
+- Complete harvest before spring
+- Complete harvest before spring warming
+- Complete harvest before wet season
+- Complete harvest by October
+- Complete harvest by September
+- Cover with fine mesh
+- Cure for sweetness
+- Cut back and overwinter in zone 10b
+- Cut back and regrow for second season
+- Cut back hard
+- Cut back hard after flowering — twice yearly
+- Cut back hard annually
+- Cut back hard before flowering
+- Cut back hard before or at first flowering
+- Cut back hard twice yearly
+- Cut back in summer heat
+- Cut back in winter and mulch
+- Cut back to crown after main harvest
+- Cut down fern in winter
+- Cut to ground after harvest for perennial management
+- Cut to stump for regrowth
+- Cut to stump for second crop
+- Divide plant
+- Do a hard prune to manage size
+- Do a hard winter prune (now or within winter)
+- Do a light annual prune
+- Do a minimal dormant prune
+- Do a minimal winter prune
+- Do a structural prune
+- Do a winter dormant prune
+- Do a winter dormant prune — annual reset
+- Do a winter renovation prune
+- Do a winter structural prune
+- Do formative pruning in winter
+- Do minimal formative pruning
+- Do minimal structural pruning
+- Do not protect from frost — improves head quality
+- Do winter pruning
+- Do winter pruning — critical annual task
+- Earth up as plants grow
+- Earth up lightly around the base
+- Earth up progressively
+- Erect support stakes
+- Erect support trellis or peasticks
+- Erect trellis
+- Erect trellis and train shoots
+- Fruit fly exclusion bagging
+- Hard prune
+- Hard prune twice yearly
+- Harvest after cold for best flavour
+- Harvest after natural drying on the plant
+- Harvest all before first frost
+- Harvest all before frost
+- Harvest all before wet season
+- Harvest all before wet season or heat returns
+- Harvest and continue for side shoots
+- Harvest and cure — 3-4 weeks
+- Harvest and cure in dry conditions
+- Harvest and leave for side shoots
+- Harvest and replant rather than side shoots
+- Harvest and store in warm dry conditions
+- Harvest any buds before flowering
+- Harvest any buds that form
+- Harvest any head that forms
+- Harvest as individual fruit mature
+- Harvest as micro-greens or very young
+- Harvest as they reach size
+- Harvest as whole head or cut-and-come-again
+- Harvest at 15-20cm — every 2 days
+- Harvest at 4-5cm
+- Harvest at 4-6cm before roots develop extensively
+- Harvest at 5cm diameter or smaller
+- Harvest at any size
+- Harvest at colour change and taste test
+- Harvest at colour development and shoulder drop
+- Harvest at deep red — dry weather
+- Harvest at desired colour stage
+- Harvest at first colour change — do not delay
+- Harvest at first sign of softening
+- Harvest at first true leaf stage
+- Harvest at flavour maturity — variety dependent
+- Harvest at full colour — Satsuma ripens before most citrus
+- Harvest at full colour and fragrance
+- Harvest at full ripeness
+- Harvest at full size
+- Harvest at full sugar development
+- Harvest at golf ball to tennis ball size
+- Harvest at green or red stage
+- Harvest at optimum size
+- Harvest at peak ripeness
+- Harvest at peak ripeness — do not delay
+- Harvest at peak sweetness
+- Harvest at skin hardness — long stem essential
+- Harvest at skin hardness and natural cord curing
+- Harvest before bolt
+- Harvest before bolt or when bolting
+- Harvest before bolting or overgrowth
+- Harvest before brown rot develops
+- Harvest before curd separates
+- Harvest before first frost
+- Harvest before flowering
+- Harvest before flowers open
+- Harvest before full ripeness for best processing
+- Harvest before heat returns
+- Harvest before plants re-shoot in spring
+- Harvest before seeds show brown
+- Harvest before spring heat
+- Harvest before spring warming
+- Harvest before spring warmth
+- Harvest before summer heat
+- Harvest before temperatures rise
+- Harvest before wet season
+- Harvest before wet season arrives
+- Harvest before wet season or extreme heat
+- Harvest before wet season or peak humidity
+- Harvest before wet season returns
+- Harvest bunch at full plump
+- Harvest bunch before full ripeness
+- Harvest by August
+- Harvest by cutting at base
+- Harvest by cutting plant at base
+- Harvest by cutting stems — avoid woody sections
+- Harvest by cutting stems to 10cm
+- Harvest by September
+- Harvest by squeeze test
+- Harvest by taste — colour is unreliable in tropical zones
+- Harvest by taste — colour not reliable in cool zones
+- Harvest by taste — green rind does not mean unripe
+- Harvest by twisting and pulling
+- Harvest by variety
+- Harvest central bud before scales open
+- Harvest central head, continue for side shoots
+- Harvest central then side buds
+- Harvest conservatively
+- Harvest consistently when glossy
+- Harvest daily in tropical conditions
+- Harvest daily when fruiting begins
+- Harvest daily when ripe — slug and snail monitoring
+- Harvest deep purple berries — careful handling
+- Harvest dried berries on the plant
+- Harvest early — at 4-5cm
+- Harvest early at 4–5cm
+- Harvest early in the day
+- Harvest early in the morning
+- Harvest early to beat fruit fly
+- Harvest entire row at once if warm spell approaches
+- Harvest every 1-2 days
+- Harvest every 2 days
+- Harvest every 2 days — complete before heat
+- Harvest every 2 days — mandatory
+- Harvest every 2 days — this is critical
+- Harvest every 2 days in warm conditions
+- Harvest every 2 days without exception
+- Harvest every 2-3 days
+- Harvest every 2-3 days at peak season
+- Harvest every day at peak season
+- Harvest fallen or shrivelled fruit
+- Harvest frequently — complete by October
+- Harvest from base upward
+- Harvest from July onward
+- Harvest fronds young — before bolting
+- Harvest fruit before birds take them
+- Harvest green or red at preference
+- Harvest green or wait for full colour
+- Harvest hard and ripen off the tree
+- Harvest in dry season — best flavour
+- Harvest in dry season — flavour is best
+- Harvest in late autumn — do not leave in warmth
+- Harvest in May — chill hours determine quality
+- Harvest in morning before fruit softens
+- Harvest in warm season
+- Harvest leaves before flower stalk emerges
+- Harvest October-November
+- Harvest October-November and cure quickly
+- Harvest outer leaves first — check head firmness
+- Harvest outer stalks or entire plant
+- Harvest pods when plump
+- Harvest quickly in tropical conditions
+- Harvest quickly in zone 10 warmth
+- Harvest quickly when ripe
+- Harvest ripe fruit — wear thick gloves
+- Harvest September — store in cool dry conditions
+- Harvest September-October
+- Harvest September-October before heat returns
+- Harvest small and use as herb
+- Harvest small and young
+- Harvest small roots
+- Harvest small roots by September
+- Harvest using oil content or squeeze test
+- Harvest very small — 3-5cm
+- Harvest very young — 15-20cm
+- Harvest very young — 8-10cm
+- Harvest very young — before heat makes it unpalatable
+- Harvest very young for best flavour
+- Harvest very young leaves
+- Harvest when 20-30% yellow — ripen off tree
+- Harvest when 30-50% yellow
+- Harvest when background colour turns yellow
+- Harvest when base colours and fragrance develops
+- Harvest when base turns yellow-gold
+- Harvest when base yellows and fragrance develops
+- Harvest when colour develops
+- Harvest when flat and pods are full
+- Harvest when fruit colours and smells aromatic
+- Harvest when fruit falls or shrivels
+- Harvest when fruit is fully coloured
+- Harvest when fully black
+- Harvest when fully coloured
+- Harvest when fully coloured and aromatic
+- Harvest when fully coloured and fragrant
+- Harvest when fully coloured and sweet
+- Harvest when fully soft — process quickly
+- Harvest when fully sweet
+- Harvest when green-yellow and aromatic
+- Harvest when head is firm and well-coloured
+- Harvest when leaves begin to yellow
+- Harvest when mature
+- Harvest when pod is plump but snap-crisp
+- Harvest when ready
+- Harvest when ripe
+- Harvest when root reaches 8-12cm diameter
+- Harvest when shaft reaches 1.5cm
+- Harvest when skin colour develops
+- Harvest when skin is hardened — before frost
+- Harvest when skin softens and splits at neck
+- Harvest when stalk end of fruit colours
+- Harvest when tops are 50% fallen
+- Harvest when tops yellow
+- Harvest when yellow and slightly soft
+- Harvest when yellow blush develops
+- Harvest while pods are slim
+- Harvest winter to spring
+- Harvest with long stem and cure thoroughly
+- Harvest with outer leaves intact
+- Harvest young — cut-and-come-again is best strategy
+- Harvest young and thin
+- Harvest young leaves for best flavour
+- Harvest young outer leaves — head may not form
+- Harvest young shoot tips 3-5cm
+- Harvest young to avoid bitterness
+- Hill up around developing bulb
+- Hill up soil around the base
+- Identify and thin to hermaphrodite plant
+- Improve bed drainage before wet season
+- Install 1.5m trellis
+- Install bird netting structure
+- Install drip irrigation and apply mulch
+- Install exclusion netting
+- Install exclusion netting for caterpillars
+- Install frost protection
+- Install frost protection — mandatory in zone 10a
+- Install frost protection for young trees
+- Install frost protection in first 3 winters
+- Install frost protection while young
+- Install full frost protection in winter
+- Install plant supports
+- Install support and shade cloth
+- Install supports for climbing varieties
+- Install trellis and train main stem
+- Install vertical trellis
+- Install wind and frost protection
+- Install winter frost protection
+- Install winter frost protection — essential
+- Install winter frost protection — mandatory in zone 9
+- Leave breba fruit on plant
+- Leave in ground after frost for sweetness
+- Leave some plants to flower and set seed
+- Move outdoors in dry season
+- Move to light when sprouts reach 3-4cm
+- Move to shade in warm weather
+- Mulch crowns heavily for winter
+- Mulch deeply — critical
+- Mulch deeply and water in dry periods
+- Mulch deeply with pine bark or wood chips
+- Mulch for moisture retention
+- Mulch heavily — soil warmth is critical
+- Mulch mounded rows
+- Mulch root zone heavily
+- Mulch roots for winter in zones 8-9
+- Mulch roots lightly for winter in zone 8
+- Mulch with pine bark
+- Net at petal fall
+- Net before colour — birds move quickly
+- Net before colour develops
+- Net for caterpillar control
+- Net for insect control
+- Net trees before colour develops
+- Net when colour begins
+- Overwinter in zone 10b
+- Partial blanching for bitterness reduction
+- Pick at snap stage
+- Pick firm and ripen off tree
+- Pick firm-ripe
+- Pick first fruit green to encourage production
+- Pick green to stimulate production
+- Pinch growing tip
+- Pinch out growing tip
+- Pinch out growing tips when pods set
+- Pinch out tips — black aphid control
+- Pinch tips
+- Pinch tips when pods appear
+- Potassium emphasis at flowering
+- Preventive sulfur spray from 40 days
+- Protect from any frost — critical
+- Protect from fruit fly and mealybug
+- Provide afternoon shade
+- Provide afternoon shade if possible
+- Provide shade and water during summer heat
+- Prune after flush to manage size
+- Prune after fruiting
+- Prune after harvest in summer
+- Prune after harvest in summer — critical
+- Prune and space plants to maximise airflow
+- Prune following harvest completion
+- Prune for structure and light penetration
+- Prune in dry season
+- Prune in dry season to force dormancy
+- Prune in summer after harvest
+- Prune in winter
+- Prune in winter while leafless
+- Prune lightly after harvest
+- Prune lightly following harvest
+- Prune lightly to encourage bushy growth
+- Prune minimally — dead wood only
+- Prune minimally for form
+- Prune selectively to manage height
+- Prune to central leader or modified leader in winter
+- Prune to control spread if needed
+- Prune to keep height below 2.5m
+- Prune to manageable height
+- Prune to open vase form
+- Pull before spring heat
+- Reduce then stop water
+- Reduce to one follower sucker
+- Reduce water during summer dormancy
+- Reduce watering as tops yellow
+- Reduce watering in winter — allow dry rest period
+- Refresh plant from cuttings
+- Remove all flower stalks
+- Remove all suckers but one follower
+- Remove any yellowing leaves
+- Remove at first bolt
+- Remove before heat returns
+- Remove dead wood only
+- Remove excess suckers — keep 3-stem system
+- Remove flower stalks
+- Remove flowers in the first season
+- Remove lateral shoots
+- Remove laterals (side shoots) on indeterminate varieties
+- Remove laterals on indeterminate varieties
+- Remove low suckers to manage height
+- Remove lower leaves and manage caterpillars
+- Remove lower leaves regularly
+- Remove old canes after fruiting
+- Remove old canes after harvest
+- Remove old canes after harvest — critical annual task
+- Remove old pods to maintain production
+- Remove plant when flowering begins
+- Remove side shoots
+- Remove side shoots from the root
+- Remove suckers and apply potassium
+- Remove yellowing lower leaves
+- Replace annually
+- Replace at first bolt
+- Replace plant
+- Replace plant at bolting
+- Replace plant at first bolt
+- Replace plant from cuttings
+- Replace seasonally
+- Resume watering and fertilising after pruning
+- Select hermaphrodite plant
+- Select ratoon shoots for next crop
+- Select ratoons for continuous production
+- Select Southern Highbush or Rabbiteye varieties
+- Select variety carefully for chill hours
+- Side-dress with potassium
+- Stake and apply potassium
+- Stake and apply potassium at first flower
+- Stake and support plants
+- Stop nitrogen — switch to potassium
+- Stop water early
+- Stop water when tops yellow
+- Stop watering
+- Stop watering — allow curing to begin
+- Stop watering and fertilising
+- Stop watering when tops begin to fall
+- Stop watering when tops yellow
+- Straw mulch in winter
+- Succession sow every 10-14 days
+- Succession sow every 2-3 weeks
+- Succession sow every 3 weeks
+- Succession sow every 3 weeks for continuous harvest
+- Succession sow every 7-10 days
+- Succession sow for continuous harvest
+- Succession sow for continuous supply
+- Summer prune — remove excess growth
+- Summer prune for airflow
+- Summer prune to open vase form
+- Summer prune to open vase shape
+- Support and shade cloth if needed
+- Support climbing varieties
+- Support heavy-fruiting plants
+- Switch to potassium at bulb swell
+- Switch to potassium at bulbing
+- Switch to potassium fertiliser
+- Thin and harvest simultaneously
+- Thin breba crop in cool zones
+- Thin canopy after harvest for airflow
+- Thin canopy for airflow
+- Thin canopy for airflow — critical in zone 10
+- Thin carefully
+- Thin fruit — critical in warm zones
+- Thin fruit — especially important in warm zones
+- Thin fruit aggressively
+- Thin fruit heavily in spring
+- Thin fruit in October-November
+- Thin fruit in spring
+- Thin fruit lightly — 10-15cm spacing
+- Thin fruit to 15cm spacing
+- Thin fruit when marble size
+- Thin fruitlets
+- Thin fruitlets in spring
+- Thin hard — essential in warm zones
+- Thin heavily in productive years
+- Thin lightly
+- Thin ruthlessly to 5cm spacing
+- Thin seedlings and apply liquid fertiliser
+- Thin seedlings to final spacing
+- Thin shoots in spring
+- Thin to 10-15cm spacing
+- Thin to 10cm — thinnings are edible
+- Thin to 12-15cm spacing
+- Thin to 20cm — space for airflow
+- Thin to 20cm spacing
+- Thin to 25-30cm spacing
+- Thin to 30cm spacing
+- Thin to 5-8cm spacing
+- Thin to 5cm
+- Thin to 5cm spacing
+- Thin to 8-10cm
+- Thin to final spacing
+- Thin to strongest seedling
+- Tip-prune after harvest for compact form
+- Tip-prune following harvest completion
+- Top before warm weather
+- Top early to force development
+- Top the plant to concentrate sprout development
+- Train a single permanent trunk
+- Train canes onto trellis
+- Train main stem and begin lateral framework
+- Train new canes
+- Train new canes to trellis wires
+- Train onto trellis — direct young shoots upward
+- Train shoots onto trellis
+- Train single trunk
+- Train vertically and pinch laterals
+- Train vertically or provide 3–5m run space
+- Train vines and support developing fruit
+- Transplant deeply and stake firmly
+- Transplant firmly
+- Trellis and shade cloth
+- Trim to manage spread
+- Undertake aggressive summer pruning
+- Use low-nitrogen fertiliser only
+- Water at pod fill
+- Water at silking
+- Winter prune and apply fertiliser
+- Withhold water June-August to trigger flowering
+- Withhold water pre-flowering

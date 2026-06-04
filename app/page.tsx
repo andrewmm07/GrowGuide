@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/app/context/AuthContext'
+import { getHomeRouteForLocation } from '@/lib/locationService'
 
 export default function HomePage() {
   const router = useRouter()
@@ -21,11 +22,7 @@ export default function HomePage() {
   // Redirect if already logged in — check location to route new vs returning users
   useEffect(() => {
     if (!authLoading && !locationLoading && user) {
-      if (userLocation?.state) {
-        router.push('/dashboard')
-      } else {
-        router.push('/location-select')
-      }
+      router.push(getHomeRouteForLocation(userLocation))
     }
   }, [user, authLoading, locationLoading, userLocation, router])
 

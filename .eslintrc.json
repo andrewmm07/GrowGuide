@@ -1,0 +1,13 @@
+{
+  "extends": "next/core-web-vitals",
+  "ignorePatterns": [
+    "app/_archived/**",
+    "src/**",
+    "garden-app/**",
+    "garden-planner/**",
+    "archive/**"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": "off"
+  }
+}

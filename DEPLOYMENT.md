@@ -1,243 +1,171 @@
 # Deployment Guide for GrowGuide
 
-This guide will walk you through deploying your Next.js application so others can access it online.
+GrowGuide production builds are **static exports** (`output: 'export'`). The build output is the **`out/`** directory — not `.next/`. There is no Node.js server at runtime; the app talks to Supabase and WeatherAPI from the browser.
 
 ## Prerequisites
 
-- A GitHub account (for version control)
-- A Supabase account (you already have this)
-- Choose a hosting platform (recommended: Vercel)
+- Node.js 18+
+- Supabase project with migrations applied ([supabase/README.md](supabase/README.md))
+- WeatherAPI.com API key
+- GitHub repository (recommended for CI/CD)
 
 ---
 
-## Option 1: Deploy to Vercel (Recommended - Easiest)
+## Environment variables
 
-Vercel is made by the creators of Next.js and offers the simplest deployment experience.
+Copy [.env.example](../.env.example) to `.env.local` for local builds. For hosting, set the same variables in your platform's dashboard.
 
-### Step 1: Prepare Your Code
+**Required for web/mobile client builds:**
 
-1. **Create a `.env.local` file** (if you don't have one):
-   ```bash
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+| Variable | Notes |
+|----------|-------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon (public) key |
+| `NEXT_PUBLIC_WEATHER_API_KEY` | WeatherAPI.com key — embedded in static bundle |
 
-2. **Test your build locally**:
-   ```bash
-   npm run build
-   ```
-   If this succeeds, you're ready to deploy!
+**Optional:**
 
-### Step 2: Push to GitHub
+| Variable | Notes |
+|----------|-------|
+| `NEXT_PUBLIC_SENTRY_DSN` | Client error reporting ([Sentry](https://sentry.io)) |
 
-1. **Initialize Git** (if not already done):
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
+**Server-only (Supabase Edge Function secrets, local scripts — never in client build):**
 
-2. **Create a GitHub repository**:
-   - Go to https://github.com/new
-   - Create a new repository (don't initialize with README)
-   - Copy the repository URL
-
-3. **Push your code**:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-### Step 3: Deploy to Vercel
-
-1. **Sign up/Login to Vercel**:
-   - Go to https://vercel.com
-   - Sign up with your GitHub account (recommended)
-
-2. **Import your project**:
-   - Click "Add New Project"
-   - Import your GitHub repository
-   - Vercel will auto-detect Next.js settings
-
-3. **Configure Environment Variables**:
-   - In the project settings, go to "Environment Variables"
-   - Add these variables:
-     - `NEXT_PUBLIC_SUPABASE_URL` = your Supabase URL
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = your Supabase anon key
-   - Make sure to select "Production", "Preview", and "Development" environments
-
-4. **Deploy**:
-   - Click "Deploy"
-   - Wait for the build to complete (usually 1-2 minutes)
-   - Your app will be live at `https://your-project-name.vercel.app`
-
-5. **Custom Domain (Optional)**:
-   - In project settings, go to "Domains"
-   - Add your custom domain (e.g., `growguide.com`)
-   - Follow DNS configuration instructions
-
-### Step 4: Configure Supabase for Production
-
-1. **Add your Vercel URL to Supabase**:
-   - Go to your Supabase project dashboard
-   - Navigate to Authentication > URL Configuration
-   - Add your Vercel URL to "Site URL" and "Redirect URLs"
-   - Example: `https://your-project-name.vercel.app`
+`SUPABASE_SERVICE_ROLE_KEY`, `WEATHER_API_KEY`, `CRON_SECRET`, `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`
 
 ---
 
-## Option 2: Deploy to Netlify
+## Verify build locally
 
-### Step 1: Prepare Your Code
-Same as Vercel - ensure `.env.local` exists and build works.
+```bash
+npm install
+npm test
+npm run lint
+npm run build
+```
 
-### Step 2: Push to GitHub
-Same as Vercel.
+Success produces an **`out/`** folder. Serve it locally to smoke-test:
 
-### Step 3: Deploy to Netlify
-
-1. **Sign up/Login**:
-   - Go to https://netlify.com
-   - Sign up with GitHub
-
-2. **Create new site**:
-   - Click "Add new site" > "Import an existing project"
-   - Connect your GitHub repository
-
-3. **Build settings**:
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-
-4. **Environment Variables**:
-   - Go to Site settings > Environment variables
-   - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-5. **Deploy**:
-   - Click "Deploy site"
-   - Your app will be live at `https://random-name.netlify.app`
+```bash
+npx serve out
+```
 
 ---
 
-## Option 3: Deploy to Railway
+## Option 1: Vercel (recommended for web)
 
-### Step 1: Prepare Your Code
-Same as above.
+1. Push the repo to GitHub.
+2. Import the project at [vercel.com](https://vercel.com).
+3. **Environment variables:** add all `NEXT_PUBLIC_*` vars from `.env.example`.
+4. **Build command:** `npm run build` (default)
+5. **Output directory:** `out` (important — not `.next`)
+6. Deploy.
 
-### Step 2: Deploy to Railway
+### Supabase Auth for production
 
-1. **Sign up**: Go to https://railway.app
-2. **New Project** > "Deploy from GitHub repo"
-3. **Select your repository**
-4. **Add Environment Variables** in the Variables tab
-5. **Deploy** - Railway will automatically detect Next.js and deploy
+In Supabase Dashboard → **Authentication → URL Configuration**:
 
----
+| Setting | Value |
+|---------|-------|
+| Site URL | `https://your-app.vercel.app` |
+| Redirect URLs | `https://your-app.vercel.app/**`, `http://localhost:3000/**` |
 
-## Option 4: Self-Hosted (Advanced)
+Enable email confirmation if you require verified accounts. Customize email templates under Authentication → Email Templates.
 
-If you want to host on your own server:
-
-### Using Docker
-
-1. **Create a `Dockerfile`**:
-   ```dockerfile
-   FROM node:18-alpine AS base
-   
-   # Install dependencies only when needed
-   FROM base AS deps
-   WORKDIR /app
-   COPY package*.json ./
-   RUN npm ci
-   
-   # Rebuild the source code only when needed
-   FROM base AS builder
-   WORKDIR /app
-   COPY --from=deps /app/node_modules ./node_modules
-   COPY . .
-   ENV NEXT_TELEMETRY_DISABLED 1
-   RUN npm run build
-   
-   # Production image
-   FROM base AS runner
-   WORKDIR /app
-   ENV NODE_ENV production
-   ENV NEXT_TELEMETRY_DISABLED 1
-   COPY --from=builder /app/public ./public
-   COPY --from=builder --chown=nextjs:nextjs /app/.next/standalone ./
-   COPY --from=builder --chown=nextjs:nextjs /app/.next/static ./.next/static
-   EXPOSE 3000
-   ENV PORT 3000
-   CMD ["node", "server.js"]
-   ```
-
-2. **Update `next.config.ts`**:
-   ```typescript
-   module.exports = {
-     output: 'standalone',
-   }
-   ```
-
-3. **Build and run**:
-   ```bash
-   docker build -t growguide .
-   docker run -p 3000:3000 -e NEXT_PUBLIC_SUPABASE_URL=... -e NEXT_PUBLIC_SUPABASE_ANON_KEY=... growguide
-   ```
+See [docs/SUPABASE_PRODUCTION.md](SUPABASE_PRODUCTION.md) for the full checklist.
 
 ---
 
-## Post-Deployment Checklist
+## Option 2: Netlify
 
-- [ ] Environment variables are set correctly
-- [ ] Supabase URLs are configured with your production domain
-- [ ] Test authentication (sign up/login)
-- [ ] Test all major features
-- [ ] Check console for any errors
-- [ ] Set up custom domain (optional)
-- [ ] Enable HTTPS (automatic on Vercel/Netlify)
-- [ ] Set up monitoring/analytics (optional)
+1. Connect your GitHub repo at [netlify.com](https://netlify.com).
+2. **Build command:** `npm run build`
+3. **Publish directory:** `out` (not `.next`)
+4. Add environment variables (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_WEATHER_API_KEY`).
+5. Configure Supabase redirect URLs with your Netlify domain.
+
+---
+
+## Option 3: Any static host (Cloudflare Pages, S3 + CloudFront, etc.)
+
+```bash
+npm run build
+# Upload contents of out/ to your CDN
+```
+
+Ensure HTTPS and set Supabase Auth redirect URLs to match your domain.
+
+---
+
+## Option 4: Android (Capacitor)
+
+```bash
+npm run build:mobile    # EXPORT_STATIC=true → out/
+npm run mobile:sync     # cap sync android
+npm run mobile:android  # open Android Studio
+```
+
+### Android release checklist
+
+- [ ] `android/app/google-services.json` (Firebase) for push notifications
+- [ ] Supabase edge function `notification-digest` deployed with cron schedules ([PUSH_NOTIFICATIONS.md](PUSH_NOTIFICATIONS.md))
+- [ ] App signing key configured in Android Studio
+- [ ] Privacy policy URL linked in Play Console ([PRIVACY_POLICY.md](PRIVACY_POLICY.md))
+- [ ] Internal testing track before public release
+
+App ID: `au.org.pivot.growguide`
+
+---
+
+## Post-deployment checklist
+
+- [ ] Environment variables set on host (and in Supabase secrets for edge functions)
+- [ ] Supabase Site URL and Redirect URLs include production domain
+- [ ] Sign up, email verification, login, and logout work
+- [ ] Location selection persists and updates guidance
+- [ ] Weather loads for a non-default city
+- [ ] Run [docs/QA_CHECKLIST.md](QA_CHECKLIST.md) for at least one city in your target region
+- [ ] Optional: Sentry DSN configured and test error appears in dashboard
 
 ---
 
 ## Troubleshooting
 
-### Build Fails
-- Check that all environment variables are set
-- Ensure `npm run build` works locally first
-- Check build logs in your hosting platform
+### Build fails
 
-### Authentication Not Working
-- Verify Supabase URL configuration includes your production domain
-- Check that environment variables are set correctly
-- Ensure `NEXT_PUBLIC_` prefix is used for client-side variables
+- Run `npm run build` locally first; fix TypeScript errors.
+- Ensure `npm run build:month-overviews` succeeds (runs automatically via `prebuild`).
+- Check CI logs on GitHub Actions.
 
-### Database Connection Issues
-- Verify Supabase project is active
-- Check API keys are correct
-- Ensure database migrations have been run
+### Blank page or missing env
 
----
+- Missing `NEXT_PUBLIC_SUPABASE_*` causes the app to throw on load. Check host env vars and rebuild.
 
-## Recommended: Vercel
+### Authentication not working
 
-**Why Vercel?**
-- Made by Next.js creators
-- Zero configuration needed
-- Automatic HTTPS
-- Free tier is generous
-- Easy custom domains
-- Automatic deployments on git push
-- Built-in analytics
+- Supabase redirect URLs must include your exact production origin.
+- Email links must use HTTPS in production.
+- Check browser console for CORS or redirect errors.
 
-**Free Tier Limits:**
-- 100GB bandwidth/month
-- Unlimited deployments
-- Perfect for most projects
+### Weather not loading
+
+- `NEXT_PUBLIC_WEATHER_API_KEY` must be set at **build time** (redeploy after adding).
+- Restrict the key in WeatherAPI dashboard; note it is still visible in the static bundle.
+
+### Netlify/Vercel serves 404 on routes
+
+- Static export uses trailing slashes (`trailingSlash: true`). Ensure your host respects `out/` structure or configure SPA fallback if needed.
 
 ---
 
-## Need Help?
+## CI/CD
 
-- Vercel Docs: https://vercel.com/docs
-- Next.js Deployment: https://nextjs.org/docs/deployment
-- Supabase Docs: https://supabase.com/docs
+Every push to `main` runs lint, tests, and build via GitHub Actions (`.github/workflows/ci.yml`). Fix failing checks before deploying.
+
+---
+
+## Need help?
+
+- [Next.js static export](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
+- [Supabase docs](https://supabase.com/docs)
+- [Capacitor Android](https://capacitorjs.com/docs/android)

@@ -4,276 +4,84 @@ import { useAuth } from '../context/AuthContext'
 import { useGarden } from '../context/GardenContext'
 import { useRouter } from 'next/navigation'
 import { supabase } from '../lib/supabase'
-import TodaysTasks from '../components/dashboard/TodaysTasks'
-import UpcomingHarvests from '../components/dashboard/UpcomingHarvests'
-import ActivityFeed from '../components/dashboard/ActivityFeed'
-import PestAlerts from '../components/dashboard/PestAlerts'
+import WeatherPanel from '../components/dashboard/WeatherPanel'
+import WeeklyGuidanceCard from '../components/dashboard/WeeklyGuidanceCard'
+import WeeklyBriefCard from '../components/dashboard/WeeklyBriefCard'
+import WhatToPlantNow from '../components/dashboard/WhatToPlantNow'
+import PageContainer from '../components/layouts/PageContainer'
 import Link from 'next/link'
+import { useNotificationSync } from '@/app/hooks/useNotificationSync'
+
 
 export default function DashboardPage() {
-  const { user, userLocation } = useAuth()
-  const { plants: gardenPlantsCtx } = useGarden()
+  const { user, userLocation, locationLoading, loading: authLoading } = useAuth()
+  const { plants, loading: gardenLoading } = useGarden()
   const router = useRouter()
   const [loading, setLoading] = useState(true)
-  const [hasPlants, setHasPlants] = useState(false)
-  const [checkingPlants, setCheckingPlants] = useState(true)
-  const [plants, setPlants] = useState<any[]>([])
-  const [userName, setUserName] = useState<string>('')
+  const [userName, setUserName] = useState('')
+
+  useNotificationSync(Boolean(user))
 
   useEffect(() => {
+    if (authLoading) return
     if (!user) {
       router.push('/auth/login')
       return
     }
-
-    // Fetch user name from profile
-    const fetchUserName = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('name')
-          .eq('id', user.id)
-          .single()
-
-        if (!error && data?.name) {
-          setUserName(data.name)
-        } else {
-          // Fallback to email or "User"
-          setUserName(user.email?.split('@')[0] || 'User')
-        }
-      } catch (error) {
-        console.error('Error fetching user name:', error)
-        setUserName(user.email?.split('@')[0] || 'User')
-      }
-    }
-
-    fetchUserName()
+    supabase.from('profiles').select('name').eq('id', user.id).single()
+      .then(({ data }) => setUserName(data?.name || user.email?.split('@')[0] || 'there'))
     setLoading(false)
-  }, [user, router])
+  }, [user, authLoading, router])
 
-  useEffect(() => {
-    const fetchPlants = async () => {
-      if (!user) {
-        setCheckingPlants(false)
-        return
-      }
+  const today = new Date().toLocaleDateString('en-AU', { weekday: 'long', month: 'long', day: 'numeric' })
 
-      try {
-        // Check database first
-        const { data: dbPlants } = await supabase
-          .from('garden_plants')
-          .select('*')
-          .eq('user_id', user.id)
-
-        if (dbPlants && dbPlants.length > 0) {
-          // Filter out harvested plants
-          const activePlants = dbPlants.filter((plant: any) => !plant.isHarvested)
-          setPlants(activePlants)
-          setHasPlants(activePlants.length > 0)
-          setCheckingPlants(false)
-          return
-        }
-
-        // Use garden context
-        try {
-          const activePlants = gardenPlantsCtx.filter((plant: any) => !plant.isHarvested)
-          setPlants(activePlants)
-          setHasPlants(activePlants.length > 0)
-        } catch (error) {
-          setPlants([])
-          setHasPlants(false)
-        }
-      } catch (error) {
-        console.error('Error fetching plants:', error)
-        // Garden context fallback
-        try {
-          const activePlants = gardenPlantsCtx.filter((plant: any) => !plant.isHarvested)
-          setPlants(activePlants)
-          setHasPlants(activePlants.length > 0)
-        } catch (err) {
-          setPlants([])
-          setHasPlants(false)
-        }
-      } finally {
-        setCheckingPlants(false)
-      }
-    }
-
-    if (user && !loading) {
-      fetchPlants()
-    }
-  }, [user, loading])
-
-  if (loading) {
+  if (loading || authLoading || gardenLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-6 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="animate-pulse">
-            {/* Loading skeleton */}
-            <div className="h-48 bg-white rounded-lg mb-6"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="h-64 bg-white rounded-lg"></div>
-              <div className="h-64 bg-white rounded-lg"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageContainer className="space-y-3 animate-pulse">
+        <div className="h-8 bg-gray-200 rounded w-1/2" />
+        <div className="h-14 bg-gray-200 rounded-2xl" />
+        <div className="h-32 bg-gray-200 rounded-2xl" />
+        <div className="h-24 bg-gray-200 rounded-2xl" />
+      </PageContainer>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-6 px-4">
-      <div className="max-w-6xl mx-auto space-y-6">
-        {/* Dashboard Header */}
-        <div className="mb-2">
-          <h1 className="text-3xl font-bold text-gray-900">
-            {userName ? `${userName}'s Dashboard` : 'Dashboard'}
-          </h1>
+    <PageContainer className="space-y-4 md:space-y-5">
+      {/* Header */}
+      <div className="flex items-center justify-between py-1">
+        <div>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Hi {userName} 👋</h1>
+          <p className="text-xs md:text-sm text-gray-400 mt-0.5">{today}</p>
+        </div>
+        <Link
+          href="/settings"
+          aria-label="Settings"
+          className="hidden md:flex w-10 h-10 bg-white rounded-full shadow-sm border border-gray-100 items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
+        <div className="space-y-3 md:space-y-4">
+          <WeatherPanel location={userLocation} locationLoading={locationLoading} />
+          <WeeklyGuidanceCard location={userLocation} />
         </div>
 
-        {/* Garden Summary Section */}
-        {!checkingPlants && (
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            {hasPlants && plants.length > 0 ? (
-              <div>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-2xl font-semibold text-gray-800">My Garden</h2>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {Array.from({ length: 6 }).map((_, index) => {
-                    const plant = plants[index]
-                    if (plant) {
-                      const plantName = plant.name || plant.plant_name || ''
-                      // Plant icon mapping
-                      const plantIcons: { [key: string]: string } = {
-                        'Tomatoes': '🍅', 'Tomato': '🍅',
-                        'Peppers': '🫑', 'Pepper': '🫑',
-                        'Carrots': '🥕', 'Carrot': '🥕',
-                        'Beans': '🫘', 'Bean': '🫘',
-                        'Lettuce': '🥬',
-                        'Cucumber': '🥒',
-                        'Sweet Corn': '🌽', 'Corn': '🌽',
-                        'Garlic': '🧄',
-                        'Onions': '🧅', 'Onion': '🧅',
-                        'Eggplant': '🍆',
-                        'Sweet Potato': '🍠',
-                        'Broccoli': '🥦',
-                        'Cabbage': '🥬',
-                        'Peas': '🥕',
-                        'Spinach': '🥬',
-                        'Zucchini': '🥒',
-                        'Kale': '🥬',
-                        'Leeks': '🧅', 'Leek': '🧅',
-                      }
-                      const getPlantIcon = (name: string) => {
-                        if (plantIcons[name]) return plantIcons[name]
-                        const lowerName = name.toLowerCase()
-                        const match = Object.entries(plantIcons).find(([key]) => 
-                          key.toLowerCase() === lowerName || lowerName.includes(key.toLowerCase())
-                        )
-                        return match ? match[1] : '🌱'
-                      }
-                      // Format dates
-                      const formatDate = (dateString: string) => {
-                        try {
-                          const date = new Date(dateString)
-                          return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-                        } catch {
-                          return ''
-                        }
-                      }
-                      
-                      const plantedDate = plant.datePlanted ? formatDate(plant.datePlanted) : ''
-                      const harvestDate = plant.estimatedHarvest ? formatDate(plant.estimatedHarvest) : ''
-                      
-                      return (
-                        <div
-                          key={plant.id || index}
-                          className="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow text-center"
-                        >
-                          <div className="flex flex-col items-center gap-1.5">
-                            <span className="text-3xl">{getPlantIcon(plantName)}</span>
-                            <h3 className="font-medium text-gray-800 text-sm leading-tight">{plantName}</h3>
-                            <div className="space-y-0.5 mt-1">
-                              {plantedDate && (
-                                <p className="text-xs text-gray-600 leading-tight">
-                                  Planted: {plantedDate}
-                                </p>
-                              )}
-                              {harvestDate && (
-                                <p className="text-xs text-gray-600 leading-tight">
-                                  Harvest: {harvestDate}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    } else {
-                      // Empty slot with question mark
-                      return (
-                        <div
-                          key={`empty-${index}`}
-                          className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center opacity-60"
-                        >
-                          <div className="flex flex-col items-center gap-2">
-                            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                          </div>
-                        </div>
-                      )
-                    }
-                  })}
-                </div>
-                <div className="mt-4 text-center">
-                  <Link
-                    href="/my-garden"
-                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium"
-                  >
-                    Plant more →
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <div className="text-center">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-2">Start Growing</h2>
-                <p className="text-gray-600 mb-6">Add plants to your garden and get personalized care instructions</p>
-                <Link
-                  href="/my-garden/add"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                >
-                  <span className="text-xl">🌱</span>
-                  Add Your First Plant
-                </Link>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <TodaysTasks />
-            </div>
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <ActivityFeed />
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <UpcomingHarvests />
-            </div>
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <PestAlerts location={userLocation} />
-            </div>
-          </div>
+        <div className="space-y-3 md:space-y-4">
+          <WeeklyBriefCard
+            plants={plants}
+            location={userLocation}
+            locationLoading={locationLoading}
+            gardenLoading={gardenLoading}
+          />
+          <WhatToPlantNow location={userLocation} />
         </div>
       </div>
-    </div>
+    </PageContainer>
   )
-} 
+}

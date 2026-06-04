@@ -1,0 +1,369 @@
+Location: Darwin, NT
+Place id: nt-darwin
+Climate: tropical | Tags: coastal, tropical_wet_dry
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · early
+**Wet season (Week 1)**
+weather: none | 7d avg max 32.1°C (norm 32°C), rain 27 mm (norm 75 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+In wet season, favour raised beds and fast-maturing varieties.
+
+### W02 · 2025-01-08 · January · early
+**Wet season (Week 2)**
+weather: none | 7d avg max 31.1°C (norm 32°C), rain 66 mm (norm 75 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Fast crops is the key focus this week; in wet season, favour raised beds and fast-maturing varieties.
+
+### W03 · 2025-01-15 · January · early
+**Wet season (Week 3)**
+weather: none | 7d avg max 31.4°C (norm 32°C), rain 30 mm (norm 75 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Keep conditions steady and in wet season, favour raised beds and fast-maturing varieties.
+
+### W04 · 2025-01-22 · January · early
+**Wet season (Week 4)**
+weather: none | 7d avg max 29.8°C (norm 32°C), rain 93 mm (norm 75 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+As conditions evolve, in wet season, favour raised beds and fast-maturing varieties.
+
+### W05 · 2025-01-29 · January · mid
+**Wet season (Week 5)**
+weather: none | 7d avg max 30.6°C (norm 32°C), rain 84 mm (norm 75 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Protect soil and pause garden work after downpours when heavy rain is likely.
+
+### W06 · 2025-02-05 · February · mid
+**Wet season (Week 6)**
+weather: none | 7d avg max 30.9°C (norm 32°C), rain 57 mm (norm 70 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Pest watch is the key focus this week; protect soil and pause garden work after downpours when heavy rain is likely.
+
+### W07 · 2025-02-12 · February · mid
+**Wet season (Week 7)**
+weather: WET | 7d avg max 29.7°C (norm 32°C), rain 114 mm (norm 70 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Keep conditions steady and protect soil and pause garden work after downpours when heavy rain is likely. Monsoonal moisture is dominating this week; focus on crop survival, clean pathways, and staged planting in the best-drained pockets.
+
+### W08 · 2025-02-19 · February · mid
+**Wet season (Week 8)**
+weather: none | 7d avg max 29.3°C (norm 32°C), rain 97 mm (norm 70 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+As conditions evolve, protect soil and pause garden work after downpours when heavy rain is likely. Wet-season pressure is easing; focus on harvest timing, drainage checks, and fungal prevention before restarting major planting.
+
+### W09 · 2025-02-26 · February · late
+**Wet season (Week 9)**
+weather: none | 7d avg max 31.4°C (norm 32°C), rain 44 mm (norm 70 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Wet season in Darwin—harvest often and manage drainage in saturated beds. Compost remains important as you transition into the next phase; protect soil and pause garden work after downpours when heavy rain is likely.
+
+### W10 · 2025-03-05 · March · late
+**Wet season (Week 10)**
+weather: none | 7d avg max 31.3°C (norm 31°C), rain 20 mm (norm 47 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid wet season in Darwin—scout for fungal issues on soft growth. Clear waterlogged beds and refresh compost as you plan dry-season crops.
+
+### W11 · 2025-03-12 · March · late
+**Wet season (Week 11)**
+weather: none | 7d avg max 32.5°C (norm 31°C), rain 61 mm (norm 47 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late wet season in Darwin—clear spent crops and plan the dry-season switch. Fast crops is the key focus this week; clear waterlogged beds and refresh compost as you plan dry-season crops.
+
+### W12 · 2025-03-19 · March · late
+**Wet season (Week 12)**
+weather: WET | 7d avg max 29.8°C (norm 31°C), rain 159 mm (norm 47 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Humidity and saturated soil raise fungal pressure; thin crowded growth and pause digging until beds firm.
+
+### W13 · 2025-03-26 · March · late
+**Wet season (Week 13)**
+weather: WET | 7d avg max 29.3°C (norm 31°C), rain 199 mm (norm 47 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W14 · 2025-04-02 · April · late
+**Wet season (Week 14)**
+weather: WET | 7d avg max 29.2°C (norm 30°C), rain 126 mm (norm 19 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Heavy wet-season rain needs open drains and lifted pathways; harvest what is ripe before the next downpour.
+
+### W15 · 2025-04-09 · April · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.2°C (norm 30°C), rain 12 mm (norm 19 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+In wet season, favour raised beds and fast-maturing varieties. Wet-season pressure is easing; focus on harvest timing, drainage checks, and fungal prevention before restarting major planting.
+
+### W16 · 2025-04-16 · April · late
+**Wet season (Week 14)**
+weather: WET | 7d avg max 31.0°C (norm 30°C), rain 47 mm (norm 19 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Fast crops is the key focus this week; in wet season, favour raised beds and fast-maturing varieties. Monsoonal moisture is dominating this week; focus on crop survival, clean pathways, and staged planting in the best-drained pockets.
+
+### W17 · 2025-04-23 · April · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.1°C (norm 30°C), rain 20 mm (norm 19 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Keep conditions steady and in wet season, favour raised beds and fast-maturing varieties. Rain is easing but humidity remains high; keep airflow open and avoid pushing new sowings into sticky beds.
+
+### W18 · 2025-04-30 · April · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.5°C (norm 30°C), rain 11 mm (norm 19 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+As conditions evolve, in wet season, favour raised beds and fast-maturing varieties.
+
+### W19 · 2025-05-07 · May · early
+**Dry season (Week 1)**
+weather: warm + WET | 7d avg max 31.7°C (norm 28°C), rain 19 mm (norm 6 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W20 · 2025-05-14 · May · early
+**Dry season (Week 2)**
+weather: WARM + DRY | 7d avg max 32.1°C (norm 28°C), rain 0 mm (norm 6 mm/wk)
+rolling: soil=wet temp=above_norm forecast=drying/warming dominant=WET sustained=false mode=append
+
+Mulch is the key focus this week; in dry season peak, irrigate consistently and mulch to reduce evaporation. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W21 · 2025-05-21 · May · early
+**Dry season (Week 3)**
+weather: DRY | 7d avg max 30.9°C (norm 28°C), rain 0 mm (norm 6 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry air favours European-style vegetables; keep mulch topped up and avoid midday watering that steams roots.
+
+### W22 · 2025-05-28 · May · early
+**Dry season (Week 4)**
+weather: warm + WET | 7d avg max 31.5°C (norm 28°C), rain 19 mm (norm 6 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W23 · 2025-06-04 · June · mid
+**Dry season (Week 5)**
+weather: warm + DRY | 7d avg max 30.3°C (norm 27°C), rain 0 mm (norm 2 mm/wk)
+rolling: soil=wet temp=above_norm forecast=drying/warming dominant=WET sustained=false mode=append
+
+Succession sow quick crops while growing conditions stay excellent. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W24 · 2025-06-11 · June · mid
+**Dry season (Week 6)**
+weather: DRY | 7d avg max 29.9°C (norm 27°C), rain 0 mm (norm 2 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry air favours European-style vegetables; keep mulch topped up and avoid midday watering that steams roots.
+
+### W25 · 2025-06-18 · June · mid
+**Dry season (Week 7)**
+weather: warm + DRY | 7d avg max 30.1°C (norm 27°C), rain 0 mm (norm 2 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Low humidity suits tomatoes, capsicum, and herbs; irrigate on a steady schedule and mulch to limit evaporation from raised beds.
+
+### W26 · 2025-06-25 · June · mid
+**Dry season (Week 8)**
+weather: WARM + DRY | 7d avg max 31.0°C (norm 27°C), rain 0 mm (norm 2 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Succession sow quick greens while dry weather holds; shallow roots need morning watering before heat builds.
+
+### W27 · 2025-07-02 · July · late
+**Dry season (Week 9)**
+weather: warm + DRY | 7d avg max 30.3°C (norm 27°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry air favours European-style vegetables; keep mulch topped up and avoid midday watering that steams roots.
+
+### W28 · 2025-07-09 · July · late
+**Dry season (Week 10)**
+weather: warm + DRY | 7d avg max 30.0°C (norm 27°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Excellent dry-season growing weather continues; check drip lines and focus water on beds with active harvests.
+
+### W29 · 2025-07-16 · July · late
+**Dry season (Week 11)**
+weather: warm + DRY | 7d avg max 30.4°C (norm 27°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Reliable dry-season weather continues; maintain deep irrigation intervals and avoid stretching water across low-priority beds.
+
+### W30 · 2025-07-23 · July · late
+**Dry season (Week 12)**
+weather: DRY | 7d avg max 29.9°C (norm 27°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry air favours European-style vegetables; keep mulch topped up and avoid midday watering that steams roots.
+
+### W31 · 2025-07-30 · July · late
+**Dry season (Week 13)**
+weather: WET | 7d avg max 29.3°C (norm 27°C), rain 4 mm (norm 1 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W32 · 2025-08-06 · August · late
+**Dry season (Week 14)**
+weather: WET | 7d avg max 30.0°C (norm 28°C), rain 2 mm (norm 1 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Heavy wet-season rain needs open drains and lifted pathways; harvest what is ripe before the next downpour.
+
+### W33 · 2025-08-13 · August · late
+**Dry season (Week 14)**
+weather: DRY | 7d avg max 30.7°C (norm 28°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+In dry season peak, irrigate consistently and mulch to reduce evaporation. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W34 · 2025-08-20 · August · late
+**Dry season (Week 14)**
+weather: warm + DRY | 7d avg max 31.5°C (norm 28°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Excellent dry-season growing weather continues; check drip lines and focus water on beds with active harvests.
+
+### W35 · 2025-08-27 · August · late
+**Dry season (Week 14)**
+weather: DRY | 7d avg max 30.4°C (norm 28°C), rain 0 mm (norm 1 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Consolidate irrigation on fruiting crops before opening new rows; corners that dry out first are poor spots for tender seedlings.
+
+### W36 · 2025-09-03 · September · early
+**Build-up (Week 1)**
+weather: DRY | 7d avg max 31.5°C (norm 30°C), rain 0 mm (norm 4 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry-season conditions are dominant; prioritize deep, scheduled irrigation on active crops and hold new plantings until moisture can be maintained consistently.
+
+### W37 · 2025-09-10 · September · early
+**Build-up (Week 2)**
+weather: WET | 7d avg max 30.9°C (norm 30°C), rain 8 mm (norm 4 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Watering is the key focus this week; in build-up season, increase watering and sow heat-tolerant staples. Beds are saturated in tropical heat; prioritize drainage and airflow, and pause major planting until root zones are workable again.
+
+### W38 · 2025-09-17 · September · early
+**Build-up (Week 3)**
+weather: WET | 7d avg max 31.5°C (norm 30°C), rain 11 mm (norm 4 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Humidity and saturated soil raise fungal pressure; thin crowded growth and pause digging until beds firm.
+
+### W39 · 2025-09-24 · September · early
+**Build-up (Week 4)**
+weather: WET | 7d avg max 31.2°C (norm 30°C), rain 7 mm (norm 4 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W40 · 2025-10-01 · October · mid
+**Build-up (Week 5)**
+weather: none | 7d avg max 31.9°C (norm 31°C), rain 3 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Improve drainage and scout for fungal issues as humidity rises. Wet-season pressure is easing; focus on harvest timing, drainage checks, and fungal prevention before restarting major planting.
+
+### W41 · 2025-10-08 · October · mid
+**Build-up (Week 6)**
+weather: DRY | 7d avg max 33.1°C (norm 31°C), rain 1 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Feeding is the key focus this week; improve drainage and scout for fungal issues as humidity rises. Dry conditions are building; protect shallow-rooted crops with mulch and avoid opening new beds without irrigation support.
+
+### W42 · 2025-10-15 · October · mid
+**Build-up (Week 7)**
+weather: none | 7d avg max 32.2°C (norm 31°C), rain 13 mm (norm 9 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Keep conditions steady and improve drainage and scout for fungal issues as humidity rises.
+
+### W43 · 2025-10-22 · October · mid
+**Build-up (Week 8)**
+weather: WET | 7d avg max 32.6°C (norm 31°C), rain 21 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+As conditions evolve, improve drainage and scout for fungal issues as humidity rises. High humidity and persistent moisture are driving disease pressure; keep crops open, harvest promptly, and avoid unnecessary handling of wet plants.
+
+### W44 · 2025-10-29 · October · late
+**Build-up (Week 9)**
+weather: none | 7d avg max 32.4°C (norm 31°C), rain 9 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Build-up in Darwin—rising humidity; improve airflow around dense beds. Staking remains important as you transition into the next phase; improve drainage and scout for fungal issues as humidity rises. Rain is easing but humidity remains high; keep airflow open and avoid pushing new sowings into sticky beds.
+
+### W45 · 2025-11-05 · November · late
+**Build-up (Week 10)**
+weather: none | 7d avg max 32.6°C (norm 32°C), rain 13 mm (norm 28 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid build-up in Darwin—secure stakes before storms. Secure stakes and harvest before heavy rain as storm season approaches.
+
+### W46 · 2025-11-12 · November · late
+**Build-up (Week 11)**
+weather: WET | 7d avg max 30.8°C (norm 32°C), rain 63 mm (norm 28 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Late build-up in Darwin—finish urgent planting before the wet returns. Watering is the key focus this week; secure stakes and harvest before heavy rain as storm season approaches. High humidity and persistent moisture are driving disease pressure; keep crops open, harvest promptly, and avoid unnecessary handling of wet plants.
+
+### W47 · 2025-11-19 · November · late
+**Build-up (Week 12)**
+weather: WET | 7d avg max 30.1°C (norm 32°C), rain 133 mm (norm 28 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Humidity and saturated soil raise fungal pressure; thin crowded growth and pause digging until beds firm.
+
+### W48 · 2025-11-26 · November · late
+**Build-up (Week 13)**
+weather: WET | 7d avg max 30.2°C (norm 32°C), rain 371 mm (norm 28 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Monsoonal moisture is dominating beds; prioritize drainage, airflow, and crop survival steps before pushing new sowings.
+
+### W49 · 2025-12-03 · December · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.8°C (norm 32°C), rain 34 mm (norm 58 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Keep conditions steady and protect soil and pause garden work after downpours when heavy rain is likely. Wet-season pressure is easing; focus on harvest timing, drainage checks, and fungal prevention before restarting major planting.
+
+### W50 · 2025-12-10 · December · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.2°C (norm 32°C), rain 46 mm (norm 58 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+As conditions evolve, protect soil and pause garden work after downpours when heavy rain is likely.
+
+### W51 · 2025-12-17 · December · late
+**Wet season (Week 14)**
+weather: none | 7d avg max 31.6°C (norm 32°C), rain 22 mm (norm 58 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Wet season in Darwin—harvest often and manage drainage in saturated beds. Compost remains important as you transition into the next phase; protect soil and pause garden work after downpours when heavy rain is likely.
+
+### W52 · 2025-12-24 · December · late
+**Wet season (Week 14)**
+weather: WET | 7d avg max 30.3°C (norm 32°C), rain 93 mm (norm 58 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid wet season in Darwin—scout for fungal issues on soft growth. Clear waterlogged beds and refresh compost as you plan dry-season crops.

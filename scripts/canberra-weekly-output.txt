@@ -1,0 +1,369 @@
+Location: Canberra, ACT
+Place id: act-canberra
+Climate: cool | Tags: inland
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: warm | 7d avg max 28.0°C (norm 24°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Shift beds toward autumn: sow brassicas in trays if you start them under cover. Soil is drying fast—water fruiting crops and new seedlings in the morning before sea breeze and heat.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: warm | 7d avg max 27.6°C (norm 24°C), rain 7 mm (norm 11 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=true mode=append
+
+Clear struggling summer crops and refresh compost on empty beds. Temperatures are slightly above normal—harvest and water in the cooler part of the day; shade young seedlings on hot walls.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: warm + WET | 7d avg max 27.7°C (norm 24°C), rain 38 mm (norm 11 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Soil is staying heavily damp after repeated rain; protect root zones and keep airflow high around fruiting crops.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: DRY | 7d avg max 25.8°C (norm 24°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Harvest corn, zucchini, and tomatoes at peak ripeness. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: warm + DRY | 7d avg max 27.8°C (norm 24°C), rain 3 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: WARM+ + DRY | 7d avg max 29.3°C (norm 24°C), rain 2 mm (norm 9 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: warm + WET | 7d avg max 27.0°C (norm 24°C), rain 32 mm (norm 9 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Persistent wet conditions are limiting bed access; prioritize drainage and harvest quality over extra planting.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: WET | 7d avg max 23.1°C (norm 24°C), rain 18 mm (norm 9 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Drainage and airflow matter more than another week of delay—protect what is already in the ground from mildew and slugs.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: DRY | 7d avg max 26.6°C (norm 24°C), rain 1 mm (norm 9 mm/wk)
+rolling: soil=wet temp=above_norm forecast=drying/warming dominant=WET sustained=false mode=append
+
+Summer lingers on the calendar in Canberra, but evenings are cooling. Finish tender harvests, refresh mulch, and line up autumn beds without rushing brassicas into tired soil. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: WARM+ + DRY | 7d avg max 28.3°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: warm + DRY | 7d avg max 25.1°C (norm 22°C), rain 2 mm (norm 11 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: WARM+ + DRY | 7d avg max 27.5°C (norm 22°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: warm | 7d avg max 25.9°C (norm 22°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Harvest remaining summer crops before quality drops in cooler weather. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: warm + WET | 7d avg max 21.1°C (norm 18°C), rain 24 mm (norm 12 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Cover tender plants on cold nights; sheltered sites may still see useful growth. Use the moisture while avoiding compaction; plant into friable pockets and keep organic matter on the surface.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: DRY | 7d avg max 19.7°C (norm 18°C), rain 0 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Favour hardy greens and root crops as growth rate eases. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: WARM + DRY | 7d avg max 22.7°C (norm 18°C), rain 1 mm (norm 12 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: warm | 7d avg max 21.8°C (norm 18°C), rain 10 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Ease watering as evaporation drops; keep soil moist for establishing plants. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: none | 7d avg max 19.5°C (norm 18°C), rain 7 mm (norm 12 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=true mode=append
+
+Autumn is well underway in Canberra—growth is slowing and planting windows are narrowing. Growth is slowing inland; finish remaining planting while soil still holds warmth and watch for the first regular frosts. Days are running warmer than usual—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: DRY | 7d avg max 18.0°C (norm 15°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Mid-late autumn in Canberra favours finishing hardy work before winter sets in. Inland frosts are becoming regular; harvest tender crops at peak ripeness and cover vulnerable plantings overnight. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: none | 7d avg max 17.1°C (norm 15°C), rain 7 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late autumn in Canberra—frosts may arrive any time on exposed sites; keep covers ready. Prune deciduous trees once fully dormant inland and ease back on watering as growth slows.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: none | 7d avg max 14.9°C (norm 15°C), rain 5 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late autumn in Canberra is narrowing fast. Finish only frost-hardy plant-outs and shift attention to mulch, drainage, and covers.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: WET | 7d avg max 13.9°C (norm 15°C), rain 62 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Moisture remains high this week; focus on drainage checks and staged planting in workable rows.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: FROST + DRY | 7d avg max 13.5°C (norm 13°C), rain 1 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Winter maintenance: check covers, plan spring, and improve soil when beds are empty. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: FROST | 7d avg max 9.2°C (norm 13°C), rain 14 mm (norm 14 mm/wk)
+rolling: soil=normal temp=below_norm forecast=stable/cooling dominant=COOL sustained=false mode=append
+
+Harvest winter greens steadily to encourage continued leaf production. Use frost cloth and sheltered spots for vulnerable plants; wait for warmer mornings before transplanting.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: FROST + DRY | 7d avg max 9.4°C (norm 13°C), rain 1 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Prune deciduous fruit in calm weather once fully dormant. Repeated cold nights can stall seedlings—hold plant-outs and keep protection ready each evening.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: FROST + WET | 7d avg max 10.0°C (norm 13°C), rain 30 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Order seeds and plan succession for spring. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: FROST + WET | 7d avg max 9.9°C (norm 12°C), rain 44 mm (norm 15 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: FROST | 7d avg max 11.7°C (norm 12°C), rain 6 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Start seedlings indoors for early spring transplanting. Repeated cold nights can stall seedlings—hold plant-outs and keep protection ready each evening.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: FROST | 7d avg max 9.6°C (norm 12°C), rain 7 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Check stakes and netting before spring growth begins. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: FROST | 7d avg max 11.8°C (norm 12°C), rain 14 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Improve wet beds with compost; avoid compacting sodden soil. Use frost cloth and sheltered spots for vulnerable plants; wait for warmer mornings before transplanting.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: FROST + WET | 7d avg max 10.4°C (norm 12°C), rain 23 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Winter is settled in Canberra—focus on maintenance and slow crops rather than new plant-outs. Late winter sowing under cover: tomatoes, peppers, and early brassicas. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: FROST + DRY | 7d avg max 13.3°C (norm 13°C), rain 2 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Mid-winter in Canberra: protect overwintered greens and avoid working waterlogged beds. Prepare potato beds and lime if soil tests suggest it. Use frost cloth and sheltered spots for vulnerable plants; wait for warmer mornings before transplanting.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: FROST + DRY | 7d avg max 12.7°C (norm 13°C), rain 1 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Cold nights are the main risk—cover tender crops and bring pots under shelter when frost is forecast. Soil is also dry—check potted plants, not dormant open beds.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: FROST | 7d avg max 12.8°C (norm 13°C), rain 6 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Deep winter in Canberra—growth is minimal. Focus on covers, drainage, and seed planning rather than rushing outdoor sowing. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: WET | 7d avg max 15.4°C (norm 13°C), rain 23 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late winter in Canberra still feels cold, but days are lengthening. Maintain overwintered crops, avoid digging until soil is workable, and stage spring work without forcing tender sowings outdoors.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: FROST | 7d avg max 12.7°C (norm 15°C), rain 17 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Spring starts cautiously: seeds under cover, frost cloth ready for clear cold nights. Tender crops are at risk after recent cold nights—keep cover ready and delay outdoor plant-outs until mornings warm.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: FROST | 7d avg max 16.3°C (norm 15°C), rain 18 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Direct sow peas, potatoes, and hardy greens in workable soil. Late frosts can still bite in spring—harden off slowly and plant out only after mild nights.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: FROST | 7d avg max 16.0°C (norm 15°C), rain 17 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Plant asparagus and rhubarb crowns if you have them on order. Tender crops are at risk after recent cold nights—keep cover ready and delay outdoor plant-outs until mornings warm.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: FROST | 7d avg max 14.8°C (norm 15°C), rain 4 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Harden off seedlings on mild afternoons; bring under cover overnight. Late frosts can still bite in spring—harden off slowly and plant out only after mild nights.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: DRY | 7d avg max 18.7°C (norm 17°C), rain 0 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Sow carrots, beetroot, and leafy greens; thin seedlings for airflow. Soil is drying—water seedlings under cover and newly transplanted hardy crops on calm mornings.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: none | 7d avg max 18.4°C (norm 17°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Plant potatoes and transplant hardy brassicas.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: none | 7d avg max 19.7°C (norm 17°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Begin tomato and capsicum under cover; do not rush outdoor plant-out.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WARM+ | 7d avg max 25.5°C (norm 17°C), rain 4 mm (norm 12 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Transplant seedlings as soil warms; feed lightly with balanced fertiliser. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: none | 7d avg max 18.0°C (norm 17°C), rain 7 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Spring is opening in Canberra, but nights can still bite—harden off in stages. Plant tomatoes under cover; stake early and mulch when soil is warm.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: WET | 7d avg max 20.6°C (norm 19°C), rain 21 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Mid-spring in Canberra—core hardy planting continues; tender crops stay protected. Increase watering as growth speeds up; scout for aphids on soft growth. Use brief dry windows for transplanting into crumbly ground and keep seedling airflow high.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: FROST | 7d avg max 20.4°C (norm 19°C), rain 14 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Late spring in Canberra is short—watch for frost after warm days before planting out tomatoes. Plant beans and zucchini in protected spots until frost risk is low. Late frosts can still bite in spring—harden off slowly and plant out only after mild nights.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: warm | 7d avg max 22.2°C (norm 19°C), rain 14 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late spring in Canberra is brief—frost can still surprise on clear nights. Harden off in stages and keep covers within reach.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: WARM + WET | 7d avg max 23.7°C (norm 19°C), rain 24 mm (norm 12 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=append
+
+The last stretch of spring in Canberra is the summer hand-off. Plant protected tomatoes and beans where your site allows, but watch for late frost after warm afternoons. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: none | 7d avg max 20.5°C (norm 21°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Early summer: harvest regularly and water deeply before heat and dry winds stress plants. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: WARM+ | 7d avg max 29.1°C (norm 21°C), rain 5 mm (norm 11 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Keep fruiting crops picked to extend production; mulch to hold moisture. Heat is clearly above normal—watch containers and shallow beds drying faster than usual.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: warm | 7d avg max 24.8°C (norm 21°C), rain 12 mm (norm 11 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Succession sow lettuce, herbs, and quick greens in partial shade where possible.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: WARM+ + WET | 7d avg max 29.0°C (norm 21°C), rain 26 mm (norm 11 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Stake tomatoes and beans; maintain airflow around dense foliage. Damp foliage after rain raises disease risk; thin crowded growth and keep leaves dry where possible.

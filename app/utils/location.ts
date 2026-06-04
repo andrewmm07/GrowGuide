@@ -1,39 +1,23 @@
-import { GardenLocation, StateCode, ClimateZone } from '../types/location';
-import { getClimateZone, isValidStateCity } from './climate';
+/**
+ * @deprecated Canonical location lives in profiles.location via lib/locationService.ts
+ * and app/context/AuthContext (useAuth().userLocation).
+ *
+ * Use gardenLocationFromUserLocation() from @/lib/locationView with useAuth() instead.
+ * Do not read localStorage for location.
+ */
 
-// Re-export for consumers
+import { GardenLocation } from '../types/location';
+
 export type { GardenLocation } from '../types/location';
 
+/**
+ * @deprecated Returns null. Migrate callers to useAuth().userLocation + lib/locationView.
+ */
 export function getNormalizedLocation(_location?: string): GardenLocation | null {
-  // Guard against server-side execution where localStorage is unavailable
-  if (typeof window === 'undefined') {
-    return null;
+  if (typeof window !== 'undefined') {
+    console.warn(
+      '[ARCHITECTURE] getNormalizedLocation() is deprecated. Use useAuth().userLocation and gardenLocationFromUserLocation() from @/lib/locationView.'
+    );
   }
-
-  try {
-    const savedLocation = localStorage.getItem('userLocation');
-    if (!savedLocation) {
-      return null;
-    }
-
-    const location = JSON.parse(savedLocation);
-    
-    // Validate the state/city combination
-    if (!isValidStateCity(location.state, location.city)) {
-      console.warn('Invalid state/city combination:', location);
-      return null;
-    }
-
-    // Get climate zone for the location
-    const climateZone = getClimateZone(location.state, location.city) as ClimateZone;
-
-    return {
-      state: location.state as StateCode,
-      city: location.city,
-      climateZone: climateZone
-    };
-  } catch (error) {
-    console.error('Error getting location:', error);
-    return null;
-  }
-} 
+  return null;
+}

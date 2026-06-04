@@ -1,0 +1,369 @@
+Location: Toowoomba, QLD
+Place id: qld-toowoomba
+Climate: temperate | Tags: alpine_highland, inland
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: WET | 7d avg max 29.4°C (norm 28°C), rain 14 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Refresh tired beds with compost and sow quick greens in spots that catch afternoon shade. Humidity is running high after recent rain; prioritize airflow around fruiting crops and avoid overhead watering late in the day.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: WET | 7d avg max 26.3°C (norm 28°C), rain 21 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Plan autumn brassicas; start seedlings under cover if direct sowing is risky in heat. Damp foliage after rain raises disease risk; thin crowded growth and keep leaves dry where possible.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: WET | 7d avg max 26.4°C (norm 28°C), rain 80 mm (norm 9 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Soil is waterlogged after repeated rain; this is peak summer planting time, so use containers and raised spots for tomatoes and beans rather than waiting for every bed to dry.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: none | 7d avg max 28.4°C (norm 28°C), rain 8 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Harvest corn and stone fruit at peak ripeness; net trees if birds are active. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: none | 7d avg max 29.3°C (norm 28°C), rain 10 mm (norm 9 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late summer in Toowoomba—succession sow quick greens where space opens. Ease feeding on woody plants as growth slows; keep steady moisture on establishing crops.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: WET | 7d avg max 27.0°C (norm 28°C), rain 16 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Summer in Toowoomba is shifting—plan autumn beds and order garlic if needed. Late summer: clear pest-heavy plants and make space for garlic and green-manure patches. Humidity is running high after recent rain; prioritize airflow around fruiting crops and avoid overhead watering late in the day.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: none | 7d avg max 27.5°C (norm 28°C), rain 9 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Final summer harvests in Toowoomba before resetting beds for autumn. Succession sow lettuce and herbs where soil stays cool; mulch before dry, windy weeks. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: none | 7d avg max 28.1°C (norm 28°C), rain 13 mm (norm 9 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late summer in Toowoomba—keep harvesting and easing off heavy feeding as growth slows on tired crops.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: none | 7d avg max 27.4°C (norm 28°C), rain 3 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Summer runs long in Toowoomba but heat is easing. Water fruiting crops steadily, clear spent plants, and make space for autumn sowing. Dry conditions—mulch exposed beds and prioritise water for shallow-rooted greens and containers.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: warm | 7d avg max 28.3°C (norm 25°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Autumn begins: sow brassicas and collect fallen leaves for compost while soil still holds warmth. Temperatures are slightly above normal—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: WET | 7d avg max 23.5°C (norm 25°C), rain 316 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Moisture remains high this week; focus on drainage checks and staged planting in workable rows.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: DRY | 7d avg max 24.8°C (norm 25°C), rain 3 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Sow peas and broad beans; keep seedlings moist as nights cool. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: WET | 7d avg max 23.6°C (norm 25°C), rain 43 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Moisture remains high this week; focus on drainage checks and staged planting in workable rows.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: WET | 7d avg max 22.6°C (norm 22°C), rain 131 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Soil is heavy and wet; finish garlic in raised or sloped ground and keep brassica rows ventilated.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: DRY | 7d avg max 23.6°C (norm 22°C), rain 3 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Frost can arrive weeks earlier in highland gardens; harvest tender crops and cover beds on clear, calm nights. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: none | 7d avg max 22.6°C (norm 22°C), rain 10 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Frost can arrive weeks earlier in highland gardens; harvest tender crops and cover beds on clear, calm nights.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: DRY | 7d avg max 23.9°C (norm 22°C), rain 3 mm (norm 12 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Frost can arrive weeks earlier in highland gardens; harvest tender crops and cover beds on clear, calm nights. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: none | 7d avg max 22.4°C (norm 22°C), rain 12 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Autumn in Toowoomba is cooling—complete planting plans and ease back on summer watering. Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Inland valleys see earlier frosts than the coast; protect tender plants when nights turn cold.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: DRY | 7d avg max 20.7°C (norm 18°C), rain 1 mm (norm 13 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Mid-autumn in Toowoomba—prune only when trees are fully dormant. Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Inland valleys see earlier frosts than the coast; protect tender plants when nights turn cold. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: none | 7d avg max 20.5°C (norm 18°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Late autumn in Toowoomba—protect tender crops when forecasts dip. Finish planting hardy crops and mulch well; dormancy comes earlier than in lowland areas. Inland valleys see earlier frosts than the coast; protect tender plants when nights turn cold. Days are running warmer than usual—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: WET | 7d avg max 20.6°C (norm 18°C), rain 24 mm (norm 13 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Late autumn in Toowoomba is cooling steadily. Wind back tender planting and protect remaining warmth-loving crops on cold nights. Soil is damp; finish garlic and onion planting in workable spots and keep brassica rows ventilated.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: warm + DRY | 7d avg max 21.4°C (norm 18°C), rain 2 mm (norm 13 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=drying/warming dominant=WET sustained=false mode=append
+
+The last stretch of autumn in Toowoomba is a transition week—nights are cooling and growth is slow. Keep frost protection ready and favour maintenance and harvest over new plant-outs. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: WET | 7d avg max 17.1°C (norm 15°C), rain 47 mm (norm 14 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Winter soil remains persistently wet; protect structure and use drier windows for light maintenance only.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: DRY | 7d avg max 15.7°C (norm 15°C), rain 0 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Harvest winter greens steadily to encourage continued leaf production. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: DRY | 7d avg max 15.3°C (norm 15°C), rain 0 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry winter weeks mainly affect sheltered containers and covered greens; avoid treating open dormant beds as active crops.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: DRY | 7d avg max 17.3°C (norm 15°C), rain 2 mm (norm 14 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: none | 7d avg max 14.6°C (norm 14°C), rain 12 mm (norm 13 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Midwinter: focus on compost, tool maintenance, and improving wet beds when workable. Dry air and little rain—check potted plants and overwintering greens; most open beds need little or no watering.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: warm + DRY | 7d avg max 17.6°C (norm 14°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Start tomatoes and capsicum indoors for early spring transplanting. Soil is dry on the surface—avoid walking wet-dry cycles on empty beds; focus on pots and covered greens.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: warm + DRY | 7d avg max 17.3°C (norm 14°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: WARM | 7d avg max 18.1°C (norm 14°C), rain 17 mm (norm 13 mm/wk)
+rolling: soil=dry temp=above_norm forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Improve drainage and bed structure with compost; keep heavy foot traffic off soft soil. Beds are recovering from a dry spell, and this week brought useful rain; pause heavy watering and reassess soil condition before direct sowing or digging.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: none | 7d avg max 15.8°C (norm 14°C), rain 18 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Winter in Toowoomba—steady harvests on greens and calm pruning weather for dormant fruit. Late winter sowing under cover: early brassicas and hardy greens outdoors where frost is mild.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: none | 7d avg max 16.2°C (norm 16°C), rain 8 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid-winter in Toowoomba: order seed and improve soil on empty beds. Prepare potato beds; lime only if soil tests suggest it.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: none | 7d avg max 16.6°C (norm 16°C), rain 4 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late winter in Toowoomba—prepare spring beds when soil is workable. Harden off seedlings gradually as frost risk slowly eases on coastal sites.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: none | 7d avg max 15.8°C (norm 16°C), rain 12 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid-winter in Toowoomba—a maintenance window. Improve drainage on wet pockets and plan spring beds while growth is slow.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: warm | 7d avg max 19.6°C (norm 16°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late winter in Toowoomba: days are lengthening but soil may stay cool. Protected sowing beats rushing tender crops outdoors.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: DRY | 7d avg max 17.9°C (norm 19°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Soil warms slowly; start hardy crops first and delay tender summer plantings. Late frosts remain a risk in highland sites well into spring; harden off slowly and keep cover ready. Soil is drying—water seedlings under cover and newly transplanted hardy crops on calm mornings.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: DRY | 7d avg max 21.4°C (norm 19°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Tender crops stay under cover until rain or irrigation catches up with dry topsoil.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: DRY | 7d avg max 20.6°C (norm 19°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry spring soil—keep seed trays and new transplants watered; hardy peas and potatoes still need even moisture to establish.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: WARM | 7d avg max 23.4°C (norm 19°C), rain 5 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Soil warms slowly; start hardy crops first and delay tender summer plantings. Late frosts remain a risk in highland sites well into spring; harden off slowly and keep cover ready. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: WARM+ + DRY | 7d avg max 27.1°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Soil warms slowly; start hardy crops first and delay tender summer plantings. Late frosts remain a risk in highland sites well into spring; harden off slowly and keep cover ready. Soil is drying—water seedlings under cover and newly transplanted hardy crops on calm mornings.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: WARM+ + DRY | 7d avg max 28.0°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: WARM+ | 7d avg max 29.1°C (norm 22°C), rain 10 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Soil warms slowly; start hardy crops first and delay tender summer plantings. Late frosts remain a risk in highland sites well into spring; harden off slowly and keep cover ready. Soil is drying—water seedlings under cover and newly transplanted hardy crops on calm mornings.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WARM+ + DRY | 7d avg max 29.0°C (norm 22°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Soil warms slowly; start hardy crops first and delay tender summer plantings. Late frosts remain a risk in highland sites well into spring; harden off slowly and keep cover ready. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: WARM+ + WET | 7d avg max 28.8°C (norm 22°C), rain 32 mm (norm 11 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Repeated spring rain is slowing bed preparation; prioritize drainage and protect seedlings already in the ground.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: WET | 7d avg max 26.7°C (norm 24°C), rain 28 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=significantly_above forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Each wet week narrows the spring window—prioritise potatoes and hardy greens in the best-drained ground you have.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: none | 7d avg max 26.1°C (norm 24°C), rain 14 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Late spring in Toowoomba—plant summer crops under cover until frost risk drops. Feed lightly with balanced fertiliser on actively growing crops. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: WET | 7d avg max 26.6°C (norm 24°C), rain 35 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Spring beds are staying wet; harden off seedlings and stage planting through the best-drained sections first.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: WARM+ + WET | 7d avg max 30.3°C (norm 24°C), rain 56 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=above_norm forecast=wetting/warming dominant=WET sustained=true mode=replaced
+
+Beds are saturated after a wet run; use raised rows or containers for urgent summer crops and harden off only on dry afternoons.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: none | 7d avg max 28.8°C (norm 26°C), rain 6 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Peak summer: water fruiting crops early, mulch well, and harvest before heat and humidity peak. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: WET | 7d avg max 28.8°C (norm 26°C), rain 21 mm (norm 9 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Pick beans, tomatoes, and zucchini regularly to keep plants productive through warm spells. Soil is damp; mulch paths, avoid compacting wet beds, and harvest at peak before quality drops.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: WET | 7d avg max 27.3°C (norm 26°C), rain 23 mm (norm 9 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Early summer beds are still waterlogged after a wet lead-in; plant tomatoes and beans into the best-drained ground or containers now.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: WARM + WET | 7d avg max 31.0°C (norm 26°C), rain 16 mm (norm 9 mm/wk)
+rolling: soil=saturated temp=above_norm forecast=wetting/warming dominant=WET sustained=true mode=replaced
+
+Delaying every sowing risks missing the window; clear drainage and protect crops already in the ground.

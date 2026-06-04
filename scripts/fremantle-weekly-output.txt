@@ -1,0 +1,369 @@
+Location: Fremantle, WA
+Place id: wa-fremantle
+Climate: temperate | Tags: coastal
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: DRY | 7d avg max 28.1°C (norm 28°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: DRY | 7d avg max 27.7°C (norm 28°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Harvest at peak and protect young seedlings; containers dry out first on coastal sites.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: DRY | 7d avg max 25.1°C (norm 28°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=below_norm forecast=drying/cooling dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: WARM+ | 7d avg max 33.9°C (norm 28°C), rain 4 mm (norm 9 mm/wk)
+rolling: soil=dry temp=above_norm forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Keep momentum on quick greens: pick regularly and monitor for mildew in humid spells. Dry conditions—mulch exposed beds and prioritise water for shallow-rooted greens and containers.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: warm | 7d avg max 31.2°C (norm 28°C), rain 3 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Before the next phase, shift effort to pest control. Dry conditions—mulch exposed beds and prioritise water for shallow-rooted greens and containers.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: warm + DRY | 7d avg max 31.7°C (norm 28°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Harvest at peak and protect young seedlings; containers dry out first on coastal sites.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: DRY | 7d avg max 28.1°C (norm 28°C), rain 2 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: DRY | 7d avg max 30.6°C (norm 28°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Harvest at peak and protect young seedlings; containers dry out first on coastal sites.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: DRY | 7d avg max 26.1°C (norm 28°C), rain 2 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: DRY | 7d avg max 27.6°C (norm 25°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry autumn soil means watering in garlic, onions, and establishing brassicas while soil still has warmth.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: none | 7d avg max 27.7°C (norm 25°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=dry temp=above_norm forecast=stable/warming dominant=DRY sustained=false mode=append
+
+This week, prioritise compost in the garden. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: WET | 7d avg max 26.1°C (norm 25°C), rain 25 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Keep momentum on cleanup: sow brassicas and collect fallen leaves for compost as the season transitions. Use the moisture while avoiding compaction; plant into friable pockets and keep organic matter on the surface.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: WARM+ + DRY | 7d avg max 30.9°C (norm 25°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=wet temp=above_norm forecast=drying/warming dominant=WET sustained=false mode=append
+
+Before the next phase, shift effort to watering. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: WARM+ + DRY | 7d avg max 32.4°C (norm 22°C), rain 1 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Prioritise new allium and brassica rows over general bed watering; mulch after watering to hold moisture.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: WARM + DRY | 7d avg max 26.2°C (norm 22°C), rain 3 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Establishment water is critical now; dry weeks can stall garlic and leafy greens before winter.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: warm | 7d avg max 25.8°C (norm 22°C), rain 8 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+This week, prioritise garlic in the garden. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: none | 7d avg max 24.6°C (norm 22°C), rain 7 mm (norm 12 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=true mode=append
+
+Keep momentum on soil improvement: adjust watering and protect late tender crops as nights cool. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. days are running warmer than usual—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: DRY | 7d avg max 22.8°C (norm 22°C), rain 1 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Before the next phase, shift effort to mulch. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: WARM+ | 7d avg max 23.3°C (norm 18°C), rain 6 mm (norm 13 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Before the next phase, shift effort to brassicas. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. heat is clearly above normal—growth is still active; keep mulch up without over-watering tender autumn plant-outs.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: WARM+ + DRY | 7d avg max 25.5°C (norm 18°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Finish autumn sowing, plant garlic, and improve soil for winter. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: WARM+ + DRY | 7d avg max 23.6°C (norm 18°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Establishment water is critical now; dry weeks can stall garlic and leafy greens before winter.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: none | 7d avg max 18.2°C (norm 18°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Keep momentum on watering: finish autumn sowing, plant garlic, and improve soil for winter. Coastal frosts are often milder and later; cover tender crops when cold nights are forecast. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: WARM+ + WET | 7d avg max 20.5°C (norm 15°C), rain 215 mm (norm 14 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Maintain citrus and winter veg with lighter feeding while growth is slower. Beds are wet underfoot; stay off sodden soil, check drainage, and ventilate covered greens.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: WARM + DRY | 7d avg max 19.0°C (norm 15°C), rain 4 mm (norm 14 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=drying/warming dominant=WET sustained=false mode=append
+
+This week, prioritise light feeding in the garden. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: warm + WET | 7d avg max 18.8°C (norm 15°C), rain 41 mm (norm 14 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Keep momentum on planning: maintain citrus and winter veg with lighter feeding while growth is slower. Use drier windows for light maintenance only; postpone bed turning until structure improves.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: WET | 7d avg max 17.8°C (norm 15°C), rain 40 mm (norm 14 mm/wk)
+rolling: soil=saturated temp=significantly_above forecast=wetting/warming dominant=WET sustained=true mode=replaced
+
+Winter planting is limited; focus on structure and overwintering crops, not new sowings.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: WARM | 7d avg max 18.6°C (norm 14°C), rain 14 mm (norm 13 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=stable/warming dominant=WET sustained=false mode=append
+
+Before the next phase, shift effort to maintenance. Use drier windows for light maintenance only; postpone bed turning until structure improves.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: warm + WET | 7d avg max 17.3°C (norm 14°C), rain 29 mm (norm 13 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Prune, repair structures, and order spring seed during the mid-winter lull. Exposed winter beds can stay slick for days; keep traffic off root zones and protect soil surface.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: none | 7d avg max 16.6°C (norm 14°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+This week, prioritise bed prep in the garden. Beds are wet underfoot; stay off sodden soil, check drainage, and ventilate covered greens.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: WET | 7d avg max 15.8°C (norm 14°C), rain 79 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Keep momentum on indoor seeds: prune, repair structures, and order spring seed during the mid-winter lull. Persistent damp favors mildew and slugs; inspect overwintering brassicas and clear hiding spots.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: WET | 7d avg max 14.0°C (norm 14°C), rain 36 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: WET | 7d avg max 16.9°C (norm 16°C), rain 31 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Winter planting is limited; focus on structure and overwintering crops, not new sowings.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: warm + WET | 7d avg max 19.0°C (norm 16°C), rain 42 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: WET | 7d avg max 18.0°C (norm 16°C), rain 50 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Winter planting is limited; focus on structure and overwintering crops, not new sowings.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: WET | 7d avg max 15.5°C (norm 16°C), rain 63 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: DRY | 7d avg max 17.6°C (norm 19°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Coastal spring can stay breezy and cool; harden off seedlings and delay tender crops if nights remain below 10°C. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: WET | 7d avg max 15.9°C (norm 19°C), rain 49 mm (norm 11 mm/wk)
+rolling: soil=wet temp=below_norm forecast=wetting/cooling dominant=WET sustained=false mode=append
+
+Coastal spring can stay breezy and cool; harden off seedlings and delay tender crops if nights remain below 10°C. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: WET | 7d avg max 18.5°C (norm 19°C), rain 31 mm (norm 11 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Beds are saturated after a wet run; use raised rows or containers for urgent summer crops and harden off only on dry afternoons.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: DRY | 7d avg max 22.0°C (norm 19°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Coastal spring can stay breezy and cool; harden off seedlings and delay tender crops if nights remain below 10°C. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: DRY | 7d avg max 19.5°C (norm 22°C), rain 3 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry spring soil—keep seed trays and new transplants watered; hardy peas and potatoes still need even moisture to establish.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: WET | 7d avg max 19.1°C (norm 22°C), rain 18 mm (norm 11 mm/wk)
+rolling: soil=wet temp=below_norm forecast=wetting/cooling dominant=WET sustained=false mode=append
+
+Sow beans, plant potatoes, and transplant seedlings in this strong growth window. Spring sea breeze can mask damp root zones; test soil structure by hand before planting.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: DRY | 7d avg max 20.6°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+This week, prioritise summer crops in the garden. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WET | 7d avg max 20.3°C (norm 22°C), rain 28 mm (norm 11 mm/wk)
+rolling: soil=wet temp=below_norm forecast=wetting/cooling dominant=WET sustained=false mode=append
+
+Keep momentum on staking: sow beans, plant potatoes, and transplant seedlings in this strong growth window. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: WET | 7d avg max 21.8°C (norm 22°C), rain 17 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Before the next phase, shift effort to mulch. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: none | 7d avg max 22.7°C (norm 24°C), rain 15 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Before the next phase, shift effort to soil temp.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: DRY | 7d avg max 26.8°C (norm 24°C), rain 1 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Plant summer staples with supports ready for tomatoes, capsicum, and cucumbers. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: DRY | 7d avg max 25.1°C (norm 24°C), rain 2 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Tender crops stay under cover until rain or irrigation catches up with dry topsoil.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: none | 7d avg max 22.4°C (norm 24°C), rain 7 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Keep momentum on beans: plant summer staples with supports ready for tomatoes, capsicum, and cucumbers. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: DRY | 7d avg max 26.2°C (norm 26°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Water early and shade sensitive crops during heat spikes. Soil is drying fast—water fruiting crops and new seedlings in the morning before sea breeze and heat.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: DRY | 7d avg max 24.6°C (norm 26°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Harvest at peak and protect young seedlings; containers dry out first on coastal sites.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: WARM + DRY | 7d avg max 30.3°C (norm 26°C), rain 1 mm (norm 9 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry summer soil—water fruiting crops and shallow roots in the morning; mulch before hot, windy afternoons.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: warm + DRY | 7d avg max 29.0°C (norm 26°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Harvest at peak and protect young seedlings; containers dry out first on coastal sites.

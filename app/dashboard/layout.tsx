@@ -1,22 +1,33 @@
 'use client'
 import { useAuth } from '../context/AuthContext'
-import { useRouter } from 'next/navigation'
+import { isCompleteUserLocation } from '@/lib/locationService'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+
+const LOCATION_SETUP_PATHS = ['/location-select', '/setup-location']
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const { user, loading, locationLoading } = useAuth()
+  const { user, loading, locationLoading, userLocation } = useAuth()
   const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (loading) return
+    if (loading || locationLoading) return
     if (!user) {
-      router.push('/auth/login')
+      router.replace('/auth/login')
+      return
     }
-  }, [user, loading, router])
+    if (
+      !isCompleteUserLocation(userLocation) &&
+      !LOCATION_SETUP_PATHS.some((p) => pathname?.startsWith(p))
+    ) {
+      router.replace('/location-select')
+    }
+  }, [user, loading, locationLoading, userLocation, router, pathname])
 
   if (loading || locationLoading) {
     return (

@@ -1,3 +1,7 @@
+import {
+  getCalendarStateSummaries,
+  getCalendarMonthActivities,
+} from '../data/planting-calendar/helpers';
 import { STATE_MONTH_SUMMARIES, DEFAULT_MONTH_SUMMARIES } from '../data/state-month-summaries';
 import { CITIES } from '../data/locations';
 
@@ -169,23 +173,35 @@ export function getClimateZone(state: string, city?: string): string {
   return zoneMap[state] || 'cool temperate';
 }
 
-export function getStateSummaries(state: string) {
-  const normalizedState = normalizeState(state);
-  const stateSummaries = STATE_MONTH_SUMMARIES[normalizedState];
-  
-  if (stateSummaries) {
-    return stateSummaries;
-  }
+export function getClimateZoneForLocation(state: string, city?: string): string {
+  // Convert climate zone names to hyphenated format for weekly guidance lookup
+  const climateMap: Record<string, string> = {
+    'Tasmania': 'cool-temperate',
+    'Victoria': 'cool-temperate',
+    'New South Wales': 'cool-temperate',
+    'Queensland': 'subtropical',
+    'Western Australia': 'mediterranean',
+    'South Australia': 'mediterranean',
+    'Northern Territory': 'tropical',
+    'Australian Capital Territory': 'cool-temperate'
+  };
 
-  return DEFAULT_MONTH_SUMMARIES;
+  return climateMap[state] || 'cool-temperate';
 }
 
-export function getMonthActivities(state: string, month: string): string[] {
-  const normalizedState = normalizeState(state);
-  const normalizedMonth = month.toLowerCase();
-  const summaries = getStateSummaries(normalizedState);
+export function getStateSummaries(state: string) {
+  const summaries = getCalendarStateSummaries(state)
+  return Object.fromEntries(
+    Object.entries(summaries).map(([month, text]) => [month.toLowerCase(), text])
+  )
+}
 
-  return summaries[normalizedMonth] ? [summaries[normalizedMonth]] : [];
+export function getMonthActivities(
+  state: string,
+  month: string,
+  climate?: import('@/lib/types/location').Climate
+): string[] {
+  return getCalendarMonthActivities(state, month, climate)
 }
 
 export function isValidStateCity(state: string, city: string): boolean {

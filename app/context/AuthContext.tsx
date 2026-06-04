@@ -2,21 +2,25 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/app/lib/supabase'
+import {
+  getUserLocationFromDB,
+  updateUserLocation,
+  LocationError,
+  getHomeRouteForLocation,
+} from '@/lib/locationService'
+import { UserLocation } from '@/lib/types/location'
 import type { User, Session } from '@supabase/supabase-js'
-
-interface LocationData {
-  state: string
-  city: string
-}
 
 interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
   locationLoading: boolean
-  userLocation: LocationData | null
-  setUserLocation: (location: LocationData) => void
-  updateLocation: (state: string, city: string) => Promise<void>
+  userLocation: UserLocation | null
+  detectedLocation: UserLocation | null // Pending confirmation
+  locationError: LocationError | null
+  confirmLocation: (location: UserLocation) => Promise<void>
+  updateLocation: (location: UserLocation) => Promise<void>
   login: (email: string, password: string) => Promise<void>
   signup: (email: string, password: string, name: string) => Promise<void>
   logout: () => Promise<void>
@@ -28,7 +32,9 @@ const AuthContext = createContext<AuthContextType>({
   loading: true,
   locationLoading: true,
   userLocation: null,
-  setUserLocation: () => {},
+  detectedLocation: null,
+  locationError: null,
+  confirmLocation: async () => {},
   updateLocation: async () => {},
   login: async () => {},
   signup: async () => {},
@@ -40,118 +46,58 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
   const [locationLoading, setLocationLoading] = useState(true)
-  const [userLocation, setUserLocation] = useState<LocationData | null>(null)
-  const [wasSignedIn, setWasSignedIn] = useState(false) // Track if user was previously signed in
+  const [userLocation, setUserLocation] = useState<UserLocation | null>(null)
+  const [detectedLocation, setDetectedLocation] = useState<UserLocation | null>(null)
+  const [locationError, setLocationError] = useState<LocationError | null>(null)
+  const [wasSignedIn, setWasSignedIn] = useState(false)
   const router = useRouter()
 
-  // Load location from profile when user changes
+  // Load location from database once auth has finished and user is known
   useEffect(() => {
-    const loadLocationFromProfile = async () => {
-      // Always check localStorage first (fast, synchronous)
-      let parsedLocalStorageLocation: LocationData | null = null
-      const savedLocation = localStorage.getItem('userLocation')
-      if (savedLocation) {
-        try {
-          const location = JSON.parse(savedLocation)
-          if (location.state && location.city) {
-            parsedLocalStorageLocation = { state: location.state, city: location.city }
-            setUserLocation(parsedLocalStorageLocation)
-            // If we have localStorage, use it immediately and continue loading from DB in background
-            if (!user) {
-              setLocationLoading(false)
-              return
-            }
-          }
-        } catch (error) {
-          console.error('Error parsing saved location:', error)
-          localStorage.removeItem('userLocation')
-        }
-      }
+    if (loading) return
 
-      if (!user) {
-        setLocationLoading(false)
-        return
-      }
+    if (!user) {
+      setUserLocation(null)
+      setLocationError(null)
+      setLocationLoading(false)
+      return
+    }
 
-      // Load from database profile (async, update if different)
+    let cancelled = false
+    const userId = user.id
+
+    const loadLocationFromDB = async () => {
+      setLocationLoading(true)
       try {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('state, city')
-          .eq('id', user.id)
-          .single()
-
-        if (error) {
-          // Handle specific error cases
-          if (error.code === 'PGRST116' || error.message?.includes('No rows')) {
-            // Profile doesn't exist yet - this is okay, we'll create it if we have localStorage data
-            console.log('Profile not found in database (will create if needed)')
-          } else if (error.code === '406' || error.message?.includes('406')) {
-            // 406 Not Acceptable - table might not exist or columns missing
-            console.warn('⚠️ Database table/columns may not exist. Run migration:', error)
-            console.warn('Error details:', {
-              message: error.message,
-              details: error.details,
-              hint: error.hint,
-              code: error.code
-            })
-          } else {
-            console.error('Error loading location from profile:', error)
-          }
-        }
-
-        if (!error && data && data.state && data.city) {
-          // Database has location - use it
-          const locationData: LocationData = {
-            state: data.state,
-            city: data.city
-          }
-          setUserLocation(locationData)
-          // Update localStorage with database value
-          localStorage.setItem('userLocation', JSON.stringify(locationData))
-        } else if (parsedLocalStorageLocation) {
-          // Database doesn't have location but localStorage does - save to database
-          try {
-            const { error: updateError } = await supabase
-              .from('profiles')
-              .upsert({ 
-                id: user.id,
-                state: parsedLocalStorageLocation.state, 
-                city: parsedLocalStorageLocation.city,
-                email: user.email || '',
-                updated_at: new Date().toISOString()
-              }, {
-                onConflict: 'id'
-              })
-            
-            if (updateError) {
-              console.error('Error saving location to database:', updateError)
-              console.error('Error details:', {
-                message: updateError.message,
-                details: updateError.details,
-                hint: updateError.hint,
-                code: updateError.code
-              })
-              // Keep localStorage value even if DB save fails
-            } else {
-              console.log('✅ Saved localStorage location to database')
-            }
-            // Location already set from localStorage above, so we're good
-          } catch (saveError) {
-            console.error('Error saving localStorage location to database:', saveError)
-            // Keep localStorage value even if DB save fails
-          }
-        }
+        const location = await getUserLocationFromDB(userId)
+        if (cancelled) return
+        setUserLocation(location ?? null)
+        setLocationError(null)
       } catch (error) {
-        console.error('Error loading location from profile:', error)
-        // Keep localStorage value if it exists
+        if (cancelled) return
+        if (error instanceof LocationError) {
+          // Profile not found or location not set - this is expected for new users
+          if (error.type !== 'DB_ERROR') {
+            console.log('Location not yet set:', error.message)
+          } else {
+            console.error('Error loading location:', error)
+            setLocationError(error)
+          }
+        }
+        setUserLocation(null)
       } finally {
-        setLocationLoading(false)
+        if (!cancelled) {
+          setLocationLoading(false)
+        }
       }
     }
 
-    loadLocationFromProfile()
-  }, [user])
+    loadLocationFromDB()
+
+    return () => {
+      cancelled = true
+    }
+  }, [user?.id, loading])
 
   // Check for existing session on mount and handle auth state changes
   useEffect(() => {
@@ -311,20 +257,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       if (data.session && data.user) {
-        // Check if user has location set — new users go to location-select, returning users go to dashboard
+        setSession(data.session)
+        setUser(data.user)
+        setWasSignedIn(true)
+        setLoading(false)
+
         try {
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('state, city')
-            .eq('id', data.user.id)
-            .single()
-          if (profile?.state && profile?.city) {
-            router.push('/dashboard')
-          } else {
-            router.push('/location-select')
-          }
+          const location = await getUserLocationFromDB(data.user.id)
+          setUserLocation(location ?? null)
+          setLocationLoading(false)
+          router.push(getHomeRouteForLocation(location))
         } catch {
-          router.push('/dashboard')
+          setUserLocation(null)
+          setLocationLoading(false)
+          router.push('/location-select')
         }
       }
     } catch (err: any) {
@@ -368,45 +314,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const updateLocation = async (state: string, city: string) => {
-    const locationData: LocationData = { state, city }
-    // Save to localStorage
-    localStorage.setItem('userLocation', JSON.stringify(locationData))
-    setUserLocation(locationData)
-    
-    // Save to Supabase profile if user is logged in
-    if (user) {
-      try {
-        // Use upsert to create profile if it doesn't exist, or update if it does
-        const { error } = await supabase
-          .from('profiles')
-          .upsert({ 
-            id: user.id,
-            state, 
-            city,
-            email: user.email || '',
-            updated_at: new Date().toISOString()
-          }, {
-            onConflict: 'id'
-          })
-        
-        if (error) {
-          console.error('Error saving location to database:', error)
-          console.error('Error details:', {
-            message: error.message,
-            details: error.details,
-            hint: error.hint,
-            code: error.code
-          })
-          // Don't throw - localStorage update is sufficient
-        } else {
-          console.log('✅ Location saved to database successfully')
-        }
-      } catch (error) {
-        console.error('Error updating location:', error)
-        // Don't throw - localStorage update is sufficient
-      }
+  const updateLocation = async (location: UserLocation) => {
+    if (!user) {
+      throw new Error('User not logged in')
     }
+
+    try {
+      await updateUserLocation(user.id, location)
+      setUserLocation(location)
+      setLocationLoading(false)
+      setLocationError(null)
+    } catch (error) {
+      if (error instanceof LocationError) {
+        setLocationError(error)
+        throw error
+      }
+      throw error
+    }
+  }
+
+  const confirmLocation = async (location: UserLocation) => {
+    await updateLocation(location)
+    setDetectedLocation(null) // Clear pending location after confirmation
   }
 
   const logout = async () => {
@@ -421,7 +350,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     loading,
     locationLoading,
     userLocation,
-    setUserLocation,
+    detectedLocation,
+    locationError,
+    confirmLocation,
     updateLocation,
     login,
     signup,

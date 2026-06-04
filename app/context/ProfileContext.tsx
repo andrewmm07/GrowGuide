@@ -1,10 +1,15 @@
 'use client'
 
+/**
+ * @deprecated for domain location — canonical location is useAuth().userLocation (profiles.location).
+ * This context only mirrors localStorage userProfile for legacy UI; do not use for location logic.
+ */
+
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 interface Profile {
   location: string
-  // Add other profile fields as needed
+  climateZone?: 'tropical' | 'warm' | 'cool'
 }
 
 interface ProfileContextType {

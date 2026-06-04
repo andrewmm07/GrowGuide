@@ -1,0 +1,369 @@
+Location: Adelaide, SA
+Place id: sa-adelaide
+Climate: cool | Tags: coastal, mediterranean
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: none | 7d avg max 24.9°C (norm 24°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Check drip lines and mulch depth; avoid midday watering that steams roots in hot soil. Long dry spell—refresh mulch and check irrigation before heat builds; containers need daily attention.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: WARM | 7d avg max 28.9°C (norm 24°C), rain 6 mm (norm 11 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Succession sow quick greens only where you can shade and water consistently through heat. Days are running warmer than usual—harvest and water in the cooler part of the day; shade young seedlings on hot walls.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: WARM+ | 7d avg max 29.1°C (norm 24°C), rain 3 mm (norm 11 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=true mode=replaced
+
+temperatures are well above normal for summer—adjust timing, not panic: harvest and work in cooler hours. Warmth continues—shade tender seedlings and avoid transplanting in the hottest part of the day.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: WARM+ + DRY | 7d avg max 29.3°C (norm 24°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Reduce feeding on woody plants; keep steady moisture on citrus and established fruit trees. Dry summer week—deep water fruiting crops at the root; hold new plantings until moisture can be kept steady.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: WARM + DRY | 7d avg max 28.2°C (norm 24°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=append
+
+Late summer in Adelaide—start clearing tired crops and refreshing mulch before autumn. Late dry summer: prioritise harvest and mulch over new sowings in exposed beds. Soil is parched—prioritise crops already fruiting over bare beds that will not stay moist.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: WARM+ + DRY | 7d avg max 32.2°C (norm 24°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=append
+
+Summer is easing in Adelaide; plan autumn beds as evenings cool. Plan autumn planting lists while growth slows; store seed in a cool, dry place. Heat and low rain—water at dawn and avoid opening beds that will bake by afternoon.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: WARM+ + DRY | 7d avg max 31.8°C (norm 24°C), rain 0 mm (norm 9 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=append
+
+Final summer stretch in Adelaide—harvest at peak and avoid leaving pest habitat in spent plants. Protect remaining fruit from sun scald after heat spikes; pick before quality drops. Dry summer week—deep water fruiting crops at the root; hold new plantings until moisture can be kept steady.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: none | 7d avg max 24.3°C (norm 24°C), rain 3 mm (norm 9 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/stable dominant=DRY sustained=true mode=append
+
+Late summer in Adelaide—harvest at peak and clear spent crops before autumn planting fills the calendar. Long dry spell—refresh mulch and check irrigation before heat builds; containers need daily attention.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: WARM+ + DRY | 7d avg max 29.1°C (norm 24°C), rain 2 mm (norm 9 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=append
+
+Summer lingers on the calendar in Adelaide, but evenings are cooling. Finish tender harvests, refresh mulch, and line up autumn beds without rushing brassicas into tired soil. Soil is parched—prioritise crops already fruiting over bare beds that will not stay moist.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: WARM+ + DRY | 7d avg max 28.1°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: WARM+ + DRY | 7d avg max 32.3°C (norm 22°C), rain 0 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: WARM+ + DRY | 7d avg max 29.3°C (norm 22°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: WARM | 7d avg max 26.7°C (norm 22°C), rain 9 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Autumn rain returns; refresh beds and sow leafy greens before winter planting peaks. Topsoil is drying between showers—mulch new rows after watering in.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: WARM+ + DRY | 7d avg max 26.0°C (norm 18°C), rain 1 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Harvest remaining heat lovers before cooler, wetter weeks slow ripening. Topsoil is drying between showers—mulch new rows after watering in.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: DRY | 7d avg max 20.4°C (norm 18°C), rain 2 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: WARM+ + DRY | 7d avg max 30.8°C (norm 18°C), rain 0 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: warm | 7d avg max 21.6°C (norm 18°C), rain 8 mm (norm 12 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Watch for snails in damp beds; keep airflow around new seedlings. A dry break after rain—water in establishing alliums and brassicas while soil still holds warmth.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: none | 7d avg max 20.4°C (norm 18°C), rain 4 mm (norm 12 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=true mode=append
+
+Autumn is well underway in Adelaide—growth is slowing and planting windows are narrowing. Growth is slowing: finish planting plans and ease back on nitrogen on woody plants. Days are running warmer than usual—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: WARM+ + DRY | 7d avg max 22.1°C (norm 15°C), rain 2 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Mid-late autumn in Adelaide favours finishing hardy work before winter sets in. Prune deciduous fruit once leaves fall and the tree is dormant. Topsoil is drying between showers—mulch new rows after watering in.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: WARM+ + DRY | 7d avg max 20.4°C (norm 15°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: DRY | 7d avg max 16.0°C (norm 15°C), rain 3 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Establishment water is critical now; dry weeks can stall garlic and leafy greens before winter.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: WET | 7d avg max 17.7°C (norm 15°C), rain 36 mm (norm 13 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+The last stretch of autumn in Adelaide is practically winter. Serious transition week. Keep covers handy for surprise cold or frost. If you haven't already, it's time to switch focus to garden maintenance and infrastructure, over planting. Beds are wetter than usual; delay digging and favor container work until soil firms.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: warm + DRY | 7d avg max 16.7°C (norm 13°C), rain 2 mm (norm 14 mm/wk)
+rolling: soil=wet temp=above_norm forecast=drying/warming dominant=WET sustained=false mode=append
+
+Winter rains begin the main growing window; plant brassicas, peas, and garlic while soil moisture is reliable. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: WET | 7d avg max 14.1°C (norm 13°C), rain 47 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Rain-soaked winter beds need airflow and drainage attention before routine planting tasks.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: none | 7d avg max 14.5°C (norm 13°C), rain 8 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Keep brassica rows weed-free and ventilated; snails thrive in damp conditions. Recent rain is easing, but soil stays soft in winter; keep foot traffic light and use dry windows for small maintenance jobs.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: warm + WET | 7d avg max 16.4°C (norm 13°C), rain 42 mm (norm 14 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Rain-soaked winter beds need airflow and drainage attention before routine planting tasks.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: DRY | 7d avg max 13.2°C (norm 12°C), rain 2 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Cool, wet winter suits leafy greens and root crops; watch for snails in damp beds. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: WET | 7d avg max 14.5°C (norm 12°C), rain 34 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Start tomatoes and capsicum under cover for spring transplanting before the dry heat. Exposed winter beds can stay slick for days; keep traffic off root zones and protect soil surface.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: none | 7d avg max 14.2°C (norm 12°C), rain 21 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Light feeding supports leafy crops; citrus benefits from a balanced winter feed. Recent rain is easing, but soil stays soft in winter; keep foot traffic light and use dry windows for small maintenance jobs.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: WET | 7d avg max 14.1°C (norm 12°C), rain 27 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Improve wet beds with compost between showers; stay off sodden soil. Persistent damp favors mildew and slugs; inspect overwintering brassicas and clear hiding spots.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: WET | 7d avg max 13.1°C (norm 12°C), rain 49 mm (norm 15 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: none | 7d avg max 14.0°C (norm 13°C), rain 19 mm (norm 14 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Winter planting is limited; focus on structure and overwintering crops, not new sowings.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: DRY | 7d avg max 15.5°C (norm 13°C), rain 2 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Late winter in Adelaide—soil stays cold; plan spring beds and hold tender sowings under cover. Mulch after watering in new rows to hold moisture through dry spring previews. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: WET | 7d avg max 15.1°C (norm 13°C), rain 26 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Deep winter in Adelaide—growth is minimal. Focus on covers, drainage, and seed planning rather than rushing outdoor sowing. Beds are wet underfoot; stay off sodden soil, check drainage, and ventilate covered greens.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: warm + WET | 7d avg max 16.8°C (norm 13°C), rain 34 mm (norm 14 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+beds are saturated—stay off soil, clear blocked drains, and ventilate covered greens only when air is dry.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: WET | 7d avg max 13.9°C (norm 15°C), rain 51 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Soil is heavy and wet; finish garlic in raised or sloped ground and keep brassica rows ventilated.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: WET | 7d avg max 17.7°C (norm 15°C), rain 19 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Avoid digging until structure improves; slugs and root rot are the immediate risks.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: none | 7d avg max 17.1°C (norm 15°C), rain 9 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Finish summer plantings and mulch deeply; irrigation rhythm matters as rain becomes less reliable. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: none | 7d avg max 16.4°C (norm 15°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Build shade structures and check drip lines before the first sustained heat.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: WET | 7d avg max 17.4°C (norm 17°C), rain 36 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Spring beds are staying wet; harden off seedlings and stage planting through the best-drained sections first.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: none | 7d avg max 18.7°C (norm 17°C), rain 15 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Harden off seedlings gradually; keep cover ready for late cold nights. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: none | 7d avg max 18.7°C (norm 17°C), rain 4 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Harvest winter greens before they bolt; refresh beds for summer crops.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WARM+ + WET | 7d avg max 22.7°C (norm 17°C), rain 36 mm (norm 12 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Repeated spring rain is slowing bed preparation; prioritize drainage and protect seedlings already in the ground.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: WET | 7d avg max 19.3°C (norm 17°C), rain 19 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Spring is opening in Adelaide, but nights can still bite—harden off in stages. Soil is warming fast; establish summer vegetables before the long dry spell ahead. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: WET | 7d avg max 19.8°C (norm 19°C), rain 27 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Mid-spring in Adelaide—core hardy planting continues; tender crops stay protected. Expand summer plantings in the best-drained beds; leave heavy wet corners for later. Soil is slow to dry; harden off seedlings on mild days and delay direct sowing into cold, wet seedbeds.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: none | 7d avg max 18.5°C (norm 19°C), rain 5 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Late spring in Adelaide is short—watch for frost after warm days before planting out tomatoes. Feed fruiting crops lightly; avoid lush nitrogen on heat-loving crops before dry weather. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: none | 7d avg max 19.7°C (norm 19°C), rain 9 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late spring in Adelaide is brief—frost can still surprise on clear nights. Harden off in stages and keep covers within reach.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: warm + WET | 7d avg max 22.7°C (norm 19°C), rain 33 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+The last stretch of spring in Adelaide is the summer hand-off. Plant protected tomatoes and beans where your site allows, but watch for late frost after warm afternoons. Spring sea breeze can mask damp root zones; test soil structure by hand before planting.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: WET | 7d avg max 20.4°C (norm 21°C), rain 21 mm (norm 11 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Early summer beds are still waterlogged after a wet lead-in; plant tomatoes and beans into the best-drained ground or containers now.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: WARM | 7d avg max 25.8°C (norm 21°C), rain 3 mm (norm 11 mm/wk)
+rolling: soil=wet temp=above_norm forecast=stable/warming dominant=WET sustained=false mode=append
+
+Harvest tomatoes, capsicum, and beans at peak; containers and shallow beds dry out first. Soil is damp; mulch paths, avoid compacting wet beds, and harvest at peak before quality drops.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: WARM+ + DRY | 7d avg max 27.6°C (norm 21°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Shade young seedlings on hot afternoons; pause new plant-outs until a cool spell or reliable irrigation. Soil is parched—prioritise crops already fruiting over bare beds that will not stay moist.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: warm | 7d avg max 25.0°C (norm 21°C), rain 6 mm (norm 11 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/stable dominant=WARM sustained=false mode=append
+
+Focus water on crops already setting fruit; bare soil loses moisture quickly in the long dry. Temperatures are slightly above normal—watch containers and shallow beds drying faster than usual.

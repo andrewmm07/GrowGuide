@@ -1,0 +1,369 @@
+Location: Blackmans Bay, TAS
+Place id: tas-blackmans-bay
+Climate: cold | Tags: coastal
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: none | 7d avg max 20.9°C (norm 22°C), rain 9 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid-summer on the coast: start brassicas under cover while the sea breeze keeps afternoons milder than inland.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: none | 7d avg max 21.0°C (norm 22°C), rain 15 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Clear tired summer crops on the coast and refresh compost; empty beds dry quickly in salt-laden winds.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: WET | 7d avg max 23.7°C (norm 22°C), rain 27 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Plant leeks and late brassicas where coastal soil stays workable; water new seedlings before the afternoon breeze. Beds are holding moisture; pick fruit promptly to reduce splitting and watch tomatoes and beans for mildew in humid air.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: none | 7d avg max 21.6°C (norm 22°C), rain 5 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Harvest corn, zucchini, and tomatoes at peak ripeness on the coast; pick before wind bruises soft fruit. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: DRY | 7d avg max 20.9°C (norm 22°C), rain 3 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Late summer in Blackmans Bay—start clearing tired crops and refreshing mulch before autumn. Prepare garlic beds and green manure on the coast; coastal summers often shorten the window before autumn rain. Dry conditions—mulch exposed beds and prioritise water for shallow-rooted greens and containers.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: WET | 7d avg max 24.5°C (norm 22°C), rain 24 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Summer is easing in Blackmans Bay; plan autumn beds as evenings cool. Ease feeding on woody plants as coastal growth slows; watch for salt spray burn on exposed leaves. Humidity is running high after recent rain; prioritize airflow around fruiting crops and avoid overhead watering late in the day.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: none | 7d avg max 20.9°C (norm 22°C), rain 7 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Final summer stretch in Blackmans Bay—harvest at peak and avoid leaving pest habitat in spent plants. Last summer sowings of greens and herbs in coastal shade; nights are lengthening even when days feel mild. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: WET | 7d avg max 19.1°C (norm 22°C), rain 16 mm (norm 11 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late summer in Blackmans Bay—harvest at peak and clear spent crops before autumn planting fills the calendar.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: none | 7d avg max 22.9°C (norm 22°C), rain 4 mm (norm 11 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Summer lingers on the calendar in Blackmans Bay, but evenings are cooling. Finish tender harvests, refresh mulch, and line up autumn beds without rushing brassicas into tired soil.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: none | 7d avg max 21.9°C (norm 20°C), rain 5 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Coastal autumn opens: plant garlic and shallots while soil still holds summer warmth; open drainage paths before heavier rain.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: none | 7d avg max 22.6°C (norm 20°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+On the coast, sow peas and broad beans into workable soil; mulch rows to limit splash onto brassica leaves after wet spells.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: none | 7d avg max 21.7°C (norm 20°C), rain 10 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Green-manure empty coastal beds you will rest over winter; avoid compacting sodden soil after sea-front rain.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: DRY | 7d avg max 20.5°C (norm 20°C), rain 3 mm (norm 12 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Harvest remaining tender crops on the coast at peak ripeness; nights are cooling even when days stay mild. Beds are drier than usual—check establishing alliums and leafy greens rather than assuming recent rain was enough.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: none | 7d avg max 16.9°C (norm 16°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+On the coast, growth is still steady; watch for the first cold nights and cover tender crops when forecasts dip, even if you have not seen a hard frost yet.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: none | 7d avg max 15.9°C (norm 16°C), rain 11 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Coastal gardens often stay mild a little longer; harvest tender crops at peak ripeness and trust local conditions over inland frost calendars.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: warm | 7d avg max 19.2°C (norm 16°C), rain 16 mm (norm 13 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Evenings are cooling on the coast; keep frost cloth ready and favour hardy greens over tender plant-outs. Temperatures are slightly above normal—growth is still active; keep mulch up without over-watering tender autumn plant-outs.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: WET | 7d avg max 18.5°C (norm 16°C), rain 35 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Autumn is advancing on the coast; protect tender crops on cold nights and avoid rushing inland planting dates. Beds are wetter than usual; delay digging and favor container work until soil firms.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: none | 7d avg max 16.4°C (norm 16°C), rain 10 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Autumn is well underway in Blackmans Bay—growth is slowing and planting windows are narrowing. Growth is slowing on the coast; finish remaining planting while soil still has warmth and ease back on watering. Conditions are settling after recent wet weeks; keep off soft beds and focus on drainage and soil structure rather than watering changes.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: WARM + DRY | 7d avg max 17.4°C (norm 13°C), rain 3 mm (norm 14 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Mid-late autumn in Blackmans Bay favours finishing hardy work before winter sets in. Coastal conditions run a few weeks behind inland; delay dormant pruning until trees have actually dropped leaves. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: warm + DRY | 7d avg max 16.2°C (norm 13°C), rain 1 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Prioritise garlic rows and young brassicas over general bed watering; mulch after watering to hold moisture.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: DRY | 7d avg max 14.0°C (norm 13°C), rain 2 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Establishment water is critical now; dry weeks can stall garlic and leafy greens before winter.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: WET | 7d avg max 14.6°C (norm 13°C), rain 30 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+The last stretch of autumn in Blackmans Bay is practically winter. Serious transition week. Keep covers handy for surprise cold or frost. If you haven't already, it's time to switch focus to garden maintenance and infrastructure, over planting. Beds are wetter than usual; delay digging and favor container work until soil firms.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: none | 7d avg max 13.8°C (norm 11°C), rain 9 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Winter begins quietly: maintain covers, improve soil on empty beds, and plan spring rotations. Recent rain is easing, but soil stays soft in winter; keep foot traffic light and use dry windows for small maintenance jobs.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: WET | 7d avg max 11.6°C (norm 11°C), rain 61 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Rain-soaked winter beds need airflow and drainage attention before routine planting tasks.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: DRY | 7d avg max 12.7°C (norm 11°C), rain 4 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Order seeds and plan bed layout while growth is slow. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: WARM | 7d avg max 15.1°C (norm 11°C), rain 5 mm (norm 15 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: DRY | 7d avg max 11.8°C (norm 10°C), rain 2 mm (norm 16 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Midwinter dryness mostly affects pots and covered greens—open beds are largely dormant, so avoid blanket deep watering.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: warm + DRY | 7d avg max 13.3°C (norm 10°C), rain 1 mm (norm 16 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Use warm, dry windows for light maintenance, then reset moisture where growth is actively moving.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: none | 7d avg max 11.8°C (norm 10°C), rain 23 mm (norm 16 mm/wk)
+rolling: soil=dry temp=near_norm forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Start slow crops indoors or under cover: onions, leafy greens, and early brassicas. Beds are recovering from a dry spell, and this week brought useful rain; keep propagation work moving under cover while outdoor bed prep waits until beds drain fully.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: warm | 7d avg max 13.4°C (norm 10°C), rain 8 mm (norm 16 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Clean and prepare propagation space; check stored seed viability.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: WET | 7d avg max 12.8°C (norm 10°C), rain 56 mm (norm 16 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Rain-soaked winter beds need airflow and drainage attention before routine planting tasks.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: DRY | 7d avg max 12.7°C (norm 11°C), rain 2 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Mid-winter in Blackmans Bay: protect overwintered greens and avoid working waterlogged beds. Prepare spring beds when workable; last chance for bare-root tree planting in many areas. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: DRY | 7d avg max 13.6°C (norm 11°C), rain 2 mm (norm 15 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Dry winter weeks mainly affect sheltered containers and covered greens; avoid treating open dormant beds as active crops.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: FROST + DRY | 7d avg max 13.3°C (norm 11°C), rain 2 mm (norm 15 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=true mode=replaced
+
+Cold nights are the main risk—cover tender crops and bring pots under shelter when frost is forecast. Soil is also dry—check potted plants, not dormant open beds.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: WARM | 7d avg max 15.2°C (norm 11°C), rain 9 mm (norm 15 mm/wk)
+rolling: soil=dry temp=above_norm forecast=stable/warming dominant=DRY sustained=false mode=append
+
+Late winter in Blackmans Bay still feels cold, but days are lengthening. Maintain overwintered crops, avoid digging until soil is workable, and stage spring work without forcing tender sowings outdoors. Soil is dry on the surface—avoid walking wet-dry cycles on empty beds; focus on pots and covered greens.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: WET | 7d avg max 12.0°C (norm 13°C), rain 24 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Soil warms slowly on the coast; start seeds under cover and keep frost cloth ready on clear, calm nights. Soil is slow to dry; harden off seedlings on mild days and delay direct sowing into cold, wet seedbeds.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: FROST | 7d avg max 12.4°C (norm 13°C), rain 17 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=FROST sustained=false mode=append
+
+Coastal spring stays cool and breezy; harden off seedlings gradually before planting out tender crops. Late frosts can still bite in spring—harden off slowly and plant out only after mild nights.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: warm | 7d avg max 16.2°C (norm 13°C), rain 4 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Direct sow peas and hardy greens where soil allows; late frosts can still nip new growth on the coast. Soil is drying—water seedlings under cover and newly transplanted hardy crops on calm mornings.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: none | 7d avg max 14.0°C (norm 13°C), rain 19 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Before peak spring growth, finish hardening off seedlings and delay tender crops if nights remain cold.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: WET | 7d avg max 13.5°C (norm 15°C), rain 42 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Harden off cool-season seedlings on the coast and sow peas and broad beans where soil is workable. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: none | 7d avg max 17.1°C (norm 15°C), rain 14 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Core spring planting on the coast: potatoes and hardy greens first, with tender crops under cover until nights settle. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: WET | 7d avg max 13.7°C (norm 15°C), rain 34 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Transplant hardy crops and stake climbers; coastal sites can still see late frosts on calm nights. Spring sea breeze can mask damp root zones; test soil structure by hand before planting.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WET | 7d avg max 16.1°C (norm 15°C), rain 23 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Growth is picking up on the coast; plant summer crops under cover and watch for surprise frosts after warm days. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: DRY | 7d avg max 13.9°C (norm 15°C), rain 3 mm (norm 15 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Spring is opening in Blackmans Bay, but nights can still bite—harden off in stages. Transplant hardy crops and stake climbers; watch for late frosts after warm days. Dry spell—keep seed trays moist and mulch spring beds as nights still cool.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: WET | 7d avg max 17.7°C (norm 17°C), rain 44 mm (norm 13 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Spring beds are staying wet; harden off seedlings and stage planting through the best-drained sections first.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: WET | 7d avg max 14.1°C (norm 17°C), rain 35 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Repeated rain has saturated spring beds; work from paths, clear drains, and plant only where soil crumbles rather than smears.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: WET | 7d avg max 14.5°C (norm 17°C), rain 32 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=below_norm forecast=wetting/cooling dominant=WET sustained=true mode=replaced
+
+Slugs and root rot are the immediate risks; protect seedlings already in the ground before pushing more tender crops out.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: WET | 7d avg max 17.3°C (norm 17°C), rain 24 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Beds are saturated after a wet run; use raised rows or containers for urgent summer crops and harden off only on dry afternoons.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: WET | 7d avg max 15.4°C (norm 19°C), rain 20 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=below_norm forecast=wetting/cooling dominant=WET sustained=true mode=replaced
+
+Early summer beds are still waterlogged after a wet lead-in; plant tomatoes and beans into the best-drained ground or containers now.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: none | 7d avg max 19.6°C (norm 19°C), rain 10 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Keep leafy crops productive on the coast; mulch and water in the morning before sea breezes and warm afternoons.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: none | 7d avg max 20.1°C (norm 19°C), rain 5 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Succession sow quick greens in spots that catch afternoon shade; coastal heat can be brief but intense.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: WET | 7d avg max 18.0°C (norm 19°C), rain 29 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Stake climbers and check wind exposure on the coast; tie soft growth before summer gales. Salt-laden wind plus damp foliage raises disease risk; thin crowded growth and keep leaves dry where possible.

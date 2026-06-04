@@ -1,14 +1,8 @@
 'use client'
 
-import { AuthProvider } from '../context/AuthContext'
 import { ThemeProvider } from '../components/ThemeProvider'
 
+/** Theme only — AuthProvider is mounted once in app/layout.tsx (ARCHITECTURE_CANON). */
 export function Providers({ children }: { children: React.ReactNode }) {
-  return (
-    <AuthProvider>
-      <ThemeProvider>
-        {children}
-      </ThemeProvider>
-    </AuthProvider>
-  )
+  return <ThemeProvider>{children}</ThemeProvider>
 } 

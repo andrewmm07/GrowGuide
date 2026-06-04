@@ -1,0 +1,369 @@
+Location: Melbourne, VIC
+Place id: vic-melbourne
+Climate: cool | Tags: coastal
+Preview year: 2025 (use --year YYYY for a full archive year)
+---
+
+### W01 · 2025-01-01 · January · mid
+**Summer (Week 5)**
+weather: none | 7d avg max 25.7°C (norm 24°C), rain 12 mm (norm 11 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Mid-summer on the coast: start brassicas under cover while the sea breeze keeps afternoons milder than inland.
+
+### W02 · 2025-01-08 · January · mid
+**Summer (Week 6)**
+weather: WARM+ | 7d avg max 29.6°C (norm 24°C), rain 12 mm (norm 11 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Clear tired summer crops on the coast and refresh compost; empty beds dry quickly in salt-laden winds. Heat is clearly above normal—harvest and water in the cooler part of the day; shade young seedlings on hot walls.
+
+### W03 · 2025-01-15 · January · mid
+**Summer (Week 7)**
+weather: WARM | 7d avg max 28.6°C (norm 24°C), rain 12 mm (norm 11 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=true mode=replaced
+
+temperatures are above normal for summer—adjust timing, not panic: harvest and work in cooler hours. Warmth continues—shade tender seedlings and avoid transplanting in the hottest part of the day.
+
+### W04 · 2025-01-22 · January · mid
+**Summer (Week 8)**
+weather: none | 7d avg max 26.7°C (norm 24°C), rain 6 mm (norm 11 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/stable dominant=WARM sustained=false mode=append
+
+Harvest corn, zucchini, and tomatoes at peak ripeness on the coast; pick before wind bruises soft fruit. Days are running warmer than usual—harvest and water in the cooler part of the day; shade young seedlings on hot walls.
+
+### W05 · 2025-01-29 · January · late
+**Summer (Week 9)**
+weather: none | 7d avg max 24.4°C (norm 24°C), rain 9 mm (norm 11 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late summer in Melbourne—start clearing tired crops and refreshing mulch before autumn. Prepare garlic beds and green manure on the coast; coastal summers often shorten the window before autumn rain.
+
+### W06 · 2025-02-05 · February · late
+**Summer (Week 10)**
+weather: WARM+ + WET | 7d avg max 30.3°C (norm 24°C), rain 20 mm (norm 9 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Summer is easing in Melbourne; plan autumn beds as evenings cool. Ease feeding on woody plants as coastal growth slows; watch for salt spray burn on exposed leaves. Humidity is running high after recent rain; prioritize airflow around fruiting crops and avoid overhead watering late in the day.
+
+### W07 · 2025-02-12 · February · late
+**Summer (Week 11)**
+weather: warm | 7d avg max 28.0°C (norm 24°C), rain 4 mm (norm 9 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=stable/warming dominant=WET sustained=false mode=append
+
+Final summer stretch in Melbourne—harvest at peak and avoid leaving pest habitat in spent plants. Last summer sowings of greens and herbs in coastal shade; nights are lengthening even when days feel mild. Salt-laden wind plus damp foliage raises disease risk; thin crowded growth and keep leaves dry where possible.
+
+### W08 · 2025-02-19 · February · late
+**Summer (Week 12)**
+weather: WET | 7d avg max 21.3°C (norm 24°C), rain 29 mm (norm 9 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Soil is staying heavily damp after repeated rain; protect root zones and keep airflow high around fruiting crops.
+
+### W09 · 2025-02-26 · February · late
+**Summer (Week 13)**
+weather: WARM | 7d avg max 28.5°C (norm 24°C), rain 11 mm (norm 9 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=stable/warming dominant=WET sustained=false mode=append
+
+Summer lingers on the calendar in Melbourne, but evenings are cooling. Finish tender harvests, refresh mulch, and line up autumn beds without rushing brassicas into tired soil. Soil is damp; mulch paths, avoid compacting wet beds, and harvest at peak before quality drops.
+
+### W10 · 2025-03-05 · March · early
+**Autumn (Week 1)**
+weather: WARM + DRY | 7d avg max 26.5°C (norm 22°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Coastal autumn opens: plant garlic and shallots while soil still holds summer warmth; open drainage paths before heavier rain. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W11 · 2025-03-12 · March · early
+**Autumn (Week 2)**
+weather: WARM+ | 7d avg max 31.1°C (norm 22°C), rain 15 mm (norm 11 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=false mode=append
+
+On the coast, sow peas and broad beans into workable soil; mulch rows to limit splash onto brassica leaves after wet spells. Heat is clearly above normal—growth is still active; keep mulch up without over-watering tender autumn plant-outs.
+
+### W12 · 2025-03-19 · March · early
+**Autumn (Week 3)**
+weather: warm + WET | 7d avg max 25.6°C (norm 22°C), rain 32 mm (norm 11 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=replaced
+
+Autumn beds are remaining wetter than normal; keep traffic light and plant only into friable pockets.
+
+### W13 · 2025-03-26 · March · early
+**Autumn (Week 4)**
+weather: WET | 7d avg max 20.5°C (norm 22°C), rain 22 mm (norm 11 mm/wk)
+rolling: soil=saturated temp=significantly_above forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Avoid digging until structure improves; slugs and root rot are the immediate risks.
+
+### W14 · 2025-04-02 · April · mid
+**Autumn (Week 5)**
+weather: WARM | 7d avg max 23.0°C (norm 18°C), rain 5 mm (norm 12 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=stable/warming dominant=WET sustained=false mode=append
+
+On the coast, growth is still steady; watch for the first cold nights and cover tender crops when forecasts dip, even if you have not seen a hard frost yet. Use the moisture while avoiding compaction; plant into friable pockets and keep organic matter on the surface.
+
+### W15 · 2025-04-09 · April · mid
+**Autumn (Week 6)**
+weather: none | 7d avg max 18.9°C (norm 18°C), rain 8 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Coastal gardens often stay mild a little longer; harvest tender crops at peak ripeness and trust local conditions over inland frost calendars.
+
+### W16 · 2025-04-16 · April · mid
+**Autumn (Week 7)**
+weather: WARM+ + DRY | 7d avg max 26.7°C (norm 18°C), rain 0 mm (norm 12 mm/wk)
+rolling: soil=dry temp=above_norm forecast=drying/warming dominant=DRY sustained=false mode=append
+
+Evenings are cooling on the coast; keep frost cloth ready and favour hardy greens over tender plant-outs. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W17 · 2025-04-23 · April · mid
+**Autumn (Week 8)**
+weather: WARM+ | 7d avg max 24.5°C (norm 18°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=significantly_above forecast=stable/warming dominant=WARM sustained=false mode=append
+
+Autumn is advancing on the coast; protect tender crops on cold nights and avoid rushing inland planting dates. Heat is clearly above normal—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W18 · 2025-04-30 · April · late
+**Autumn (Week 9)**
+weather: WET | 7d avg max 19.3°C (norm 18°C), rain 24 mm (norm 12 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Autumn is well underway in Melbourne—growth is slowing and planting windows are narrowing. Growth is slowing on the coast; finish remaining planting while soil still has warmth and ease back on watering. Beds are wetter than usual; delay digging and favor container work until soil firms.
+
+### W19 · 2025-05-07 · May · late
+**Autumn (Week 10)**
+weather: WARM+ + DRY | 7d avg max 20.6°C (norm 15°C), rain 2 mm (norm 13 mm/wk)
+rolling: soil=wet temp=significantly_above forecast=drying/warming dominant=WET sustained=false mode=append
+
+Mid-late autumn in Melbourne favours finishing hardy work before winter sets in. Coastal conditions run a few weeks behind inland; delay dormant pruning until trees have actually dropped leaves. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W20 · 2025-05-14 · May · late
+**Autumn (Week 11)**
+weather: warm + DRY | 7d avg max 18.8°C (norm 15°C), rain 0 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=drying/warming dominant=DRY sustained=true mode=replaced
+
+Dry soil plus above-normal warmth can stress active roots faster than expected; prioritize targeted watering on establishing and container crops.
+
+### W21 · 2025-05-21 · May · late
+**Autumn (Week 12)**
+weather: none | 7d avg max 14.7°C (norm 15°C), rain 13 mm (norm 13 mm/wk)
+rolling: soil=dry temp=significantly_above forecast=stable/stable dominant=DRY sustained=false mode=append
+
+Late autumn in Melbourne is narrowing fast. Finish only frost-hardy plant-outs and shift attention to mulch, drainage, and covers. Soil is drying—water in new garlic, onions, and brassicas while they establish in still-warm soil.
+
+### W22 · 2025-05-28 · May · late
+**Autumn (Week 13)**
+weather: none | 7d avg max 16.4°C (norm 15°C), rain 11 mm (norm 13 mm/wk)
+rolling: soil=normal temp=above_norm forecast=stable/warming dominant=WARM sustained=false mode=append
+
+The last stretch of autumn in Melbourne is practically winter. Serious transition week. Keep covers handy for surprise cold or frost. If you haven't already, it's time to switch focus to garden maintenance and infrastructure, over planting. Days are running warmer than usual—soil may dry faster than expected; check establishing winter crops after warm afternoons.
+
+### W23 · 2025-06-04 · June · early
+**Winter (Week 1)**
+weather: none | 7d avg max 15.1°C (norm 13°C), rain 6 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Winter maintenance: check covers, plan spring, and improve soil when beds are empty.
+
+### W24 · 2025-06-11 · June · early
+**Winter (Week 2)**
+weather: WET | 7d avg max 12.9°C (norm 13°C), rain 30 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Harvest winter greens steadily to encourage continued leaf production. Persistent damp favors mildew and slugs; inspect overwintering brassicas and clear hiding spots.
+
+### W25 · 2025-06-18 · June · early
+**Winter (Week 3)**
+weather: DRY | 7d avg max 12.4°C (norm 13°C), rain 3 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=drying/stable dominant=WET sustained=false mode=append
+
+Prune deciduous fruit in calm weather once fully dormant. Soil is drying after recent wet weather—ventilate covered greens and finish any urgent planting while beds are workable.
+
+### W26 · 2025-06-25 · June · early
+**Winter (Week 4)**
+weather: none | 7d avg max 13.4°C (norm 13°C), rain 10 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Order seeds and plan succession for spring.
+
+### W27 · 2025-07-02 · July · mid
+**Winter (Week 5)**
+weather: none | 7d avg max 12.4°C (norm 12°C), rain 19 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Midwinter: minimal outdoor planting; focus on compost and tool maintenance.
+
+### W28 · 2025-07-09 · July · mid
+**Winter (Week 6)**
+weather: DRY | 7d avg max 14.1°C (norm 12°C), rain 4 mm (norm 15 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Prune deciduous fruit only once fully dormant; coastal trees may still be carrying leaves well into winter. Soil is dry on the surface—avoid walking wet-dry cycles on empty beds; focus on pots and covered greens.
+
+### W29 · 2025-07-16 · July · mid
+**Winter (Week 7)**
+weather: none | 7d avg max 13.7°C (norm 12°C), rain 14 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Check stakes and netting before spring growth begins.
+
+### W30 · 2025-07-23 · July · mid
+**Winter (Week 8)**
+weather: none | 7d avg max 13.7°C (norm 12°C), rain 18 mm (norm 15 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Improve wet beds with compost; avoid compacting sodden soil.
+
+### W31 · 2025-07-30 · July · late
+**Winter (Week 9)**
+weather: WET | 7d avg max 12.8°C (norm 12°C), rain 30 mm (norm 15 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Winter is settled in Melbourne—focus on maintenance and slow crops rather than new plant-outs. Late winter sowing under cover: tomatoes, peppers, and early brassicas. Persistent damp favors mildew and slugs; inspect overwintering brassicas and clear hiding spots.
+
+### W32 · 2025-08-06 · August · late
+**Winter (Week 10)**
+weather: none | 7d avg max 14.1°C (norm 13°C), rain 6 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Mid-winter in Melbourne: protect overwintered greens and avoid working waterlogged beds. Prepare potato beds and lime if soil tests suggest it. Recent rain is easing, but soil stays soft in winter; keep foot traffic light and use dry windows for small maintenance jobs.
+
+### W33 · 2025-08-13 · August · late
+**Winter (Week 11)**
+weather: none | 7d avg max 14.1°C (norm 13°C), rain 8 mm (norm 14 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Late winter in Melbourne—soil stays cold; plan spring beds and hold tender sowings under cover. Harden off seedlings gradually as frost risk slowly eases.
+
+### W34 · 2025-08-20 · August · late
+**Winter (Week 12)**
+weather: FROST + DRY | 7d avg max 14.3°C (norm 13°C), rain 3 mm (norm 14 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Deep winter in Melbourne—growth is minimal. Focus on covers, drainage, and seed planning rather than rushing outdoor sowing. Frost pressure remains high—cover tender crops and avoid exposing new growth on clear nights.
+
+### W35 · 2025-08-27 · August · late
+**Winter (Week 13)**
+weather: warm + WET | 7d avg max 16.3°C (norm 13°C), rain 29 mm (norm 14 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Late winter in Melbourne still feels cold, but days are lengthening. Maintain overwintered crops, avoid digging until soil is workable, and stage spring work without forcing tender sowings outdoors. Persistent damp favors mildew and slugs; inspect overwintering brassicas and clear hiding spots.
+
+### W36 · 2025-09-03 · September · early
+**Spring (Week 1)**
+weather: WET | 7d avg max 14.7°C (norm 15°C), rain 19 mm (norm 13 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Soil is heavy and wet; finish garlic in raised or sloped ground and keep brassica rows ventilated.
+
+### W37 · 2025-09-10 · September · early
+**Spring (Week 2)**
+weather: none | 7d avg max 16.0°C (norm 15°C), rain 16 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Coastal spring stays cool and breezy; harden off seedlings gradually before planting out tender crops.
+
+### W38 · 2025-09-17 · September · early
+**Spring (Week 3)**
+weather: warm | 7d avg max 18.4°C (norm 15°C), rain 12 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Direct sow peas and hardy greens where soil allows; late frosts can still nip new growth on the coast.
+
+### W39 · 2025-09-24 · September · early
+**Spring (Week 4)**
+weather: none | 7d avg max 16.8°C (norm 15°C), rain 17 mm (norm 13 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Before peak spring growth, finish hardening off seedlings and delay tender crops if nights remain cold.
+
+### W40 · 2025-10-01 · October · mid
+**Spring (Week 5)**
+weather: WET | 7d avg max 18.5°C (norm 17°C), rain 18 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Harden off cool-season seedlings on the coast and sow peas and broad beans where soil is workable. Beds are damp; potatoes and peas can go in where workable, while tender crops stay under cover.
+
+### W41 · 2025-10-08 · October · mid
+**Spring (Week 6)**
+weather: warm | 7d avg max 20.3°C (norm 17°C), rain 8 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Core spring planting on the coast: potatoes and hardy greens first, with tender crops under cover until nights settle.
+
+### W42 · 2025-10-15 · October · mid
+**Spring (Week 7)**
+weather: warm | 7d avg max 20.0°C (norm 17°C), rain 6 mm (norm 12 mm/wk)
+rolling: soil=normal temp=near_norm forecast=stable/stable dominant=NORMAL sustained=false mode=base
+
+Transplant hardy crops and stake climbers; coastal sites can still see late frosts on calm nights.
+
+### W43 · 2025-10-22 · October · mid
+**Spring (Week 8)**
+weather: WARM+ + WET | 7d avg max 22.4°C (norm 17°C), rain 26 mm (norm 12 mm/wk)
+rolling: soil=wet temp=above_norm forecast=wetting/warming dominant=WET sustained=false mode=append
+
+Growth is picking up on the coast; plant summer crops under cover and watch for surprise frosts after warm days. Keep summer planting moving by using the best-drained pockets first and leaving heavier beds for later passes.
+
+### W44 · 2025-10-29 · October · late
+**Spring (Week 9)**
+weather: WET | 7d avg max 16.8°C (norm 17°C), rain 27 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Beds are saturated after a wet run; use raised rows or containers for urgent summer crops and harden off only on dry afternoons.
+
+### W45 · 2025-11-05 · November · late
+**Spring (Week 10)**
+weather: WET | 7d avg max 20.8°C (norm 19°C), rain 51 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Each wet week narrows the spring window—prioritise potatoes and hardy greens in the best-drained ground you have.
+
+### W46 · 2025-11-12 · November · late
+**Spring (Week 11)**
+weather: WET | 7d avg max 17.8°C (norm 19°C), rain 52 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Repeated rain has saturated spring beds; work from paths, clear drains, and plant only where soil crumbles rather than smears.
+
+### W47 · 2025-11-19 · November · late
+**Spring (Week 12)**
+weather: WET | 7d avg max 19.8°C (norm 19°C), rain 36 mm (norm 12 mm/wk)
+rolling: soil=saturated temp=near_norm forecast=wetting/stable dominant=WET sustained=true mode=replaced
+
+Slugs and root rot are the immediate risks; protect seedlings already in the ground before pushing more tender crops out.
+
+### W48 · 2025-11-26 · November · late
+**Spring (Week 13)**
+weather: WET | 7d avg max 20.8°C (norm 19°C), rain 19 mm (norm 12 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+The last stretch of spring in Melbourne is the summer hand-off. Plant protected tomatoes and beans where your site allows, but watch for late frost after warm afternoons. The wet spell is easing, but seedbeds are still cool and tacky; stage transplants first and wait for crumbly texture before direct sowing.
+
+### W49 · 2025-12-03 · December · early
+**Summer (Week 1)**
+weather: WET | 7d avg max 19.2°C (norm 21°C), rain 44 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=replaced
+
+Soil is staying heavily damp after repeated rain; protect root zones and keep airflow high around fruiting crops.
+
+### W50 · 2025-12-10 · December · early
+**Summer (Week 2)**
+weather: none | 7d avg max 22.5°C (norm 21°C), rain 14 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=stable/stable dominant=WET sustained=false mode=append
+
+Keep leafy crops productive on the coast; mulch and water in the morning before sea breezes and warm afternoons. Recent wet conditions are easing, but root zones remain damp; prioritize airflow and harvesting over extra irrigation.
+
+### W51 · 2025-12-17 · December · early
+**Summer (Week 3)**
+weather: DRY | 7d avg max 23.1°C (norm 21°C), rain 1 mm (norm 11 mm/wk)
+rolling: soil=dry temp=near_norm forecast=drying/stable dominant=DRY sustained=false mode=append
+
+Succession sow quick greens in spots that catch afternoon shade; coastal heat can be brief but intense. Soil is drying fast—water fruiting crops and new seedlings in the morning before sea breeze and heat.
+
+### W52 · 2025-12-24 · December · early
+**Summer (Week 4)**
+weather: WET | 7d avg max 24.0°C (norm 21°C), rain 19 mm (norm 11 mm/wk)
+rolling: soil=wet temp=near_norm forecast=wetting/stable dominant=WET sustained=false mode=append
+
+Stake climbers and check wind exposure on the coast; tie soft growth before summer gales. Salt-laden wind plus damp foliage raises disease risk; thin crowded growth and keep leaves dry where possible.

@@ -1,3 +1,8 @@
+/**
+ * @deprecated State-keyed planting copy. Use getMonthGuidanceForUser and getPlantingRecommendationsForMonth.
+ * Kept for legacy callers only; do not extend.
+ */
+
 type StateCode = 'SA' | 'NSW' | 'VIC' | 'QLD' | 'WA' | 'TAS' | 'NT' | 'ACT'
 
 interface PlantingGuide {
@@ -140,6 +145,7 @@ const stateData: Record<StateCode, {
   }
 }
 
+/** @deprecated Use getMonthGuidanceForUser + getPlantingRecommendationsForMonth (climate-first). */
 export function getPlantingData(state: string, month: string): MonthlyData | null {
   try {
     const stateCode = state as StateCode
@@ -157,6 +163,7 @@ export function getPlantingData(state: string, month: string): MonthlyData | nul
   }
 }
 
+/** @deprecated Use getMonthSeason from @/app/data/planting-calendar/helpers. */
 export function getStateSeason(state: string, month: string): string {
   try {
     const stateCode = state as StateCode

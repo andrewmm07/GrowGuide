@@ -1,0 +1,7 @@
+# Supabase local / deploy config (partial)
+
+[functions.notification-digest]
+verify_jwt = false
+
+[functions.send-push]
+verify_jwt = true

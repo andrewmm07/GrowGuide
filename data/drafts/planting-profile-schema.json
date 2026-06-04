@@ -1,0 +1,20 @@
+{
+  "_instructions": "Draft content for lib/planting/plantingByClimate.ts (base keys) and PLANTING_PROFILE_OVERRIDES in plantingProfileData.ts. Remove _instructions before import.",
+  "baseMatrices": {
+    "cold": {},
+    "cool": {},
+    "temperate": {},
+    "warm": {},
+    "tropical": {}
+  },
+  "profileOverrides": {
+    "cool:highland": {},
+    "cool:coastal": {},
+    "cold:highland": {},
+    "temperate:inland": {},
+    "tropical:wet_dry": {}
+  },
+  "monthShape": {
+    "January": { "sow": ["Example"], "plant": ["Example"] }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "baseMatrices": {
+    "cold": {
+      "January": {
+        "sow": ["Carrots", "Beetroot", "Lettuce", "Radish", "Spring Onions"],
+        "plant": ["Tomatoes (protected)", "Leeks", "Celery"]
+      },
+      "February": {
+        "sow": ["Carrots", "Beetroot", "Lettuce", "Asian Greens", "English Spinach", "Radish"],
+        "plant": ["Leeks", "Silverbeet"]
+      },
+      "March": {
+        "sow": ["Broad Beans", "Peas", "English Spinach", "Spring Onions"],
+        "plant": ["Garlic", "Shallots", "Winter Cabbage"]
+      },
+      "April": {
+        "sow": ["Broad Beans", "English Spinach"],
+        "plant": ["Garlic", "Shallots", "Onions"]
+      },
+      "May": {
+        "sow": ["Broad Beans"],
+        "plant": ["Garlic", "Rhubarb"]
+      },
+      "June": {
+        "sow": [],
+        "plant": ["Rhubarb", "Asparagus"]
+      },
+      "July": {
+        "sow": [],
+        "plant": ["Asparagus", "Rhubarb", "Jerusalem Artichokes"]
+      },
+      "August": {
+        "sow": ["Broad Beans", "Peas", "Lettuce", "Parsnips"],
+        "plant": ["Early Potatoes", "Asparagus", "Jerusalem Artichokes"]
+      },
+      "September": {
+        "sow": ["Peas", "Early Carrots", "Lettuce", "Spring Onions", "Parsnips", "Broccoli", "Cauliflower", "Tomatoes (indoors)"],
+        "plant": ["Early Potatoes", "Onions", "Garlic"]
+      },
+      "October": {
+        "sow": ["Carrots", "Beetroot", "Lettuce", "Peas", "Kale", "Kohlrabi", "Broccoli", "Cauliflower", "Brussels Sprouts"],
+        "plant": ["Potatoes", "Tomatoes (protected)", "Broccoli", "Cauliflower"]
+      },
+      "November": {
+        "sow": ["Beans", "Carrots", "Beetroot", "Lettuce", "Zucchini", "Radish"],
+        "plant": ["Tomatoes (protected)", "Zucchini", "Leeks", "Brussels Sprouts", "Celery"]
+      },
+      "December": {
+        "sow": ["Beans", "Carrots", "Lettuce", "Beetroot", "Spring Onions", "Radish"],
+        "plant": ["Tomatoes (protected)", "Leeks", "Zucchini"]
+      }
+    },
+    "cool": {
+      "January": {
+        "sow": ["Beans", "Carrots", "Beetroot", "Lettuce", "Radish", "Spring Onions"],
+        "plant": ["Tomatoes", "Leeks", "Celery", "Silverbeet"]
+      },
+      "February": {
+        "sow": ["Carrots", "Beetroot", "Lettuce", "Asian Greens", "English Spinach", "Turnip", "Swede", "Radish"],
+        "plant": ["Leeks", "Brassicas", "Celery", "Kale"]
+      },
+      "March": {
+        "sow": ["Peas", "Broad Beans", "English Spinach", "Asian Greens", "Spring Onions", "Swede", "Turnip"],
+        "plant": ["Brassicas", "Leeks", "Winter Cabbage"]
+      },
+      "April": {
+        "sow": ["Broad Beans", "Peas", "English Spinach", "Spring Onions"],
+        "plant": ["Garlic", "Shallots", "Onions"]
+      },
+      "May": {
+        "sow": ["Broad Beans", "Peas", "English Spinach"],
+        "plant": ["Garlic", "Shallots"]
+      },
+      "June": {
+        "sow": ["Broad Beans", "Peas"],
+        "plant": ["Garlic", "Rhubarb"]
+      },
+      "July": {
+        "sow": ["Broad Beans", "Peas"],
+        "plant": ["Asparagus", "Rhubarb", "Jerusalem Artichokes"]
+      },
+      "August": {
+        "sow": ["Early Peas", "Broad Beans", "Lettuce", "Spring Onions", "Parsnips", "Onions"],
+        "plant": ["Early Potatoes", "Asparagus", "Jerusalem Artichokes", "Rhubarb"]
+      },
+      "September": {
+        "sow": ["Peas", "Early Carrots", "Beetroot", "Lettuce", "Spring Onions", "Parsnips", "Broccoli", "Cauliflower", "Brussels Sprouts", "Tomatoes (indoors)"],
+        "plant": ["Early Potatoes", "Onions", "Potatoes"]
+      },
+      "October": {
+        "sow": ["Beans", "Carrots", "Beetroot", "Lettuce", "Peas", "Zucchini", "Pumpkin", "Kohlrabi", "Kale"],
+        "plant": ["Tomatoes (protected)", "Potatoes", "Broccoli", "Cauliflower", "Brussels Sprouts", "Celery"]
+      },
+      "November": {
+        "sow": ["Beans", "Carrots", "Beetroot", "Lettuce", "Zucchini", "Pumpkin", "Sweet Corn", "Radish"],
+        "plant": ["Tomatoes", "Zucchini", "Pumpkin", "Capsicum (protected)", "Leeks", "Brussels Sprouts"]
+      },
+      "December": {
+        "sow": ["Beans", "Carrots", "Lettuce", "Beetroot", "Spring Onions", "Radish"],
+        "plant": ["Tomatoes", "Zucchini", "Leeks", "Celery", "Sweet Corn"]
+      }
+    },
+    "temperate": {
+      "January": {
+        "sow": ["Beans", "Sweet Corn", "Carrots", "Beetroot", "Lettuce", "Radish", "Spring Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant", "Cucumbers", "Zucchini", "Sweet Corn"]
+      },
+      "February": {
+        "sow": ["Carrots", "Beetroot", "Asian Greens", "Lettuce", "Radish", "Spring Onions"],
+        "plant": ["Capsicum", "Eggplant", "Silverbeet", "Leeks"]
+      },
+      "March": {
+        "sow": ["Carrots", "Beetroot", "Peas", "Asian Greens", "Lettuce", "Spinach", "English Spinach", "Spring Onions", "Radish"],
+        "plant": ["Brassicas", "Leeks", "Silverbeet", "Onions"]
+      },
+      "April": {
+        "sow": ["Broad Beans", "Peas", "Carrots", "Beetroot", "Asian Greens", "Lettuce", "English Spinach", "Spring Onions", "Radish"],
+        "plant": ["Garlic", "Shallots", "Onions", "Brassicas"]
+      },
+      "May": {
+        "sow": ["Broad Beans", "Peas", "English Spinach", "Asian Greens", "Onions", "Spring Onions"],
+        "plant": ["Garlic", "Shallots", "Onions", "Strawberries"]
+      },
+      "June": {
+        "sow": ["Broad Beans", "Peas", "Onions", "Radish", "English Spinach"],
+        "plant": ["Garlic", "Rhubarb", "Asparagus"]
+      },
+      "July": {
+        "sow": ["Peas", "Broad Beans", "Lettuce", "Spring Onions", "Onions"],
+        "plant": ["Asparagus", "Rhubarb", "Jerusalem Artichokes"]
+      },
+      "August": {
+        "sow": ["Tomatoes (indoors)", "Peas", "Lettuce", "Carrots", "Spring Onions", "Parsnips", "Onions"],
+        "plant": ["Potatoes", "Asparagus", "Rhubarb"]
+      },
+      "September": {
+        "sow": ["Tomatoes", "Beans", "Carrots", "Beetroot", "Lettuce", "Peas", "Zucchini", "Broccoli", "Cauliflower", "Spring Onions"],
+        "plant": ["Tomatoes (protected)", "Potatoes", "Onions", "Broccoli", "Cauliflower"]
+      },
+      "October": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Zucchini", "Pumpkin", "Carrots", "Beetroot", "Lettuce"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant", "Zucchini", "Cucumbers", "Potatoes"]
+      },
+      "November": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Zucchini", "Pumpkin", "Lettuce", "Beetroot", "Spring Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant", "Zucchini", "Cucumbers", "Leeks"]
+      },
+      "December": {
+        "sow": ["Beans", "Sweet Corn", "Carrots", "Lettuce", "Radish", "Spring Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant", "Sweet Corn", "Leeks", "Silverbeet"]
+      }
+    },
+    "warm": {
+      "January": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Zucchini", "Lettuce", "Spring Onions"],
+        "plant": ["Eggplant", "Capsicum", "Sweet Potatoes", "Zucchini", "Cucumbers"]
+      },
+      "February": {
+        "sow": ["Beans", "Carrots", "Beetroot", "Asian Greens", "Lettuce", "Spring Onions"],
+        "plant": ["Capsicum", "Eggplant", "Sweet Potatoes", "Silverbeet"]
+      },
+      "March": {
+        "sow": ["Carrots", "Beetroot", "Asian Greens", "Lettuce", "Peas", "Broccoli", "Cauliflower", "Radish"],
+        "plant": ["Leeks", "Onions", "Silverbeet", "Brassicas"]
+      },
+      "April": {
+        "sow": ["Peas", "Broad Beans", "Carrots", "Beetroot", "Asian Greens", "Lettuce", "English Spinach", "Radish", "Spring Onions"],
+        "plant": ["Garlic", "Onions", "Brassicas", "Broccoli", "Cauliflower"]
+      },
+      "May": {
+        "sow": ["Broad Beans", "Peas", "Carrots", "Beetroot", "Onions", "English Spinach", "Asian Greens", "Radish"],
+        "plant": ["Garlic", "Onions", "Strawberries", "Broccoli", "Cauliflower"]
+      },
+      "June": {
+        "sow": ["Broad Beans", "Peas", "Carrots", "Beetroot", "Onions", "Radish", "English Spinach"],
+        "plant": ["Garlic", "Onions", "Asparagus", "Rhubarb"]
+      },
+      "July": {
+        "sow": ["Peas", "Broad Beans", "Lettuce", "Carrots", "Spring Onions", "Onions"],
+        "plant": ["Asparagus", "Rhubarb", "Potatoes", "Onions"]
+      },
+      "August": {
+        "sow": ["Tomatoes (indoors)", "Peas", "Lettuce", "Carrots", "Beetroot", "Spring Onions", "Onions"],
+        "plant": ["Potatoes", "Asparagus", "Tomatoes (protected)", "Onions"]
+      },
+      "September": {
+        "sow": ["Tomatoes", "Beans", "Carrots", "Beetroot", "Lettuce", "Zucchini", "Cucumbers", "Spring Onions"],
+        "plant": ["Tomatoes", "Potatoes", "Zucchini", "Capsicum", "Eggplant"]
+      },
+      "October": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Zucchini", "Pumpkin", "Carrots", "Lettuce", "Beetroot"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant", "Zucchini", "Sweet Potatoes", "Cucumbers"]
+      },
+      "November": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Zucchini", "Lettuce", "Spring Onions"],
+        "plant": ["Eggplant", "Capsicum", "Sweet Potatoes", "Zucchini", "Leeks"]
+      },
+      "December": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Lettuce", "Spring Onions", "Radish"],
+        "plant": ["Eggplant", "Capsicum", "Sweet Potatoes", "Cucumbers", "Silverbeet"]
+      }
+    },
+    "tropical": {
+      "January": {
+        "sow": ["Asian Greens", "Silverbeet", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Silverbeet"]
+      },
+      "February": {
+        "sow": ["Asian Greens", "Sweet Corn", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Silverbeet"]
+      },
+      "March": {
+        "sow": ["Beans", "Asian Greens", "Lettuce", "Tomatoes", "Capsicum"],
+        "plant": ["Eggplant", "Sweet Potatoes"]
+      },
+      "April": {
+        "sow": ["Tomatoes", "Capsicum", "Eggplant", "Asian Greens", "Lettuce", "Carrots", "Beetroot"],
+        "plant": ["Eggplant", "Sweet Potatoes", "Tomatoes"]
+      },
+      "May": {
+        "sow": ["Carrots", "Beetroot", "Asian Greens", "Lettuce", "Beans", "Radish", "Spring Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Eggplant"]
+      },
+      "June": {
+        "sow": ["Carrots", "Beetroot", "Peas", "Asian Greens", "Lettuce", "Radish", "Spring Onions", "Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Brassicas"]
+      },
+      "July": {
+        "sow": ["Carrots", "Beetroot", "Peas", "Asian Greens", "Lettuce", "Beans", "Radish", "Onions"],
+        "plant": ["Tomatoes", "Capsicum", "Sweet Potatoes", "Eggplant"]
+      },
+      "August": {
+        "sow": ["Beans", "Sweet Corn", "Asian Greens", "Lettuce", "Pumpkin", "Cucumbers", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Tomatoes", "Capsicum"]
+      },
+      "September": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Pumpkin", "Asian Greens", "Lettuce", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Eggplant", "Cucumbers"]
+      },
+      "October": {
+        "sow": ["Beans", "Sweet Corn", "Cucumbers", "Asian Greens", "Lettuce", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Capsicum", "Eggplant"]
+      },
+      "November": {
+        "sow": ["Beans", "Asian Greens", "Sweet Corn", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Silverbeet"]
+      },
+      "December": {
+        "sow": ["Beans", "Asian Greens", "Spring Onions"],
+        "plant": ["Sweet Potatoes", "Silverbeet"]
+      }
+    }
+  }
+}

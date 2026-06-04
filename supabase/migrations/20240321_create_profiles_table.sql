@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS profiles (
   email TEXT,
   state TEXT,
   city TEXT,
-  location TEXT,
+  location JSONB, -- UserLocation object; see lib/types/location.ts
   created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW())
 );

@@ -1,0 +1,10 @@
+-- Cron for notification-digest (use Supabase Dashboard → Schedules, or pg_cron).
+-- Do NOT use "0 * * * *" (hourly). Use the three windows in lib/notifications/digestSchedule.ts:
+--
+--   0,30 21,22,23 * * *   — covers ~8:00 local in eastern/central AU
+--   0,30 0,1 * * *        — covers ~8:00 local in western AU
+--   30 6,7,8,9,10 * * 5   — covers ~17:30 Friday in AU timezones
+--
+-- Each run POSTs to:
+--   https://YOUR_PROJECT_REF.supabase.co/functions/v1/notification-digest
+-- Header: Authorization: Bearer YOUR_CRON_SECRET

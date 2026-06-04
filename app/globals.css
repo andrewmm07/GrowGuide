@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* Force light mode — prevents Android WebView dark-mode auto-inversion */
+html {
+  color-scheme: light;
+}
+
+/* Ensure inputs/selects never inherit a dark background from the system */
+input,
+select,
+textarea {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* Custom checkbox — replaces native appearance entirely so Android WebView
+   dark-mode never inverts the background to black */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  min-width: 1.1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 3px;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+input[type="checkbox"]:checked {
+  background-color: #16a34a;
+  border-color: #16a34a;
+}
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Prevent iOS/Android from bumping up font size on form fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  font-size: 16px;
+} 
