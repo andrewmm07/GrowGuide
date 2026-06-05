@@ -87,6 +87,8 @@ export interface WeeklyGuidanceInferenceInput {
 
 export interface WeeklyGuidanceInferenceResult {
   inferredParagraph: string
+  /** Weather-only addition when base line is kept; null when replaced or unchanged. */
+  weatherClause: string | null
   replacedBaseLine: boolean
   /** How observed vs forecast data shaped the weather clause. */
   weatherClauseTone: WeatherClauseTone

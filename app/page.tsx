@@ -2,7 +2,9 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/app/context/AuthContext'
-import { getHomeRouteForLocation } from '@/lib/locationService'
+import { getUserLocationFromDB } from '@/lib/locationService'
+import { getPostAuthRoute } from '@/lib/profileName'
+import { ensureProfileDisplayName } from '@/lib/profileService'
 
 export default function HomePage() {
   const router = useRouter()
@@ -19,10 +21,20 @@ export default function HomePage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Redirect if already logged in — check location to route new vs returning users
+  // Redirect if already logged in — name first, then location
   useEffect(() => {
     if (!authLoading && !locationLoading && user) {
-      router.push(getHomeRouteForLocation(userLocation))
+      let cancelled = false
+      ;(async () => {
+        const metaName = user.user_metadata?.name as string | undefined
+        const profileName = await ensureProfileDisplayName(user.id, metaName)
+        const location =
+          userLocation ?? (await getUserLocationFromDB(user.id).catch(() => null))
+        if (!cancelled) router.push(getPostAuthRoute(profileName, location))
+      })()
+      return () => {
+        cancelled = true
+      }
     }
   }, [user, authLoading, locationLoading, userLocation, router])
 
@@ -73,7 +85,12 @@ export default function HomePage() {
         throw new Error('Password must be at least 6 characters')
       }
 
-      await signup(signupData.email, signupData.password, signupData.name)
+      const trimmedName = signupData.name.trim()
+      if (trimmedName.length < 2) {
+        throw new Error('Please enter your name')
+      }
+
+      await signup(signupData.email, signupData.password, trimmedName)
     } catch (err: any) {
       console.error('Signup error:', err)
       if (err?.message?.includes('already exists') || err?.message?.includes('already registered')) {
@@ -192,6 +209,7 @@ export default function HomePage() {
                     id="signup-name"
                     type="text"
                     required
+                    minLength={2}
                     value={signupData.name}
                     onChange={(e) => setSignupData({ ...signupData, name: e.target.value })}
                     className="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"

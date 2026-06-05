@@ -58,7 +58,7 @@ function isRoutineWateringTask(act: WeeklyActivity): boolean {
   const title = act.activity.trim()
   if (!title) return false
   if (CROP_STAGE_WATERING.test(title) || WATERING_STOP_REDUCE.test(title)) return false
-  if (act.category === 'watering') return true
+  if (String(act.category) === 'watering') return true
   return /\b(water|moist|irrigation)\b/i.test(title)
 }
 

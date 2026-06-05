@@ -29,6 +29,7 @@
     "audit:gap-crops": "tsx scripts/audit-gap-crops.ts",
     "build:notification-digest": "node scripts/build-notification-digest-bundle.mjs",
     "deploy:notification-digest": "npm run build:notification-digest && npx supabase functions deploy notification-digest",
+    "deploy:weather": "npx supabase functions deploy weather",
     "digest:notifications": "tsx scripts/run-notification-digest.ts",
     "test:push": "tsx scripts/send-test-push.ts"
   },

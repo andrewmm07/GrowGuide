@@ -17,10 +17,10 @@ import {
   LIFESPAN_SECTION_LABELS,
   LIFESPAN_SECTION_ORDER,
   LIFESPAN_SECTION_STYLES,
+  LIFESPAN_SECTION_SUMMARIES,
   plantLifespanFromCategory,
   type PlantLifespanGroup,
 } from '@/lib/plantLifespan';
-import { PERENNIAL_SECTION_SUMMARY } from '@/lib/perennialPlanting';
 import { plantMatchesPickerQuery } from '@/lib/planting/plantPickerSearch';
 import toast from 'react-hot-toast';
 
@@ -135,7 +135,7 @@ export function PlantsList({
       LIFESPAN_SECTION_ORDER.map((key) => ({
         key,
         label: LIFESPAN_SECTION_LABELS[key],
-        subtitle: key === 'perennial' ? PERENNIAL_SECTION_SUMMARY : undefined,
+        subtitle: LIFESPAN_SECTION_SUMMARIES[key],
         plants: plantsByLifespan[key],
       })).filter((section) => section.plants.length > 0),
     [plantsByLifespan]

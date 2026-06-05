@@ -184,7 +184,12 @@ export function inferWeeklyGuidance(input: WeeklyGuidanceInferenceInput): Weekly
     input.frostThisWeek
 
   if (!anySignal && !acc.sustainedAnomaly) {
-    return { inferredParagraph: base, replacedBaseLine: false, weatherClauseTone: tone }
+    return {
+      inferredParagraph: base,
+      weatherClause: null,
+      replacedBaseLine: false,
+      weatherClauseTone: tone,
+    }
   }
 
   if (shouldReplaceBaseLine(input)) {
@@ -208,6 +213,7 @@ export function inferWeeklyGuidance(input: WeeklyGuidanceInferenceInput): Weekly
     )
     return {
       inferredParagraph: frameReplacedParagraph(replaced, tone),
+      weatherClause: null,
       replacedBaseLine: true,
       weatherClauseTone: tone,
     }
@@ -215,7 +221,12 @@ export function inferWeeklyGuidance(input: WeeklyGuidanceInferenceInput): Weekly
 
   const appendKind = resolveAppendKind(input)
   if (!appendKind) {
-    return { inferredParagraph: base, replacedBaseLine: false, weatherClauseTone: tone }
+    return {
+      inferredParagraph: base,
+      weatherClause: null,
+      replacedBaseLine: false,
+      weatherClauseTone: tone,
+    }
   }
 
   const clause = appendClause(
@@ -230,8 +241,10 @@ export function inferWeeklyGuidance(input: WeeklyGuidanceInferenceInput): Weekly
     input.baseWeekLine
   )
 
+  const weatherClause = frameAppendedClause(clause, tone)
   return {
-    inferredParagraph: `${base.replace(/[.!?]+\s*$/, '')}. ${frameAppendedClause(clause, tone)}`,
+    inferredParagraph: `${base.replace(/[.!?]+\s*$/, '')}. ${weatherClause}`,
+    weatherClause,
     replacedBaseLine: false,
     weatherClauseTone: tone,
   }

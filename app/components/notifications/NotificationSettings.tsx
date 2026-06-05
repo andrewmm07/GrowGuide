@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useAuth } from '@/app/context/AuthContext'
 import { useGarden } from '@/app/context/GardenContext'
 import { useNotificationPreferences } from '@/app/hooks/useNotificationPreferences'
@@ -10,7 +10,6 @@ import {
   composeWeekendTasksNotification,
 } from '@/lib/notificationService'
 import { isNativePushEnvironment } from '@/lib/push/nativePush'
-import { sendTestNotificationNow } from '@/lib/push/sendTestNotification'
 
 function Toggle({
   label,
@@ -48,8 +47,6 @@ export default function NotificationSettings() {
   const { tasks } = useTasks(user?.id)
   const { prefs, loading, saving, saveError, updatePrefs } = useNotificationPreferences()
   const nativeApp = isNativePushEnvironment()
-  const [testStatus, setTestStatus] = useState<'idle' | 'sending' | 'ok' | 'fail'>('idle')
-  const [testMessage, setTestMessage] = useState<string | null>(null)
 
   const previewPlanting = useMemo(
     () => composePlantingNotification(userLocation, { now: new Date() }),
@@ -103,44 +100,6 @@ export default function NotificationSettings() {
         disabled={saving || !user}
         onChange={(v) => updatePrefs({ notificationsEnabled: v })}
       />
-
-      {user && (
-        <div className="pt-4 pb-2 border-b border-gray-100">
-          <p className="text-sm font-medium text-gray-800">Test push now</p>
-          <p className="text-xs text-gray-500 mt-0.5 mb-2 leading-relaxed">
-            Sends immediately — not on the Tuesday/Friday schedule. Press Home to background the
-            app, then tap below; you should see a banner and a new item in Notifications.
-          </p>
-          <button
-            type="button"
-            disabled={testStatus === 'sending' || saving}
-            className="text-sm font-medium text-green-600 hover:text-green-700 disabled:opacity-50"
-            onClick={async () => {
-              setTestStatus('sending')
-              setTestMessage(null)
-              try {
-                const result = await sendTestNotificationNow(user.id)
-                setTestStatus(result.ok ? 'ok' : 'fail')
-                setTestMessage(result.message)
-              } catch (e) {
-                setTestStatus('fail')
-                setTestMessage(e instanceof Error ? e.message : 'Test failed')
-              }
-            }}
-          >
-            {testStatus === 'sending' ? 'Sending…' : 'Send test notification'}
-          </button>
-          {testMessage && (
-            <p
-              className={`text-xs mt-2 leading-relaxed ${
-                testStatus === 'ok' ? 'text-green-700' : 'text-red-700'
-              }`}
-            >
-              {testMessage}
-            </p>
-          )}
-        </div>
-      )}
 
       {master && (
         <>

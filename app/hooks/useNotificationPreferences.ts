@@ -9,6 +9,8 @@ import {
 import type { NotificationPreferences } from '@/lib/notificationTypes'
 import { DEFAULT_NOTIFICATION_PREFS } from '@/lib/notificationTypes'
 import { registerAndSaveDevicePushToken } from '@/lib/push/nativePush'
+import { isRemotePushConfigured } from '@/lib/push/remotePushAvailable'
+import { Capacitor } from '@capacitor/core'
 
 export function useNotificationPreferences() {
   const { user, userLocation } = useAuth()
@@ -60,6 +62,10 @@ export function useNotificationPreferences() {
           if (pushResult === 'denied') {
             setSaveError(
               'Notifications saved, but this device blocked push permission. Allow notifications in Android settings.'
+            )
+          } else if (pushResult === 'skipped' && Capacitor.getPlatform() === 'android' && !isRemotePushConfigured()) {
+            setSaveError(
+              'In-app settings saved. Server push needs google-services.json in android/app/ and NEXT_PUBLIC_FCM_CONFIGURED=true, then rebuild.'
             )
           } else if (pushResult === 'error') {
             setSaveError(

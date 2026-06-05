@@ -16,10 +16,10 @@ export function PlantModal({ plant, isOpen, onClose }: PlantModalProps) {
 
   if (!plant || !isOpen) return null
 
-  const tabs: { id: Tab; label: string; count?: number }[] = [
+  const tabs: { id: Tab; label: string }[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'care', label: 'Care' },
-    { id: 'issues', label: 'Issues', count: plant.commonIssues.length },
+    { id: 'issues', label: 'Issues' },
     { id: 'maintenance', label: 'Maintenance' },
   ]
 
@@ -42,9 +42,6 @@ export function PlantModal({ plant, isOpen, onClose }: PlantModalProps) {
             <button key={tab.id} onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-1.5 px-3 py-2.5 text-sm font-medium border-b-2 transition-colors -mb-px ${activeTab === tab.id ? 'border-green-600 text-green-700' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
               {tab.label}
-              {tab.count !== undefined && (
-                <span className={`text-xs rounded-full px-1.5 py-0.5 ${activeTab === tab.id ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>{tab.count}</span>
-              )}
             </button>
           ))}
         </div>

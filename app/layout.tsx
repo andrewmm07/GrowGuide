@@ -8,6 +8,8 @@ import { ProfileProvider } from './context/ProfileContext'
 import { GardenProvider } from './context/GardenContext'
 import { Providers } from './providers/Providers'
 import { ErrorReportingInit } from './components/ErrorReportingInit'
+import RequireAuth from './components/RequireAuth'
+import RequireProfileName from './components/RequireProfileName'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,14 +35,18 @@ export default function RootLayout({
         <Providers>
           <ErrorReportingInit />
           <AuthProvider>
-            <LocationConfirmation />
-            <ProfileProvider>
-              <GardenProvider>
-                <MainLayout>
-                  {children}
-                </MainLayout>
-              </GardenProvider>
-            </ProfileProvider>
+            <RequireAuth>
+            <RequireProfileName>
+              <LocationConfirmation />
+              <ProfileProvider>
+                <GardenProvider>
+                  <MainLayout>
+                    {children}
+                  </MainLayout>
+                </GardenProvider>
+              </ProfileProvider>
+            </RequireProfileName>
+            </RequireAuth>
           </AuthProvider>
         </Providers>
       </body>

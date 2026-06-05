@@ -37,9 +37,7 @@
   ],
   "exclude": [
     "node_modules",
-    "garden-app",
-    "garden-planner",
-    "src",
+    "archive",
     "supabase",
     "canvases",
     "app/_archived"

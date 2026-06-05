@@ -443,6 +443,24 @@ export function getHomeRouteForLocation(
   return isCompleteUserLocation(loc) ? '/dashboard' : '/location-select'
 }
 
+/** Safe in-app path for ?returnTo= (blocks open redirects). */
+export function getSafeReturnTo(param: string | null | undefined): string | null {
+  if (!param || !param.startsWith('/') || param.startsWith('//')) return null
+  return param
+}
+
+/** Link to location picker when changing an existing location (e.g. from settings). */
+export function locationSelectChangeHref(returnTo: string): string {
+  const safe = getSafeReturnTo(returnTo)
+  if (!safe) return '/location-select/'
+  return `/location-select/?returnTo=${encodeURIComponent(safe)}`
+}
+
+/** Read ?returnTo= from the current URL (client-only). */
+export function getLocationSelectReturnToFromSearch(search: string): string | null {
+  return getSafeReturnTo(new URLSearchParams(search).get('returnTo'))
+}
+
 /**
  * Get list of all available suburbs for picker UI
  */

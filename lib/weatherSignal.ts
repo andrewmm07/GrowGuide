@@ -30,8 +30,14 @@ export type { WeatherSignal, WeatherSignalDetail, WarmIntensity }
 export type { RollingWeatherContext }
 
 const CACHE_PREFIX = 'weather_signal_'
+const ROLLING_CACHE_PREFIX = 'weather_rolling_'
 const OPEN_METEO = 'https://api.open-meteo.com/v1/forecast'
 const OPEN_METEO_ARCHIVE = 'https://archive-api.open-meteo.com/v1/archive'
+
+export interface WeeklyWeatherBundle {
+  signal: WeatherSignalDetail
+  rolling: RollingWeatherContext
+}
 
 const recentDailyInflight = new Map<string, Promise<OpenMeteoDaily | null>>()
 
@@ -105,6 +111,47 @@ function writeCache(lat: number, lon: number, date: Date, signal: WeatherSignalD
   } catch {
     /* quota */
   }
+}
+
+function rollingCacheKey(lat: number, lon: number, date: Date): string {
+  return `${ROLLING_CACHE_PREFIX}${roundCoord(lat)}_${roundCoord(lon)}_${localDateKey(date)}`
+}
+
+function readRollingCache(lat: number, lon: number, date: Date): RollingWeatherContext | null {
+  if (typeof window === 'undefined') return null
+  try {
+    const raw = localStorage.getItem(rollingCacheKey(lat, lon, date))
+    if (!raw) return null
+    const parsed = JSON.parse(raw) as { rolling: RollingWeatherContext; dateKey: string }
+    if (parsed.dateKey === localDateKey(date)) return parsed.rolling
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+function writeRollingCache(lat: number, lon: number, date: Date, rolling: RollingWeatherContext): void {
+  if (typeof window === 'undefined') return
+  try {
+    localStorage.setItem(
+      rollingCacheKey(lat, lon, date),
+      JSON.stringify({ rolling, dateKey: localDateKey(date) })
+    )
+  } catch {
+    /* quota */
+  }
+}
+
+/** Synchronous read of cached weather used for weekly guidance enrichment. */
+export function readWeeklyWeatherBundleFromCache(
+  lat: number,
+  lon: number,
+  date: Date = new Date()
+): WeeklyWeatherBundle | null {
+  const signal = readCache(lat, lon, date)
+  const rolling = readRollingCache(lat, lon, date)
+  if (!signal || !rolling) return null
+  return { signal, rolling }
 }
 
 interface OpenMeteoDaily {
@@ -529,6 +576,40 @@ export async function getRollingWeatherContextForDate(
  * Rolling 3-week context: two prior actual weeks + current forecast week.
  * Returns null when forecast/actual windows cannot be resolved.
  */
+function buildRollingContextFromDaily(
+  recent: OpenMeteoDaily,
+  climate: Climate,
+  today: Date
+): RollingWeatherContext | null {
+  const currentIso = isoDateLocal(today)
+  const forecastEndIso = isoDateLocal(addDays(today, 6))
+  const priorActualStartIso = isoDateLocal(addDays(today, -7))
+  const priorActualEndIso = isoDateLocal(addDays(today, -1))
+
+  const forecastSummary = summariseByDateRange(recent, currentIso, forecastEndIso)
+  const priorWeekSummary = summariseByDateRange(recent, priorActualStartIso, priorActualEndIso)
+  if (!forecastSummary || !priorWeekSummary) return null
+
+  const olderStart = isoDateLocal(addDays(today, -14))
+  const olderEnd = isoDateLocal(addDays(today, -8))
+  const olderSummary = summariseByDateRange(recent, olderStart, olderEnd)
+  if (!olderSummary) return null
+
+  const weekDates = [addDays(today, -10), addDays(today, -3), today]
+  const weekWeather: WeekWeatherSummary[] = [
+    toWeekSummary(olderSummary, false),
+    toWeekSummary(priorWeekSummary, false),
+    toWeekSummary(forecastSummary, true),
+  ]
+  const weekNorms: WeekNorm[] = weekDates.map((d) => buildWeekNorm(climate, d))
+  const signal = deriveSignal(forecastSummary, climate, monthNameLocal(today))
+  signal.forecastAvgMaxTemp = forecastSummary.avgMaxC
+  signal.forecastTotalRainMm = forecastSummary.totalRainMm
+  signal.forecastHasFrost = forecastSummary.frostEvent
+
+  return { signal, weekWeather, weekNorms }
+}
+
 export async function getRollingWeatherContext(
   lat: number,
   lon: number,
@@ -540,37 +621,62 @@ export async function getRollingWeatherContext(
   // Forecast signal is only meaningful near "now". Preserve fallback behavior otherwise.
   if (Math.abs(target.getTime() - today.getTime()) > 2 * 24 * 60 * 60 * 1000) return null
 
+  const cached = readRollingCache(lat, lon, date)
+  if (cached) return cached
+
   try {
     const recent = await fetchRecentAndForecastDaily(lat, lon, date)
     if (!recent) return null
 
-    const currentIso = isoDateLocal(today)
-    const forecastEndIso = isoDateLocal(addDays(today, 6))
-    const priorActualStartIso = isoDateLocal(addDays(today, -7))
-    const priorActualEndIso = isoDateLocal(addDays(today, -1))
+    const rolling = buildRollingContextFromDaily(recent, climate, today)
+    if (rolling) writeRollingCache(lat, lon, date, rolling)
+    return rolling
+  } catch {
+    return null
+  }
+}
 
-    const forecastSummary = summariseByDateRange(recent, currentIso, forecastEndIso)
-    const priorWeekSummary = summariseByDateRange(recent, priorActualStartIso, priorActualEndIso)
-    if (!forecastSummary || !priorWeekSummary) return null
+/** One Open-Meteo fetch for signal + rolling context (cached per day). */
+export async function getWeeklyWeatherBundle(
+  lat: number,
+  lon: number,
+  climate: Climate,
+  month: string,
+  date: Date = new Date()
+): Promise<WeeklyWeatherBundle | null> {
+  const cached = readWeeklyWeatherBundleFromCache(lat, lon, date)
+  if (cached) return cached
 
-    const olderStart = isoDateLocal(addDays(today, -14))
-    const olderEnd = isoDateLocal(addDays(today, -8))
-    const olderSummary = summariseByDateRange(recent, olderStart, olderEnd)
-    if (!olderSummary) return null
+  const today = startOfDay(new Date())
+  const target = startOfDay(date)
+  if (Math.abs(target.getTime() - today.getTime()) > 2 * 24 * 60 * 60 * 1000) {
+    return null
+  }
 
-    const weekDates = [addDays(today, -10), addDays(today, -3), today]
-    const weekWeather: WeekWeatherSummary[] = [
-      toWeekSummary(olderSummary, false),
-      toWeekSummary(priorWeekSummary, false),
-      toWeekSummary(forecastSummary, true),
-    ]
-    const weekNorms: WeekNorm[] = weekDates.map((d) => buildWeekNorm(climate, d))
-    const signal = deriveSignal(forecastSummary, climate, monthNameLocal(today))
+  try {
+    const daily = await fetchRecentAndForecastDaily(lat, lon, date)
+    if (!daily) return null
+
+    const start = isoDateLocal(addDays(today, -6))
+    const end = isoDateLocal(today)
+    const forecastStart = isoDateLocal(today)
+    const forecastEnd = isoDateLocal(addDays(today, 6))
+
+    const summary = summariseByDateRange(daily, start, end)
+    const forecastSummary = summariseByDateRange(daily, forecastStart, forecastEnd)
+    if (!summary || !forecastSummary) return null
+
+    const signal = deriveSignal(summary, climate, month)
     signal.forecastAvgMaxTemp = forecastSummary.avgMaxC
     signal.forecastTotalRainMm = forecastSummary.totalRainMm
     signal.forecastHasFrost = forecastSummary.frostEvent
+    writeCache(lat, lon, date, signal)
 
-    return { signal, weekWeather, weekNorms }
+    const rolling = buildRollingContextFromDaily(daily, climate, today)
+    if (!rolling) return { signal, rolling: { signal, weekWeather: [], weekNorms: [] } }
+    writeRollingCache(lat, lon, date, rolling)
+
+    return { signal, rolling }
   } catch {
     return null
   }

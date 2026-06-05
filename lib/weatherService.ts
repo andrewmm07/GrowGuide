@@ -1,6 +1,8 @@
 /**
- * Weather forecast fetch + cache (WeatherAPI.com via /api/weather proxy).
+ * Weather forecast fetch + cache (WeatherAPI.com via Supabase Edge Function).
  * Location: prefer placeId → registry lat/lon; fallback city+state for legacy profiles.
+ *
+ * Dev-only: set NEXT_PUBLIC_WEATHER_API_KEY to call WeatherAPI directly (not for production APK).
  */
 
 import { findPlaceById } from '@/lib/places'
@@ -43,6 +45,8 @@ export type WeatherLocationInput = UserLocation | WeatherQuery
 
 const CACHE_PREFIX = 'weather_forecast_'
 const CACHE_TTL_MS = 30 * 60 * 1000
+const WEATHER_429_BACKOFF_MS = 60_000
+let lastWeather429At = 0
 
 function isFiniteNumber(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value)
@@ -159,7 +163,6 @@ export function readWeatherCache(query: WeatherQuery): WeatherForecastData | nul
 
     localStorage.removeItem(key)
   } catch {
-    /* stale or corrupt cache */
     localStorage.removeItem(key)
   }
   return null
@@ -175,50 +178,6 @@ export function writeWeatherCache(query: WeatherQuery, data: WeatherForecastData
   } catch {
     /* quota or private mode */
   }
-}
-
-function buildWeatherApiLocationQuery(
-  query: WeatherQuery | null,
-  cityState: { city: string; state: string } | null
-): string {
-  if (query) return `${query.lat},${query.lon}`
-  if (cityState) return `${cityState.city}, ${cityState.state}, Australia`
-  throw new Error('Location coordinates or city and state are required for weather')
-}
-
-async function fetchWeatherFromWeatherApiDirect(
-  locationQuery: string,
-  signal?: AbortSignal
-): Promise<WeatherForecastData> {
-  const apiKey =
-    process.env.NEXT_PUBLIC_WEATHER_API_KEY ??
-    process.env.NEXT_PUBLIC_WEATHERAPI_KEY
-  if (!apiKey) {
-    throw new Error(
-      'Weather is not configured for this build. Add NEXT_PUBLIC_WEATHER_API_KEY to .env.local and rebuild.'
-    )
-  }
-
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(locationQuery)}&days=4&aqi=no`
-  const res = await fetch(url, { signal, cache: 'no-store' })
-
-  let body: unknown = null
-  try {
-    body = await res.json()
-  } catch {
-    /* non-JSON response */
-  }
-
-  if (!res.ok) {
-    const err = body as { error?: { message?: string } } | null
-    throw new Error(err?.error?.message ?? `Weather request failed (${res.status})`)
-  }
-
-  if (!isWeatherForecastData(body)) {
-    throw new Error('Weather response was incomplete. Please try again shortly.')
-  }
-
-  return body
 }
 
 function buildFetchParams(
@@ -238,6 +197,151 @@ function buildFetchParams(
     return params
   }
   return params
+}
+
+function weatherEdgeFunctionUrl(params: URLSearchParams): string | null {
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL
+  if (!base) return null
+  return `${base.replace(/\/$/, '')}/functions/v1/weather?${params}`
+}
+
+function hasClientWeatherApiKey(): boolean {
+  return Boolean(
+    process.env.NEXT_PUBLIC_WEATHER_API_KEY ?? process.env.NEXT_PUBLIC_WEATHERAPI_KEY
+  )
+}
+
+function isDevDirectWeatherEnabled(): boolean {
+  if (process.env.NODE_ENV === 'production') return false
+  return hasClientWeatherApiKey()
+}
+
+function isEdgeUnavailableError(err: unknown): boolean {
+  if (!(err instanceof Error)) return false
+  const msg = err.message.toLowerCase()
+  return (
+    msg.includes('weather request failed (404)') ||
+    msg.includes('weather request failed (501)') ||
+    msg.includes('not configured') ||
+    msg.includes('edge function') ||
+    msg.includes('failed to fetch')
+  )
+}
+
+async function fetchWeatherFromWeatherApiDirect(
+  locationQuery: string,
+  signal?: AbortSignal
+): Promise<WeatherForecastData> {
+  const apiKey =
+    process.env.NEXT_PUBLIC_WEATHER_API_KEY ??
+    process.env.NEXT_PUBLIC_WEATHERAPI_KEY
+  if (!apiKey) {
+    throw new Error(
+      'Weather is not configured. Deploy the Supabase weather function or set NEXT_PUBLIC_WEATHER_API_KEY for local dev only.'
+    )
+  }
+
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(locationQuery)}&days=4&aqi=no`
+  const res = await fetch(url, { signal, cache: 'no-store' })
+
+  let body: unknown = null
+  try {
+    body = await res.json()
+  } catch {
+    /* non-JSON */
+  }
+
+  if (!res.ok) {
+    const err = body as { error?: { message?: string } } | null
+    throw new Error(err?.error?.message ?? `Weather request failed (${res.status})`)
+  }
+
+  if (!isWeatherForecastData(body)) {
+    throw new Error('Weather response was incomplete. Please try again shortly.')
+  }
+
+  return body
+}
+
+async function fetchWeatherFromApiRoute(
+  params: URLSearchParams,
+  signal?: AbortSignal
+): Promise<WeatherForecastData> {
+  const res = await fetch(`/api/weather?${params}`, { signal, cache: 'no-store' })
+
+  let body: unknown = null
+  try {
+    body = await res.json()
+  } catch {
+    /* non-JSON */
+  }
+
+  if (!res.ok) {
+    const err = body as { error?: { message?: string } | string } | null
+    const msg =
+      typeof err?.error === 'string'
+        ? err.error
+        : err?.error?.message ?? `Weather request failed (${res.status})`
+    throw new Error(msg)
+  }
+
+  if (!isWeatherForecastData(body)) {
+    throw new Error('Weather response was incomplete. Please try again shortly.')
+  }
+
+  return body
+}
+
+async function fetchWeatherFromEdge(
+  params: URLSearchParams,
+  signal?: AbortSignal
+): Promise<WeatherForecastData> {
+  if (Date.now() - lastWeather429At < WEATHER_429_BACKOFF_MS) {
+    throw new Error('Weather is temporarily rate-limited. Please try again in a minute.')
+  }
+
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const url = weatherEdgeFunctionUrl(params)
+  if (!url || !anonKey) {
+    throw new Error('Supabase URL and anon key are required for weather.')
+  }
+
+  const res = await fetch(url, {
+    signal,
+    cache: 'no-store',
+    headers: {
+      Authorization: `Bearer ${anonKey}`,
+      apikey: anonKey,
+    },
+  })
+
+  let body: unknown = null
+  try {
+    body = await res.json()
+  } catch {
+    /* non-JSON */
+  }
+
+  if (res.status === 429) {
+    lastWeather429At = Date.now()
+    const err = body as { error?: { message?: string } } | null
+    throw new Error(err?.error?.message ?? 'Weather rate limit exceeded. Try again shortly.')
+  }
+
+  if (!res.ok) {
+    const err = body as { error?: { message?: string } | string } | null
+    const msg =
+      typeof err?.error === 'string'
+        ? err.error
+        : err?.error?.message ?? `Weather request failed (${res.status})`
+    throw new Error(msg)
+  }
+
+  if (!isWeatherForecastData(body)) {
+    throw new Error('Weather response was incomplete. Please try again shortly.')
+  }
+
+  return body
 }
 
 export async function fetchWeatherForecast(
@@ -261,50 +365,32 @@ export async function fetchWeatherForecast(
     throw new Error('Location coordinates or city and state are required for weather')
   }
 
-  const locationQuery = buildWeatherApiLocationQuery(query, cityState)
+  const params = query ? buildFetchParams(query) : buildFetchParams(null, cityState!)
+  const locationQuery = query
+    ? `${query.lat},${query.lon}`
+    : `${cityState!.city}, ${cityState!.state}, Australia`
 
-  // Static export / Capacitor: `/api/weather` is a stub — call WeatherAPI from the client.
-  if (
-    typeof window !== 'undefined' &&
-    (process.env.NEXT_PUBLIC_WEATHER_API_KEY ??
-      process.env.NEXT_PUBLIC_WEATHERAPI_KEY)
-  ) {
+  if (typeof window !== 'undefined' && isDevDirectWeatherEnabled()) {
     return fetchWeatherFromWeatherApiDirect(locationQuery, signal)
   }
 
-  const params = query
-    ? buildFetchParams(query)
-    : buildFetchParams(null, cityState!)
-
-  const res = await fetch(`/api/weather?${params}`, { signal, cache: 'no-store' })
-
-  let body: { error?: { message?: string } | string } & WeatherForecastData =
-    {} as WeatherForecastData
   try {
-    body = await res.json()
-  } catch {
-    /* non-JSON response */
-  }
+    return await fetchWeatherFromEdge(params, signal)
+  } catch (edgeErr) {
+    if (typeof window === 'undefined') throw edgeErr
 
-  if (!res.ok) {
-    const msg =
-      typeof body.error === 'string'
-        ? body.error
-        : body.error?.message ?? `Weather request failed (${res.status})`
-    throw new Error(msg)
-  }
+    if (process.env.NODE_ENV !== 'production') {
+      try {
+        return await fetchWeatherFromApiRoute(params, signal)
+      } catch {
+        /* fall through */
+      }
+    }
 
-  if (body && typeof body === 'object' && 'error' in body && body.error) {
-    const msg =
-      typeof body.error === 'string'
-        ? body.error
-        : (body.error as { message?: string }).message ?? 'Weather API error'
-    throw new Error(msg)
-  }
+    if (hasClientWeatherApiKey() && isEdgeUnavailableError(edgeErr)) {
+      return fetchWeatherFromWeatherApiDirect(locationQuery, signal)
+    }
 
-  if (!isWeatherForecastData(body)) {
-    throw new Error('Weather response was incomplete. Please try again shortly.')
+    throw edgeErr
   }
-
-  return body
 }

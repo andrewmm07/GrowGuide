@@ -1,4 +1,7 @@
-// Planting guide data organized by climate zone and month
+/**
+ * @deprecated Use `app/data/planting-calendar/climate-planting-guide.ts` (CLIMATE_ZONE_PLANTING_GUIDE).
+ * Kept for legacy imports only — do not extend.
+ */
 export const PLANTING_GUIDE: { [key: string]: { [key: string]: { name: string; type: 'sow' | 'plant' }[] } } = {
   'tropical': {
     'January': [

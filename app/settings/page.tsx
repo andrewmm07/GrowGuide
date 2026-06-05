@@ -6,6 +6,8 @@ import { useAuth } from '@/app/context/AuthContext'
 import { formatGrowingContextLabel, resolveLocationContext } from '@/lib/microclimate/resolve'
 import PageContainer from '@/app/components/layouts/PageContainer'
 import NotificationSettings from '@/app/components/notifications/NotificationSettings'
+import { buildFeedbackMailto } from '@/lib/feedbackMail'
+import { locationSelectChangeHref } from '@/lib/locationService'
 
 export default function Settings() {
   const { userLocation, logout, user } = useAuth()
@@ -40,6 +42,27 @@ export default function Settings() {
     ? `${userLocation.city}, ${userLocation.state}`
     : 'Not set'
   const contextLabel = locCtx ? formatGrowingContextLabel(locCtx) : null
+  const feedbackMailto = buildFeedbackMailto({
+    zone: userLocation?.auHardinessZone ?? null,
+    city: userLocation?.city ?? null,
+    state: userLocation?.state ?? null,
+    appVersion: '1.0',
+  })
+
+  const handleReportWrongAdvice = async () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = feedbackMailto
+    }
+  }
+
+  const handleCopySupportEmail = async () => {
+    try {
+      const { LEGAL } = await import('@/lib/legal/constants')
+      await navigator.clipboard.writeText(LEGAL.supportEmail)
+    } catch {
+      /* clipboard unavailable */
+    }
+  }
 
   return (
     <div className="pb-24 md:pb-8">
@@ -58,7 +81,7 @@ export default function Settings() {
               )}
             </div>
             <Link
-              href="/location-select"
+              href={locationSelectChangeHref('/settings')}
               className="px-4 py-2.5 rounded-xl bg-green-600 text-white text-sm font-medium min-h-[44px] flex items-center hover:bg-green-700 transition-colors"
             >
               Change
@@ -123,6 +146,28 @@ export default function Settings() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Help */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+          <h2 className="text-base font-semibold text-gray-900 mb-2">Help</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            Spotted planting or care advice that does not match your garden?
+          </p>
+          <button
+            type="button"
+            onClick={handleReportWrongAdvice}
+            className="w-full py-2.5 rounded-xl bg-green-600 text-white text-sm font-medium min-h-[44px] hover:bg-green-700 transition-colors"
+          >
+            Report wrong advice
+          </button>
+          <button
+            type="button"
+            onClick={handleCopySupportEmail}
+            className="w-full mt-2 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm min-h-[44px] hover:border-gray-300 transition-colors"
+          >
+            Copy support email
+          </button>
         </div>
 
         {/* About */}

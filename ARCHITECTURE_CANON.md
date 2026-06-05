@@ -100,15 +100,18 @@ If a feature overlaps an existing domain:
 
 | Role | Path |
 |------|------|
-| **Climate/month “what to plant” (dashboard + weekly brief)** | `lib/plantingRecommendations.ts` + `lib/planting/plantingByClimate.ts` |
-| **Primary UI data (current)** | `app/data/planting-calendar/` (climate month guidance, plant details), `lib/planting/plantingByClimate.ts`, `lib/plantingRecommendations.ts`, `app/data/state-month-summaries.ts` (deprecated shim, climate-derived), `app/utils/plantingGuide.ts` |
+| **Entry: “what to plant this month” (dashboard, weekly brief)** | `lib/plantingRecommendations.ts` → `lib/planting/plantingByClimate.ts` |
+| **Calendar UI (month guides, year view)** | `app/data/planting-calendar/` (`helpers.ts`, `climate-planting-guide.ts`, month guidance modules) |
 | **Weekly brief route** | `/weekly-brief` (`app/weekly-brief/page.tsx`) |
+| **Deprecated shims (do not extend)** | `app/data/state-month-summaries.ts`, `app/utils/plantingGuide.ts`, `app/data/planting-guides.ts` |
+
+**Migration map:** `docs/PLANTING_CALENDAR.md`.
 
 **Rules (until consolidation milestone)**
 
 - Do **not** add a fourth planting-matrix source
 - New calendar features must read **location** from Section 2.1 only
-- Prefer extracting shared matrices into `app/data/` **one file per concern** before duplicating inline
+- Prefer extracting shared matrices into `app/data/planting-calendar/` **one file per concern** before duplicating inline
 - Target end state: single module (future `lib/plantingCalendarData.ts` or Supabase) — tracked as tech debt
 
 ---
@@ -130,20 +133,22 @@ If a feature overlaps an existing domain:
 
 ---
 
-### 2.6 Weather — CANONICAL (transitional)
+### 2.6 Weather — CANONICAL
 
 | Role | Path |
 |------|------|
-| **Live data** | WeatherAPI.com via client fetch |
-| **Cache** | `localStorage` `weather_{city}_{state}` — cache only, not domain state |
-| **Location input** | Section 2.1 (`userLocation.city`, `userLocation.state`) |
+| **Fetch + cache** | `lib/weatherService.ts` |
+| **Live data (production)** | WeatherAPI.com via `supabase/functions/weather` (secret `WEATHER_API_KEY`) |
+| **Live data (local dev only)** | Direct WeatherAPI if `NEXT_PUBLIC_WEATHER_API_KEY` set and `NODE_ENV !== 'production'` |
+| **Cache** | `localStorage` `weather_forecast_*` — cache only, not domain state |
+| **Location input** | Section 2.1 (`userLocation` → lat/lon or city/state) |
 
 **Rules**
 
 - Weather widgets must take location from `useAuth().userLocation`, not `localStorage` `userLocation`
-- Consolidate fetch/cache into one module (future `lib/weatherService.ts`)
-- `supabase/functions/weather/index.ts` is optional proxy — if used, client must not duplicate raw API keys
-- `src/utils/weather.ts`, `src/services/weatherApi.ts` are **legacy**
+- Production/mobile builds must **not** embed `NEXT_PUBLIC_WEATHER_API_KEY` — use Edge Function + anon key
+- Deploy `weather` and set `WEATHER_API_KEY` in Supabase secrets ([docs/SUPABASE_PRODUCTION.md](docs/SUPABASE_PRODUCTION.md))
+- `archive/legacy-src/**` weather modules are **legacy**
 
 ---
 
@@ -155,8 +160,8 @@ If a feature overlaps an existing domain:
 | `lib/gardenService.ts` | Deprecated — wrong schema, zero consumers |
 | `app/hooks/usePlantedItems.ts` | Legacy |
 | `app/context/ProfileContext.tsx` | Not canonical for location |
-| `src/**` | Legacy (excluded from `tsconfig.json`) |
-| `garden-app/`, `garden-planner/` | Non-product scaffolds |
+| `archive/legacy-src/**` | Quarantined legacy React app |
+| `archive/garden-app/`, `archive/garden-planner/` | Non-product scaffolds |
 | `components/LocationSelector.tsx` (root) | Legacy duplicate of `app/components/LocationSelector.tsx` |
 
 ---

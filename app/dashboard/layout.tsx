@@ -16,11 +16,7 @@ export default function DashboardLayout({
   const pathname = usePathname()
 
   useEffect(() => {
-    if (loading || locationLoading) return
-    if (!user) {
-      router.replace('/auth/login')
-      return
-    }
+    if (loading || locationLoading || !user) return
     if (
       !isCompleteUserLocation(userLocation) &&
       !LOCATION_SETUP_PATHS.some((p) => pathname?.startsWith(p))

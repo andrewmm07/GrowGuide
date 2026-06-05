@@ -1,7 +1,8 @@
 import PageClient from './PageClient'
+import { getSeedPlantStaticParams } from '@/lib/plantCatalog'
 
 export function generateStaticParams() {
-  return [{ id: 'tomatoes' }]
+  return getSeedPlantStaticParams()
 }
 
 export default function Page() {

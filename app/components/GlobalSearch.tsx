@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { plantNameToSlug } from '@/lib/plantSlug'
 
 interface SearchResult {
   id: string
@@ -37,10 +38,9 @@ export default function GlobalSearch() {
 
     // Mock search results - replace with actual API call
     const searchResults: SearchResult[] = [
-      { id: 'tomatoes', name: 'Tomatoes', category: 'Vegetables' },
-      { id: 'basil', name: 'Basil', category: 'Herbs' },
-      // Add more mock results
-    ].filter(item => 
+      { id: plantNameToSlug('Tomatoes'), name: 'Tomatoes', category: 'Vegetables' },
+      { id: plantNameToSlug('Basil'), name: 'Basil', category: 'Herbs' },
+    ].filter(item =>
       item.name.toLowerCase().includes(term.toLowerCase())
     )
     

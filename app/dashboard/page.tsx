@@ -10,6 +10,7 @@ import WeeklyBriefCard from '../components/dashboard/WeeklyBriefCard'
 import WhatToPlantNow from '../components/dashboard/WhatToPlantNow'
 import PageContainer from '../components/layouts/PageContainer'
 import Link from 'next/link'
+import { formatGreetingName, hasDisplayName } from '@/lib/profileName'
 import { useNotificationSync } from '@/app/hooks/useNotificationSync'
 
 
@@ -24,18 +25,35 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (authLoading) return
-    if (!user) {
-      router.push('/auth/login')
-      return
+    if (!user) return
+
+    let cancelled = false
+    void (async () => {
+      try {
+        const { data } = await supabase
+          .from('profiles')
+          .select('name')
+          .eq('id', user.id)
+          .single()
+        if (cancelled) return
+        if (!hasDisplayName(data?.name)) {
+          router.replace('/setup-name')
+          return
+        }
+        setUserName(formatGreetingName(data!.name!))
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    })()
+
+    return () => {
+      cancelled = true
     }
-    supabase.from('profiles').select('name').eq('id', user.id).single()
-      .then(({ data }) => setUserName(data?.name || user.email?.split('@')[0] || 'there'))
-    setLoading(false)
   }, [user, authLoading, router])
 
   const today = new Date().toLocaleDateString('en-AU', { weekday: 'long', month: 'long', day: 'numeric' })
 
-  if (loading || authLoading || gardenLoading) {
+  if (loading || authLoading || gardenLoading || !userName) {
     return (
       <PageContainer className="space-y-3 animate-pulse">
         <div className="h-8 bg-gray-200 rounded w-1/2" />
@@ -51,7 +69,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="flex items-center justify-between py-1">
         <div>
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Hi {userName} 👋</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900">Hi {userName}</h1>
           <p className="text-xs md:text-sm text-gray-400 mt-0.5">{today}</p>
         </div>
         <Link

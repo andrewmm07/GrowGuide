@@ -65,18 +65,10 @@ export default function CalendarPlantModal({
   const careGuide = buildPlantCareGuide(plantDetails)
   const issuesGuide = buildPlantIssuesGuide(plantDetails)
 
-  const tabs: { id: Tab; label: string; count?: number }[] = [
+  const tabs: { id: Tab; label: string }[] = [
     { id: 'overview', label: 'Overview' },
-    {
-      id: 'care',
-      label: 'Care guide',
-      count: careGuide.careInstructions.length + careGuide.stages.length,
-    },
-    {
-      id: 'issues',
-      label: 'Issues',
-      count: issuesGuide.issues.length,
-    },
+    { id: 'care', label: 'Care guide' },
+    { id: 'issues', label: 'Issues' },
   ]
 
   return createPortal(
@@ -144,15 +136,6 @@ export default function CalendarPlantModal({
               }`}
             >
               {tab.label}
-              {tab.count !== undefined && (
-                <span
-                  className={`text-xs rounded-full px-1.5 py-0.5 ${
-                    activeTab === tab.id ? 'bg-gray-200 text-gray-800' : 'bg-gray-100 text-gray-500'
-                  }`}
-                >
-                  {tab.count}
-                </span>
-              )}
             </button>
           ))}
         </div>

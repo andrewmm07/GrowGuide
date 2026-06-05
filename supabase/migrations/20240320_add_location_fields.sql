@@ -1,4 +1,5 @@
--- Add location and zone columns if they don't exist
-ALTER TABLE users 
-ADD COLUMN IF NOT EXISTS location TEXT,
-ADD COLUMN IF NOT EXISTS zone TEXT; 
+-- Legacy: originally altered public.users (not used on Supabase).
+-- GrowGuide stores location on profiles (see 20240321, 20250522_profiles_location_jsonb.sql).
+-- No-op on fresh projects.
+
+SELECT '20240320: skipped (location is on profiles, not users)' AS status;

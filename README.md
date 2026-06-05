@@ -8,7 +8,7 @@ Australian climate-aware gardening assistant: weekly planting guidance, garden t
 
 - Node.js 18+
 - A [Supabase](https://supabase.com) project with migrations applied (see [supabase/README.md](supabase/README.md))
-- A [WeatherAPI.com](https://www.weatherapi.com/) key for forecasts
+- Supabase Edge Function `weather` deployed with `WEATHER_API_KEY` secret (or dev-only key below)
 
 ### Setup
 
@@ -17,7 +17,7 @@ git clone <repo-url>
 cd GrowGuide
 npm install
 cp .env.example .env.local   # Windows: copy .env.example .env.local
-# Edit .env.local with your Supabase and WeatherAPI keys
+# Edit .env.local with your Supabase keys (see .env.example)
 npm run dev
 ```
 
@@ -38,12 +38,18 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Architecture
 
+Authoritative rules: **[ARCHITECTURE_CANON.md](ARCHITECTURE_CANON.md)**
+
+| Topic | Document |
+|-------|----------|
+| Fresh Supabase setup | [docs/SUPABASE_SETUP_SIMPLE.md](docs/SUPABASE_SETUP_SIMPLE.md) |
+| Pre-release QA | [docs/QA_CHECKLIST.md](docs/QA_CHECKLIST.md) |
+| Planting calendar sources | [docs/PLANTING_CALENDAR.md](docs/PLANTING_CALENDAR.md) |
+
 - **Frontend:** Next.js 14 App Router, React Context, Tailwind
 - **Backend:** Supabase (Auth, Postgres, Edge Functions)
 - **Mobile:** Capacitor 8 → `out/` bundled in Android WebView
-- **Domain logic:** `lib/` (~100 modules) — planting, microclimate, weather, notifications
-
-Authoritative rules: **[ARCHITECTURE_CANON.md](ARCHITECTURE_CANON.md)**
+- **Domain logic:** `lib/` — planting, microclimate, weather, notifications
 
 ```
 app/          Pages, components, hooks, React context
@@ -61,7 +67,7 @@ Copy [.env.example](.env.example) to `.env.local`. Required for local dev:
 |----------|-------|----------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Client | Yes |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client | Yes |
-| `NEXT_PUBLIC_WEATHER_API_KEY` | Client | Yes (for weather features) |
+| `NEXT_PUBLIC_WEATHER_API_KEY` | Client | No — dev only; production uses Edge `weather` + `WEATHER_API_KEY` secret |
 | `NEXT_PUBLIC_SENTRY_DSN` | Client | No (error reporting) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Scripts only | For seeding / admin scripts |
 | `WEATHER_API_KEY` | Edge / scripts | Server-side weather proxy & digest |
@@ -99,10 +105,11 @@ Link these from your app settings or store listing before public distribution.
 | Document | Purpose |
 |----------|---------|
 | [ARCHITECTURE_CANON.md](ARCHITECTURE_CANON.md) | Canonical architecture rules |
-| [DEPLOYMENT.md](DEPLOYMENT.md) | Hosting & release |
-| [supabase/README.md](supabase/README.md) | Database migrations |
+| [docs/SUPABASE_SETUP_SIMPLE.md](docs/SUPABASE_SETUP_SIMPLE.md) | Minimal beta DB setup |
 | [docs/QA_CHECKLIST.md](docs/QA_CHECKLIST.md) | Pre-release manual testing |
-| [docs/SUPABASE_PRODUCTION.md](docs/SUPABASE_PRODUCTION.md) | Auth & RLS production setup |
+| [docs/SUPABASE_PRODUCTION.md](docs/SUPABASE_PRODUCTION.md) | Auth, RLS, edge functions, rate limits |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | Hosting & release |
+| [docs/ARCHIVE_INDEX.md](docs/ARCHIVE_INDEX.md) | Historical / obsolete root docs |
 
 ## License
 

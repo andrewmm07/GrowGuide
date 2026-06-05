@@ -12,7 +12,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   usePushNotifications()
   const pathname = usePathname()
   // Auth + landing pages have no chrome
-  const isBarePage = pathname === '/' || pathname === '/location-select' || (pathname?.startsWith('/auth') ?? false)
+  const isBarePage =
+    pathname === '/' ||
+    pathname?.startsWith('/location-select') ||
+    pathname === '/setup-name' ||
+    (pathname?.startsWith('/auth') ?? false)
 
   if (isBarePage) {
     return <>{children}</>

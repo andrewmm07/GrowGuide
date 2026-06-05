@@ -24,7 +24,12 @@ export default function SignupPage() {
         throw new Error('Passwords do not match')
       }
 
-      await signup(formData.email, formData.password, formData.name)
+      const trimmedName = formData.name.trim()
+      if (trimmedName.length < 2) {
+        throw new Error('Please enter your name')
+      }
+
+      await signup(formData.email, formData.password, trimmedName)
     } catch (err: any) {
       console.error('Signup error:', err)
       if (err.message.includes('already exists')) {

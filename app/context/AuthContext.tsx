@@ -6,9 +6,11 @@ import {
   getUserLocationFromDB,
   updateUserLocation,
   LocationError,
-  getHomeRouteForLocation,
 } from '@/lib/locationService'
 import { UserLocation } from '@/lib/types/location'
+import { safeReturnPath } from '@/lib/authPaths'
+import { getPostAuthRoute, normalizeDisplayName, validateDisplayNameInput } from '@/lib/profileName'
+import { ensureProfileDisplayName } from '@/lib/profileService'
 import type { User, Session } from '@supabase/supabase-js'
 
 interface AuthContextType {
@@ -21,7 +23,7 @@ interface AuthContextType {
   locationError: LocationError | null
   confirmLocation: (location: UserLocation) => Promise<void>
   updateLocation: (location: UserLocation) => Promise<void>
-  login: (email: string, password: string) => Promise<void>
+  login: (email: string, password: string, returnTo?: string | null) => Promise<void>
   signup: (email: string, password: string, name: string) => Promise<void>
   logout: () => Promise<void>
 }
@@ -244,7 +246,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, password: string, returnTo?: string | null) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -262,16 +264,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setWasSignedIn(true)
         setLoading(false)
 
-        try {
-          const location = await getUserLocationFromDB(data.user.id)
-          setUserLocation(location ?? null)
-          setLocationLoading(false)
-          router.push(getHomeRouteForLocation(location))
-        } catch {
-          setUserLocation(null)
-          setLocationLoading(false)
-          router.push('/location-select')
-        }
+        const metaName = data.user.user_metadata?.name as string | undefined
+        const profileName = await ensureProfileDisplayName(data.user.id, metaName)
+        const location = await getUserLocationFromDB(data.user.id).catch(() => null)
+        setUserLocation(location ?? null)
+        setLocationLoading(false)
+        const next = safeReturnPath(returnTo ?? null)
+        router.push(next ?? getPostAuthRoute(profileName, location))
       }
     } catch (err: any) {
       console.error('Login catch error:', err)
@@ -284,13 +283,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signup = async (email: string, password: string, name: string) => {
+    const nameError = validateDisplayNameInput(name)
+    if (nameError) throw new Error(nameError)
+
+    const displayName = normalizeDisplayName(name)
+
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
           data: {
-            name,
+            name: displayName,
           },
         },
       })
@@ -301,7 +305,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       if (data.user) {
-        // Redirect to email verification page or dashboard
+        await supabase.from('profiles').upsert(
+          {
+            id: data.user.id,
+            name: displayName,
+            email,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: 'id' }
+        )
         router.push('/auth/verify-email')
       }
     } catch (err: any) {

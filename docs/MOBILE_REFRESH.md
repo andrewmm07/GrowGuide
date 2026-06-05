@@ -19,6 +19,12 @@ On **Plan → This month**, scroll to the bottom of the month guide. You should 
 
 If you still see blue/green sow/plant pills or no `UI 4` label, the old app is still installed.
 
+## App closes immediately on launch
+
+If you previously turned on **notifications** in Settings, the app may crash on open when Firebase is not set up (`google-services.json` missing from `android/app/`). Rebuild after the latest code (remote push is skipped unless `NEXT_PUBLIC_FCM_CONFIGURED=true`), or add Firebase per [PUSH_NOTIFICATIONS.md](PUSH_NOTIFICATIONS.md).
+
+To see the exact error: Android Studio → **Logcat**, filter by `growguide` or `Capacitor`, reproduce the crash.
+
 ## If it still looks old
 
 1. **Uninstall** GrowGuide from the phone.

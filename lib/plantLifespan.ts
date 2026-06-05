@@ -17,6 +17,14 @@ export const LIFESPAN_SECTION_LABELS: Record<PlantLifespanGroup, string> = {
   perennial: 'Perennial plants',
 };
 
+/** Short copy under annual / perennial headers in My Garden and the plant picker. */
+export const LIFESPAN_SECTION_SUMMARIES: Record<PlantLifespanGroup, string> = {
+  annual:
+    'Complete their life cycle in one season. Sow or plant within the calendar window for your zone so they mature before cold or extreme heat.',
+  perennial:
+    'Plant once. Harvest for years. Autumn or early spring are ideal for planting for most shrubs/trees.',
+};
+
 /** Visual accents for garden list sections (no extra assets). */
 export const LIFESPAN_SECTION_STYLES: Record<
   PlantLifespanGroup,
@@ -24,8 +32,8 @@ export const LIFESPAN_SECTION_STYLES: Record<
 > = {
   annual: {
     icon: '🌱',
-    headerBg: 'bg-emerald-50',
-    headerBorder: 'border-emerald-200',
+    headerBg: 'bg-slate-50',
+    headerBorder: 'border-slate-200',
     rowAccent: 'border-l-emerald-400',
   },
   perennial: {

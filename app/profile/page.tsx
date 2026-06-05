@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase'
 import { useTheme } from 'next-themes'
 import PlacePicker from '@/app/components/PlacePicker'
 import { formatGrowingContextLabel, resolveLocationContext } from '@/lib/microclimate/resolve'
+import { normalizeDisplayName, validateDisplayNameInput } from '@/lib/profileName'
 
 interface Profile {
   id: string
@@ -72,11 +73,18 @@ export default function ProfilePage() {
     setError('')
     setSuccessMessage('')
 
+    const validationError = validateDisplayNameInput(formData.name)
+    if (validationError) {
+      setError(validationError)
+      setLoading(false)
+      return
+    }
+
     try {
       const { error } = await supabase
         .from('profiles')
         .update({
-          name: formData.name,
+          name: normalizeDisplayName(formData.name),
           updated_at: new Date().toISOString()
         })
         .eq('id', user?.id)
@@ -263,6 +271,8 @@ export default function ProfilePage() {
                             type="text"
                             id="name"
                             name="name"
+                            required
+                            minLength={2}
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-green-500"

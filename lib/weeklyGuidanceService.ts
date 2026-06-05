@@ -37,6 +37,10 @@ export interface WeeklySeasonGuidance {
   weekBand: WeekBand
   month: string
   climate: Climate
+  /** Weather-only sentence appended to the seasonal base line (append mode). */
+  weatherClause?: string | null
+  /** True when weather fully replaced the seasonal base line. */
+  replacedBaseLine?: boolean
   /** Set when weather enrichment ran; drives forecast vs observed footnote. */
   weatherClauseTone?: WeatherClauseTone
 }
@@ -142,22 +146,30 @@ export function applyWeatherToWeeklyOverview(
     return {
       ...guidance,
       overview: inferred.inferredParagraph,
+      weatherClause: inferred.weatherClause,
+      replacedBaseLine: inferred.replacedBaseLine,
       weatherClauseTone: inferred.weatherClauseTone,
     }
   }
+  const woven = weaveWeatherIntoWeekLine(
+    guidance.overview,
+    effectiveSignal,
+    detail ?? null,
+    {
+      season: guidance.bandSeason,
+      month: guidance.month,
+      weekInSeason: guidance.weekInSeason,
+      isForecastWeek: false,
+    }
+  )
+  const trimmedBase = guidance.overview.trim()
+  const weatherClause =
+    woven.trim() !== trimmedBase ? woven.slice(trimmedBase.length).trim() || null : null
   return {
     ...guidance,
-    overview: weaveWeatherIntoWeekLine(
-      guidance.overview,
-      effectiveSignal,
-      detail ?? null,
-      {
-        season: guidance.bandSeason,
-        month: guidance.month,
-        weekInSeason: guidance.weekInSeason,
-        isForecastWeek: false,
-      }
-    ),
+    overview: woven,
+    weatherClause,
+    replacedBaseLine: false,
     weatherClauseTone: 'observed',
   }
 }

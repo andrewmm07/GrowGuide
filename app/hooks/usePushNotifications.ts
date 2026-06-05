@@ -7,6 +7,7 @@ import {
   isNativePushEnvironment,
   registerAndSaveDevicePushToken,
 } from '@/lib/push/nativePush'
+import { canRegisterRemotePush } from '@/lib/push/remotePushAvailable'
 
 /**
  * When notifications are already enabled, register this device for FCM on app open.
@@ -16,7 +17,7 @@ export function usePushNotifications() {
   const { user } = useAuth()
 
   useEffect(() => {
-    if (!user?.id || !isNativePushEnvironment()) return
+    if (!user?.id || !isNativePushEnvironment() || !canRegisterRemotePush()) return
 
     let cancelled = false
 

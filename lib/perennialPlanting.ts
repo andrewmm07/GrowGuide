@@ -1,8 +1,13 @@
-import { plantLifespanFromCategory } from '@/lib/plantLifespan'
+import {
+  LIFESPAN_SECTION_SUMMARIES,
+  plantLifespanFromCategory,
+} from '@/lib/plantLifespan'
 
 /** Summary text shown below the perennial section title in My Garden (list + picker). */
-export const PERENNIAL_SECTION_SUMMARY =
-  'Plant once. Harvest for years. Autumn or early spring are ideal for planting for most shrubs/trees.'
+export const PERENNIAL_SECTION_SUMMARY = LIFESPAN_SECTION_SUMMARIES.perennial
+
+/** Summary text shown below the annual section title in My Garden (list + picker). */
+export const ANNUAL_SECTION_SUMMARY = LIFESPAN_SECTION_SUMMARIES.annual
 
 /** @deprecated Use PERENNIAL_SECTION_SUMMARY */
 export const PERENNIAL_SECTION_HEADER = PERENNIAL_SECTION_SUMMARY

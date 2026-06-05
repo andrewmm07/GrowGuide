@@ -1,12 +1,12 @@
 # Deployment Guide for GrowGuide
 
-GrowGuide production builds are **static exports** (`output: 'export'`). The build output is the **`out/`** directory — not `.next/`. There is no Node.js server at runtime; the app talks to Supabase and WeatherAPI from the browser.
+GrowGuide production builds are **static exports** (`output: 'export'`). The build output is the **`out/`** directory — not `.next/`. There is no Node.js server at runtime; the app talks to Supabase (and the `weather` Edge Function for forecasts).
 
 ## Prerequisites
 
 - Node.js 18+
 - Supabase project with migrations applied ([supabase/README.md](supabase/README.md))
-- WeatherAPI.com API key
+- WeatherAPI.com API key (Supabase secret `WEATHER_API_KEY`, not in the client bundle)
 - GitHub repository (recommended for CI/CD)
 
 ---
@@ -21,7 +21,7 @@ Copy [.env.example](../.env.example) to `.env.local` for local builds. For hosti
 |----------|-------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon (public) key |
-| `NEXT_PUBLIC_WEATHER_API_KEY` | WeatherAPI.com key — embedded in static bundle |
+| `NEXT_PUBLIC_WEATHER_API_KEY` | Optional — **local dev only**; production uses Edge Function |
 
 **Optional:**
 
@@ -149,8 +149,10 @@ App ID: `au.org.pivot.growguide`
 
 ### Weather not loading
 
-- `NEXT_PUBLIC_WEATHER_API_KEY` must be set at **build time** (redeploy after adding).
-- Restrict the key in WeatherAPI dashboard; note it is still visible in the static bundle.
+- Deploy Edge Function: `npx supabase functions deploy weather`
+- Set secret `WEATHER_API_KEY` in Supabase Dashboard → Edge Functions → Secrets
+- Client needs `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` at build time
+- Local dev only: optional `NEXT_PUBLIC_WEATHER_API_KEY` in `.env.local` (direct API, not for production APK)
 
 ### Netlify/Vercel serves 404 on routes
 

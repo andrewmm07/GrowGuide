@@ -17,8 +17,7 @@ import {
   type GroupedPlantSuitability,
   type PlantSuitabilityAssessment,
 } from '@/lib/plantSuitabilityService';
-import { PERENNIAL_SECTION_SUMMARY } from '@/lib/perennialPlanting';
-import { LIFESPAN_SECTION_LABELS } from '@/lib/plantLifespan';
+import { LIFESPAN_SECTION_LABELS, LIFESPAN_SECTION_SUMMARIES } from '@/lib/plantLifespan';
 import {
   pickerSearchGapHint,
   plantMatchesPickerQuery,
@@ -210,14 +209,14 @@ function NotAdvisedSections({
     <>
       <PlantListSection
         title={LIFESPAN_SECTION_LABELS.perennial}
-        subtitle={PERENNIAL_SECTION_SUMMARY}
+        subtitle={LIFESPAN_SECTION_SUMMARIES.perennial}
         items={perennials}
         selectedPlant={selectedPlant}
         onSelect={onSelect}
       />
       <PlantListSection
-        title={timingGroupLabel('notAdvised')}
-        subtitle={SECTION_SUBTITLES.notAdvised}
+        title={LIFESPAN_SECTION_LABELS.annual}
+        subtitle={LIFESPAN_SECTION_SUMMARIES.annual}
         items={offSeasonAnnuals}
         selectedPlant={selectedPlant}
         onSelect={onSelect}

@@ -8,6 +8,7 @@ import { LocalNotifications } from '@capacitor/local-notifications'
 import { PushNotifications } from '@capacitor/push-notifications'
 import type { NotificationPayload, NotificationRow } from '@/lib/notificationTypes'
 import type { PushPlatform } from '@/app/lib/pushTokensDb'
+import { canRegisterRemotePush } from '@/lib/push/remotePushAvailable'
 
 const CHANNEL_ID = 'growguide-garden'
 
@@ -136,7 +137,7 @@ export type PushRegistrationResult = 'ok' | 'denied' | 'skipped' | 'error'
 export async function registerNativeRemotePush(
   handlers: PushRegistrationHandlers
 ): Promise<void> {
-  if (!isNativePushEnvironment()) return
+  if (!isNativePushEnvironment() || !canRegisterRemotePush()) return
 
   const perm = await PushNotifications.requestPermissions()
   if (perm.receive !== 'granted') return
@@ -176,6 +177,7 @@ export async function registerAndSaveDevicePushToken(
   userId: string
 ): Promise<PushRegistrationResult> {
   if (!isNativePushEnvironment()) return 'skipped'
+  if (!canRegisterRemotePush()) return 'skipped'
 
   await ensureLocalNotificationChannel()
 

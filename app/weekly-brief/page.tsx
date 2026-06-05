@@ -16,7 +16,10 @@ import {
   getCurrentPlantingMonth,
 } from '@/lib/plantingRecommendations'
 import { buildPlantingMonthMessaging } from '@/lib/plantingMonthMessaging'
-import { useWeeklySeasonGuidance } from '@/app/components/WeeklySeasonGuidanceBlock'
+import {
+  useWeeklySeasonGuidance,
+  WeeklyOverviewText,
+} from '@/app/components/WeeklySeasonGuidanceBlock'
 import {
   weatherEnrichmentFootnote,
   type WeatherClauseTone,
@@ -51,8 +54,13 @@ export default function WeeklyBriefPage() {
 
   const brief = useMemo(() => buildWeeklyBrief(plants, viewDate), [plants, viewDate])
 
-  const { guidance: seasonGuidance, weatherEnriched, weatherClauseTone } =
-    useWeeklySeasonGuidance(userLocation, viewDate)
+  const {
+    guidance: seasonGuidance,
+    baseOverview: seasonBaseOverview,
+    weatherPending: seasonWeatherPending,
+    weatherEnriched,
+    weatherClauseTone,
+  } = useWeeklySeasonGuidance(userLocation, viewDate)
   const plantingMonth = getCurrentPlantingMonth(viewDate)
 
   const plantSummaries = useMemo(() => {
@@ -126,6 +134,8 @@ export default function WeeklyBriefPage() {
           {seasonGuidance && (
             <SeasonGuidanceCard
               guidance={seasonGuidance}
+              baseOverview={seasonBaseOverview}
+              weatherPending={seasonWeatherPending && isCurrentWeek}
               isCurrentWeek={isCurrentWeek}
               weatherEnriched={weatherEnriched && isCurrentWeek}
               weatherClauseTone={weatherClauseTone}
@@ -260,11 +270,15 @@ function WeekNavigator({
 
 function SeasonGuidanceCard({
   guidance,
+  baseOverview = null,
+  weatherPending = false,
   isCurrentWeek,
   weatherEnriched = false,
   weatherClauseTone = null,
 }: {
   guidance: WeeklySeasonGuidance
+  baseOverview?: string | null
+  weatherPending?: boolean
   isCurrentWeek: boolean
   weatherEnriched?: boolean
   weatherClauseTone?: WeatherClauseTone | null
@@ -294,9 +308,12 @@ function SeasonGuidanceCard({
                 </span>
               )}
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              {guidance.overview}
-            </p>
+            <WeeklyOverviewText
+              guidance={guidance}
+              baseOverview={baseOverview}
+              weatherPending={weatherPending}
+              className="text-sm text-gray-700 leading-relaxed"
+            />
             {weatherEnriched && weatherClauseTone && (
               <p className="text-[11px] text-gray-400 italic mt-2">
                 {weatherEnrichmentFootnote(weatherClauseTone)}

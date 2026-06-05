@@ -8,7 +8,7 @@ import {
 } from '@/lib/plantingWeatherGuidance'
 import { getCurrentPlantingMonth } from '@/lib/plantingRecommendations'
 import { weatherQueryFromUserLocation } from '@/lib/weatherService'
-import { getRollingWeatherContext, getWeatherSignal } from '@/lib/weatherSignal'
+import { getWeeklyWeatherBundle } from '@/lib/weatherSignal'
 
 export type { PlantingWeatherCallout }
 
@@ -30,13 +30,10 @@ export function usePlantingWeatherNote(location: UserLocation | null): PlantingW
 
     let cancelled = false
 
-    Promise.all([
-      getWeatherSignal(weatherQuery.lat, weatherQuery.lon, climate, month),
-      getRollingWeatherContext(weatherQuery.lat, weatherQuery.lon, climate),
-    ])
-      .then(([signal, rolling]) => {
+    getWeeklyWeatherBundle(weatherQuery.lat, weatherQuery.lon, climate, month)
+      .then((bundle) => {
         if (cancelled) return
-        setCallout(buildPlantingWeatherCallout(signal, rolling))
+        setCallout(buildPlantingWeatherCallout(bundle?.signal ?? null, bundle?.rolling ?? null))
       })
       .catch(() => {
         /* static lists only */
