@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { PlantInfo } from '@/app/types/plants'
-import { type GardenLocation } from '@/app/utils/location'
+import { type GardenLocation } from '@/app/types/location'
 import { formatGrowingContextLabel, resolveLocationContext } from '@/lib/microclimate/resolve'
 import {
   getMonthSeason,

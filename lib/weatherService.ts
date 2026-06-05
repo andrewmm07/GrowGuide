@@ -387,7 +387,11 @@ export async function fetchWeatherForecast(
       }
     }
 
-    if (hasClientWeatherApiKey() && isEdgeUnavailableError(edgeErr)) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      hasClientWeatherApiKey() &&
+      isEdgeUnavailableError(edgeErr)
+    ) {
       return fetchWeatherFromWeatherApiDirect(locationQuery, signal)
     }
 

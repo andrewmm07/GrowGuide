@@ -88,6 +88,8 @@ CREATE INDEX IF NOT EXISTS garden_plants_user_id_idx ON garden_plants(user_id);
 
 -- -----------------------------------------------------------------------------
 -- 3. PLANT REFERENCE DATA (timelines + activities)
+-- plant_timelines: intentional public read (reference data only). No RLS on this table.
+-- Do not store user-specific data here. plant_activities has public SELECT policy below.
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS plant_timelines (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

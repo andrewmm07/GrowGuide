@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 import { useAuth } from '../context/AuthContext'
 
-import { type GardenLocation } from '../utils/location'
+import { type GardenLocation } from '@/app/types/location'
 
 import { gardenLocationFromUserLocation } from '@/lib/locationView'
 

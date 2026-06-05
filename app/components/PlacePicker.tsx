@@ -206,7 +206,7 @@ export default function PlacePicker({
               className="flex items-center justify-center w-10 h-10 rounded-xl bg-white border border-gray-100 text-lg mb-3"
               aria-hidden
             >
-              📍
+              🔍
             </span>
             <p className="text-sm font-medium text-gray-800">Search for where you garden</p>
             <p className="text-xs text-gray-500 mt-1 leading-relaxed max-w-[16rem]">
