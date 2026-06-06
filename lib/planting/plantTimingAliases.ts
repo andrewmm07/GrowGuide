@@ -27,8 +27,15 @@ function expandTimingNames(name: string): Set<string> {
     names.add('beans')
   }
   // Shelling peas only — snap/snow types have their own (narrower) calendar entries.
-  if (base === 'peas' || base === 'pea shoots') {
+  if (
+    base === 'peas' ||
+    base === 'pea shoots' ||
+    base === 'early peas'
+  ) {
     names.add('peas')
+  }
+  if (base === 'carrots' || base === 'early carrots') {
+    names.add('carrots')
   }
   if (base === 'corn' || base === 'sweet corn') {
     names.add('sweet corn')

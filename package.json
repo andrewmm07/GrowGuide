@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "tsx --test lib/planting/plantTimingAliases.test.ts lib/microclimate/frostSeason.test.ts lib/perennialPlanting.test.ts lib/plantActivityCopy.test.ts lib/plantCareSchedule.test.ts lib/notificationService.test.ts lib/rollingWeatherCondition.test.ts lib/weeklyGuidanceInference.test.ts lib/weeklyGuidanceWeatherTone.test.ts",
+    "test": "tsx --test lib/planting/plantTimingAliases.test.ts lib/planting/calendarAlignment.test.ts lib/planting/pickerMonthAlignment.test.ts lib/microclimate/frostSeason.test.ts lib/perennialPlanting.test.ts lib/plantActivityCopy.test.ts lib/plantCareSchedule.test.ts lib/notificationService.test.ts lib/rollingWeatherCondition.test.ts lib/weeklyGuidanceInference.test.ts lib/weeklyGuidanceWeatherTone.test.ts",
     "test:plant-picker": "npm test",
     "build:mobile": "node scripts/build-mobile.mjs",
     "mobile:refresh": "npm run build:mobile && npm run mobile:sync",
@@ -31,7 +31,8 @@
     "deploy:notification-digest": "npm run build:notification-digest && npx supabase functions deploy notification-digest",
     "deploy:weather": "npx supabase functions deploy weather",
     "digest:notifications": "tsx scripts/run-notification-digest.ts",
-    "test:push": "tsx scripts/send-test-push.ts"
+    "test:push": "tsx scripts/send-test-push.ts",
+    "check:notifications": "node scripts/check-notifications-ready.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.3.4",

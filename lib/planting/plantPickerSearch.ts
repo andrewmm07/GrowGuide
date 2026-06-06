@@ -31,6 +31,8 @@ const PICKER_SEARCH_ALIASES: Record<string, string[]> = {
   'chard': ['Swiss Chard', 'Silverbeet'],
   'snow pea': ['Snow Peas', 'Sugar Snap Peas', 'Peas'],
   'snap pea': ['Sugar Snap Peas', 'Snow Peas', 'Peas'],
+  'early peas': ['Peas'],
+  'early carrots': ['Carrots'],
   'tomato': ['Tomatoes'],
   'cucumber': ['Cucumber'],
   'cucumbers': ['Cucumber'],

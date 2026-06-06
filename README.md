@@ -91,7 +91,8 @@ Before sharing with external users, complete **[docs/SUPABASE_PRODUCTION.md](doc
 
 ## Push notifications (Android)
 
-See **[docs/PUSH_NOTIFICATIONS.md](docs/PUSH_NOTIFICATIONS.md)** for Firebase, cron schedules, and edge function deployment.
+**Setup (step-by-step):** **[docs/NOTIFICATIONS_SETUP_STEPS.md](docs/NOTIFICATIONS_SETUP_STEPS.md)** — Firebase, secrets, cron, rebuild.  
+**Reference:** **[docs/PUSH_NOTIFICATIONS.md](docs/PUSH_NOTIFICATIONS.md)**. Check repo readiness: `npm run check:notifications`.
 
 ## Legal
 

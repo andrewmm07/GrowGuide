@@ -12,6 +12,8 @@ test('plantingMatrixMatches aliases for QA gap crops', () => {
   assert.equal(plantingMatrixMatches('Chilli', 'Capsicum'), true)
   assert.equal(plantingMatrixMatches('Sweet Potato', 'Sweet Potato'), true)
   assert.equal(plantingMatrixMatches('Sweet Potatoes', 'Sweet Potato'), true)
+  assert.equal(plantingMatrixMatches('Peas', 'Early Peas'), true)
+  assert.equal(plantingMatrixMatches('Carrots', 'Early Carrots'), true)
 })
 
 test('Basil and Okra have planting windows where expected', () => {

@@ -8,8 +8,6 @@ import { getMonthGuidance, monthGuidanceToOverview, monthGuidanceToRichOverview 
 import type { MonthGuidance } from './month-guidance-types'
 import { PLANTING_CALENDAR_MONTHS } from './constants'
 import { getMonthOverviewFromSharpVoiceCsv } from './month-overview-lookup'
-import { getRichMonthOverview } from './rich-state-month-summaries'
-import { getLegacyCalendarStateSummaries } from './helpers-legacy-summaries'
 
 export type { MonthGuidance } from './month-guidance-types'
 export { getMonthGuidance, monthGuidanceToOverview, monthGuidanceToRichOverview } from './month-guidance'
@@ -62,25 +60,29 @@ export function getRichMonthOverviewForLocation(
   const fromCsv = getMonthOverviewFromSharpVoiceCsv(location, cap)
   if (fromCsv) return fromCsv
 
-  if (location?.climate) {
-    const guidance = getMonthGuidanceForUser(location.climate, state, cap, location)
-    const rich = monthGuidanceToRichOverview(guidance)
-    if (rich) return rich
+  const guidance = getMonthGuidanceForUser(location?.climate, state, cap, location)
+  const rich = monthGuidanceToRichOverview(guidance)
+  if (rich) return rich
+
+  return monthGuidanceToOverview(guidance)
+}
+
+/** @deprecated Use getRichMonthOverviewForLocation with a UserLocation. */
+export function getCalendarMonthRichOverview(
+  state: string,
+  month: string,
+  climate?: Climate
+): string {
+  return monthGuidanceToRichOverview(getMonthGuidance(climate, state, month))
+}
+
+/** @deprecated Climate-first month overviews only — returns focus lines per month. */
+export function getCalendarStateSummaries(state: string, climate?: Climate): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const month of PLANTING_CALENDAR_MONTHS) {
+    out[month] = monthGuidanceToOverview(getMonthGuidance(climate, state, month))
   }
-
-  return getRichMonthOverview(state, cap, location?.climate)
-}
-
-export { getRichMonthOverview } from './rich-state-month-summaries'
-
-/** Full rich paragraph overview (state-specific legacy prose). */
-export function getCalendarMonthRichOverview(state: string, month: string): string {
-  return getRichMonthOverview(state, month)
-}
-
-/** @deprecated Prefer getMonthGuidanceForUser — returns focus line only. */
-export function getCalendarStateSummaries(state: string): Record<string, string> {
-  return getLegacyCalendarStateSummaries(state)
+  return out
 }
 
 export function hasCalendarStateSummaries(state: string): boolean {

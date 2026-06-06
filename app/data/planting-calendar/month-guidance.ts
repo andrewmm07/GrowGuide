@@ -6,7 +6,7 @@ import { WARM_MONTH_GUIDANCE } from './month-guidance-warm'
 import { TROPICAL_MONTH_GUIDANCE } from './month-guidance-tropical'
 import type { GuidanceClimateKey, MonthGuidance } from './month-guidance-types'
 import { resolveGuidanceClimate } from './month-guidance-types'
-import { getLegacyCalendarMonthOverview } from './helpers-legacy-summaries'
+import { resolvePlantingClimate } from '@/lib/planting/resolvePlantingClimate'
 
 const BY_CLIMATE: Record<GuidanceClimateKey, Record<string, MonthGuidance>> = {
   cold: COLD_MONTH_GUIDANCE,
@@ -26,17 +26,14 @@ function capitalizeMonth(month: string): string {
   return lower.charAt(0).toUpperCase() + lower.slice(1)
 }
 
-/** @deprecated Legacy state prose; only used when climate is unknown. */
-function legacyToStructured(state: string, month: string): MonthGuidance {
-  const text = getLegacyCalendarMonthOverview(state, month)
-  if (!text) {
-    return GENERIC_FALLBACK
-  }
-  const cleaned = text.replace(/\s*[—–]\s*/g, ', ')
-  const sentences = cleaned.split(/(?<=[.!?])\s+/).filter((s) => s.length > 8)
-  const focus = (sentences[0] ?? cleaned).slice(0, 160)
-  const tasks = sentences.slice(1, 5).map((s) => s.replace(/\s+/g, ' ').trim())
-  return { focus, tasks }
+function resolveGuidanceKey(
+  climate: Climate | undefined,
+  state: string
+): GuidanceClimateKey | null {
+  const fromClimate = resolveGuidanceClimate(climate)
+  if (fromClimate) return fromClimate
+  if (!state?.trim()) return null
+  return resolvePlantingClimate({ state }) as GuidanceClimateKey
 }
 
 export function getMonthGuidance(
@@ -45,14 +42,11 @@ export function getMonthGuidance(
   month: string
 ): MonthGuidance {
   const cap = capitalizeMonth(month)
-  const key = resolveGuidanceClimate(climate)
+  const key = resolveGuidanceKey(climate, state)
   if (key && BY_CLIMATE[key][cap]) {
     return BY_CLIMATE[key][cap]
   }
-  if (key) {
-    return GENERIC_FALLBACK
-  }
-  return legacyToStructured(state, cap)
+  return GENERIC_FALLBACK
 }
 
 /** Flat string for callers not yet migrated to MonthGuidance. */
