@@ -5,9 +5,10 @@ import type { GardenPlant } from '@/app/context/GardenContext'
 
 function plantWithActivities(
   name: string,
-  activities: Array<{ activity: string; details: string; category: string; daysSincePlanting: number }>
+  activities: Array<{ activity: string; details: string; category: string; daysSincePlanting: number }>,
+  now: Date
 ): GardenPlant {
-  const planted = new Date()
+  const planted = new Date(now)
   planted.setDate(planted.getDate() - 10)
   return {
     id: `p-${name}`,
@@ -56,7 +57,7 @@ test('weekend notification uses load + task list and skips routine watering', ()
         category: 'pest',
         daysSincePlanting: 16,
       },
-    ]),
+    ], now),
   ]
 
   const payload = composeWeekendTasksNotification(plants, [], now)
@@ -79,7 +80,7 @@ test('weekend notification omitted when no actionable tasks', () => {
         category: 'watering',
         daysSincePlanting: 12,
       },
-    ]),
+    ], now),
   ]
 
   assert.equal(composeWeekendTasksNotification(plants, [], now), null)
